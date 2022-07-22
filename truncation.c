@@ -3,9 +3,9 @@
 
 int main(void)
 {
-  int x = get_int("x: ");
+  float x = get_float("x: ");
 
-  int y = get_int("y: ");
+  float y = get_float("y: ");
 
   float z = x / y;
 
