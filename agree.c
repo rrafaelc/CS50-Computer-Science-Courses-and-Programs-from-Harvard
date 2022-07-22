@@ -3,18 +3,18 @@
 
 int main(void)
 {
-  char 
+  char c = get_char("Agreed? ");
 
-  if (x < y)
+  if (c == "y" || c == "Y")
   {
-    printf("%i is less than %i\n", x, y);
+    printf("Agreed.\n");
   }
-  else if (x > y)
+  if (c == "n" || c == "N")
   {
-    printf("%i is greater than %i\n", x, y);
+    printf("Not agreed.\n");
   }
   else
   {
-    printf("%i is equal to %i\n", x, y);
+    printf("Only yY/nN.\n");
   }
 }
