@@ -18,3 +18,5 @@ int get_user_height(void)
   } while (n < 1 || n > 8);
   return n;
 }
+
+void 
