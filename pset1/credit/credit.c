@@ -8,11 +8,14 @@
 // Visa - 13 or 16 digits, starts with 4
 
 long get_card_number();
+void validate_credit(long number);
 
 int main(void)
 {
     // Get card number
     long card = get_card_number();
+
+    validate_credit(card);
 }
 
 long get_card_number()
