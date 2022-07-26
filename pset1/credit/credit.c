@@ -53,16 +53,18 @@ void validate_credit(long number)
 
             if (multBy2 > 9)
             {
-                int sum = 0;
+                int first
 
-                do
-                {
-                    sum += multBy2 % 10;
-                    multBy2 /= 10;
-                }
-                while (multBy2 > 0);
+            //     int sum = 0;
 
-                multipliedBy2 += multBy2;
+            //     do
+            //     {
+            //         sum += multBy2 % 10;
+            //         multBy2 /= 10;
+            //     }
+            //     while (multBy2 > 0);
+
+            //     multipliedBy2 += multBy2;
             }
 
             multipliedBy2 += multBy2;
