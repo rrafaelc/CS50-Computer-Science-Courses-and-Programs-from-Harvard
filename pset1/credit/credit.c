@@ -35,5 +35,8 @@ long get_card_number()
 }
 
 void validate_credit(long number) {
-    
+    for (int i = 0; i < number; i++)
+    {
+        printf("%i", number);
+    }
 }
