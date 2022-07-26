@@ -15,6 +15,7 @@ int main(void)
     // Get card number
     long card = get_card_number();
 
+    // Validate the credit, and print to the user
     validate_credit(card);
 }
 
@@ -31,4 +32,8 @@ long get_card_number()
     while (card < 0);
 
     return card;
+}
+
+void validate_credit(long number) {
+    
 }
