@@ -46,7 +46,7 @@ long get_card_number()
     return card;
 }
 
-int validate_credit(long number)
+void validate_credit(long number)
 {
     // Copy the number to keep intact, for later print the number to user;
     long num = number;
@@ -109,15 +109,8 @@ int validate_credit(long number)
     // The result will reach 0 eventually dividing by 10
     while (num > 0);
 
-    notMultipliedBy2 += multipliedBy2;
-
-    printf("\n");
-    printf("By 2: %i\n", multipliedBy2);
-    printf("Not By 2: %i\n", notMultipliedBy2);
-
-
-
-
+    // Get the final result
+    int finalResult = notMultipliedBy2 + multipliedBy2;
 }
 
 int get_total_number(long number)
