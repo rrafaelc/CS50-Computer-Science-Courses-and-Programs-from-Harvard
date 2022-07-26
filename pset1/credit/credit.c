@@ -51,6 +51,8 @@ void validate_credit(long number)
 
             int multBy2 = n * 2;
 
+            printf("%i\n", multBy2);
+
             if (multBy2 > 9)
             {
                 int firstNum = multBy2 % 10;
