@@ -39,8 +39,8 @@ void validate_credit(long number)
 {
     long num = number;
 
-    int multipliedBy2;
-    int notMultipliedBy2;
+    int multipliedBy2 = 0;
+    int notMultipliedBy2 = 0;
     int count = 1;
 
     do
@@ -53,7 +53,7 @@ void validate_credit(long number)
 
             if (multBy2 > 9)
             {
-                int sum;
+                int sum = 0;
 
                 while (multBy2 > 9) {
                     sum += multBy2 % 10;
