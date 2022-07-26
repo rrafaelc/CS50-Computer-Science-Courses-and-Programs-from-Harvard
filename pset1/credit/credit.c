@@ -60,7 +60,7 @@ void validate_credit(long number)
                     sum += multBy2 % 10;
                     multBy2 /= 10;
                 }
-                while (multBy2 > 9);
+                while (multBy2 > 0);
 
                 multipliedBy2 += multBy2;
             }
