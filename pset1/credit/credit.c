@@ -8,8 +8,9 @@
 // Visa - 13 or 16 digits, starts with 4
 
 long get_card_number();
-void validate_credit(long number);
+int validate_credit(long number);
 int get_total_number(long number);
+string get_flag_card(long number);
 
 int main(void)
 {
@@ -22,8 +23,14 @@ int main(void)
     // If number is not 13, 15 or 16, for this exercise will be invalid
     if (total_number == 13 || total_number == 15 || total_number == 16)
     {
-        // Validate the credit, and print to the user
-        validate_credit(card_number);
+        // Validate the credit
+        int result = validate_credit(card_number);
+
+        // Check if value is 0 and show the card flag name based on number
+        if (result == 0)
+        {
+
+        }
     } else
     {
         printf("INVALID\n");
@@ -46,7 +53,7 @@ long get_card_number()
     return card;
 }
 
-void validate_credit(long number)
+int validate_credit(long number)
 {
     // Copy the number to keep intact, for later print the number to user;
     long num = number;
@@ -112,7 +119,7 @@ void validate_credit(long number)
     // Get the final result
     int finalResult = notMultipliedBy2 + multipliedBy2;
 
-    // Check if is a valid card 
+    // return the last digit, being 0 or not
     return finalResult % 10;
 }
 
@@ -129,4 +136,8 @@ int get_total_number(long number)
         while (num != 0);
 
         return count;
+    }
+
+    string get_flag_card(long number) {
+        
     }
