@@ -149,7 +149,7 @@ int get_total_number(long number)
     {
 
         // Store temporary number
-        long firstTwoDigit = number;
+        long firstTwoDigits = number;
 
         // Remove last digit from number till only one digit is left
         while (firstTwoDigits >= 100)
@@ -157,24 +157,30 @@ int get_total_number(long number)
             firstTwoDigits /= 100;
         }
 
+        printf("%li\n", firstTwoDigits);
+
         // Check card name based on first 2 Digits
         // AMEX - starts with 34 or 37
         // MASTERCARD - starts with 51, 52, 53, 54 or 55
         // VISA - starts with 4
         if (firstTwoDigits == 34 || firstTwoDigits == 37)
         {
-            return = "AMEX";
+            return "AMEX";
         }
 
         if (firstTwoDigits == 51 || firstTwoDigits == 52 || firstTwoDigits == 53 || firstTwoDigits == 54 || firstTwoDigits == 55)
         {
-            return = "MASTERCARD";
+            return "MASTERCARD";
         }
 
-        
 
-        if (numb == 4)
+        // If don't pass the 2 conditional, than remove one more digit to check if is VISA
+        int firstDigit = firstTwoDigits / 10;
+
+        if (firstDigit == 4)
         {
-            return = "VISA";
+            return "VISA";
         }
+
+        return "INVALIDo";
     }
