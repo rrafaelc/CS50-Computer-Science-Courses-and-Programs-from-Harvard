@@ -15,16 +15,17 @@ int main(void)
     long card = get_card_number();
 }
 
-long get_card_number() {
+long get_card_number()
+{
     long card;
 
-    // do
-    // {
+    do
+    {
         // Get card number from user
-        // do
-        // {
-            card = get_long("Number: ");
-            return card;
-        // } while
-    // }
+        card = get_long("Number: ");
+
+    }
+    while (card < 0);
+
+    return card;
 }
