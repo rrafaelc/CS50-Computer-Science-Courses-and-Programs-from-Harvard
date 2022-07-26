@@ -14,10 +14,21 @@ int get_total_number(long number);
 int main(void)
 {
     // Get card number
-    long card = get_card_number();
+    long card_number = get_card_number();
 
-    // Validate the credit, and print to the user
-    validate_credit(card);
+    // Get total number from card
+    int total_number = get_total_number(card_number);
+
+    // If number is not 13, 15 or 16, for this exercise will be invalid
+    if (total_number == 13 || total_number == 15 || total_number == 16)
+    {
+        // Validate the credit, and print to the user
+        validate_credit(card_number);
+    } else
+    {
+        printf("INVALID\n");
+    }
+
 }
 
 long get_card_number()
