@@ -9,7 +9,7 @@
 
 long get_card_number();
 void validate_credit(long number);
-int get_total_number()
+int get_total_number(long number);
 
 int main(void)
 {
@@ -37,17 +37,17 @@ long get_card_number()
 
 void validate_credit(long number)
 {
-    const total_number = int get_total_number();
+    int total_number = get_total_number(number);
 
     for (int i = 0; i < total_number; i++)
     {
-        printf("%li", number % 10 * (i + 1));
+        printf("%li", number % (10 ^ 2));
     }
 
     printf("\n");
 }
 
-int get_total_number()
+int get_total_number(long number)
     {
         long num = number;
         int count = 0;
@@ -57,5 +57,7 @@ int get_total_number()
             num /= 10;
             ++count;
         }
-        while (num != 0)
+        while (num != 0);
+
+        return count;
     }
