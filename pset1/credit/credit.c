@@ -17,7 +17,7 @@ int main(void)
     // Get card number
     long card_number = get_card_number();
 
-    printf("%li\n", card_number / 10);
+    printf("%li\n", card_number % 10);
 
     // Get total number from card
     int total_number = get_total_number(card_number);
