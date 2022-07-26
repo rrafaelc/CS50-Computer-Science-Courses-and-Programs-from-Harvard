@@ -38,7 +38,8 @@ int main(void)
         {
             printf("INVALID\n");
         }
-    } else
+    }
+    else
     {
         printf("INVALID\n");
     }
@@ -100,7 +101,11 @@ int validate_credit(long number)
                 // And remove last digit from the num;
                 num /= 10;
 
-            } else {
+            }
+
+            else
+
+            {
                 // If not greater than 9, only sum
                 multipliedBy2 += multBy2;
 
@@ -109,7 +114,9 @@ int validate_credit(long number)
             }
 
         }
+
         else
+
         {
             // Add last digit to the variable
             notMultipliedBy2 += num % 10;
@@ -131,56 +138,56 @@ int validate_credit(long number)
 }
 
 int get_total_number(long number)
+{
+    long num = number;
+    int count = 0;
+
+    do
     {
-        long num = number;
-        int count = 0;
+        num /= 10;
+        ++count;
+    }
+    while (num != 0);
 
-        do
-        {
-            num /= 10;
-            ++count;
-        }
-        while (num != 0);
+    return count;
+}
 
-        return count;
+string get_flag_card(long number)
+{
+
+    // Store temporary number
+    long firstTwoDigits = number;
+
+    // Remove last digit from number till only one digit is left
+    while (firstTwoDigits >= 100)
+    {
+        firstTwoDigits /= 10;
     }
 
-    string get_flag_card(long number)
+    printf("%li\n", firstTwoDigits);
+
+    // Check card name based on first 2 Digits
+    // AMEX - starts with 34 or 37
+    // MASTERCARD - starts with 51, 52, 53, 54 or 55
+    // VISA - starts with 4
+    if (firstTwoDigits == 34 || firstTwoDigits == 37)
     {
-
-        // Store temporary number
-        long firstTwoDigits = number;
-
-        // Remove last digit from number till only one digit is left
-        while (firstTwoDigits >= 100)
-        {
-            firstTwoDigits /= 10;
-        }
-
-        printf("%li\n", firstTwoDigits);
-
-        // Check card name based on first 2 Digits
-        // AMEX - starts with 34 or 37
-        // MASTERCARD - starts with 51, 52, 53, 54 or 55
-        // VISA - starts with 4
-        if (firstTwoDigits == 34 || firstTwoDigits == 37)
-        {
-            return "AMEX";
-        }
-
-        if (firstTwoDigits == 51 || firstTwoDigits == 52 || firstTwoDigits == 53 || firstTwoDigits == 54 || firstTwoDigits == 55)
-        {
-            return "MASTERCARD";
-        }
-
-
-        // If don't pass the 2 conditional, than remove one more digit to check if is VISA
-        int firstDigit = firstTwoDigits / 10;
-
-        if (firstDigit == 4)
-        {
-            return "VISA";
-        }
-
-        return "INVALID";
+        return "AMEX";
     }
+
+    if (firstTwoDigits == 51 || firstTwoDigits == 52 || firstTwoDigits == 53 || firstTwoDigits == 54 || firstTwoDigits == 55)
+    {
+        return "MASTERCARD";
+    }
+
+
+    // If don't pass the 2 conditional, than remove one more digit to check if is VISA
+    int firstDigit = firstTwoDigits / 10;
+
+    if (firstDigit == 4)
+    {
+        return "VISA";
+    }
+
+    return "INVALID";
+}
