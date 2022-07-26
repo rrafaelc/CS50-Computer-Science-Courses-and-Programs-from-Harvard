@@ -141,12 +141,15 @@ int get_total_number(long number)
     string get_flag_card(long number) {
         int numb = number;
 
+        printf("%i\n", numb);
+
         while(numb >= 10)
         {
             numb /= 10;
+            printf("%i\n", numb);
         }
 
-        printf("%i\n", numb);
+        // printf("%i\n", numb);
 
         return "AA";
     }
