@@ -46,7 +46,7 @@ long get_card_number()
     return card;
 }
 
-void validate_credit(long number)
+int validate_credit(long number)
 {
     // Copy the number to keep intact, for later print the number to user;
     long num = number;
