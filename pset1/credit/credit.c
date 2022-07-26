@@ -41,7 +41,7 @@ void validate_credit(long number)
 
     for (int i = 0; i < total_number; i++)
     {
-        printf("%li", number % (10 ^ 2));
+        printf("%li", number % (10 ^^ 2));
     }
 
     printf("\n");
