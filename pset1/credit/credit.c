@@ -39,13 +39,16 @@ void validate_credit(long number)
 {
     int total_number = get_total_number(number);
 
-    for (int i = 0; i < total_number; i++)
-    {
-
-        printf("%li", number % result);
-    }
+    // for (int i = 0; i < total_number; i++)
+    // {
+        // printf("%li", number % result);
+    // }
 
     printf("\n");
+
+    for (int i = total_number; i > 0; i--) {
+        printf("%i", number[i]);
+    }
 }
 
 int get_total_number(long number)
