@@ -37,7 +37,7 @@ long get_card_number()
 
 void validate_credit(long number)
 {
-    long lastNumber = number;
+    long num = number;
 
     int multipliedBy2;
     int notMultipliedBy2;
@@ -46,12 +46,18 @@ void validate_credit(long number)
     do
     {
         if (count % 2 == 0) {
-            
+            multipliedBy2 = num % 10;
+            num /= 10;
+        } else {
+            notMultipliedBy2 = num % 10;
+            num /= 10;
         }
     }
-    while (lastNumber > 0)
+    while (num > 0);
 
     printf("\n");
+    printf("By 2: %i\n", multipliedBy2);
+    printf("Not By 2: %i\n", notMultipliedBy2);
 
 
 
