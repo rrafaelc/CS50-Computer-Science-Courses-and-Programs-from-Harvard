@@ -150,29 +150,29 @@ int get_total_number(long number)
         string name;
 
         // Store temporary number
-        long firstDigit = number;
+        long firstTwoDigit = number;
 
         // Remove last digit from number till only one digit is left
-        while (firstDigit >= 10)
+        while (firstTwoDigit >= 100)
         {
-            firstDigit /= 10;
+            firstTwoDigit /= 100;
         }
 
         // Check card name based on first Digit
         // AMEX - starts with 34 or 37
         // VISA - starts with 4
         // MASTERCARD - starts with 51, 52, 53, 54 or 55
-        if (firstDigit == 3)
+        if (firstTwoDigit == 34 || firstTwoDigit == 34)
         {
             name = "AMEX";
         }
 
-        if (firstDigit == 4)
+        if (numb == 4)
         {
             name = "VISA";
         }
 
-        if (firstDigit == 5)
+        if (numb == 5)
         {
             name = "MASTERCARD";
         }
