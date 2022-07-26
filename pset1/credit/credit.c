@@ -147,35 +147,34 @@ int get_total_number(long number)
 
     string get_flag_card(long number)
     {
-        string name;
 
         // Store temporary number
         long firstTwoDigit = number;
 
         // Remove last digit from number till only one digit is left
-        while (firstTwoDigit >= 100)
+        while (firstTwoDigits >= 100)
         {
-            firstTwoDigit /= 100;
+            firstTwoDigits /= 100;
         }
 
-        // Check card name based on first Digit
+        // Check card name based on first 2 Digits
         // AMEX - starts with 34 or 37
-        // VISA - starts with 4
         // MASTERCARD - starts with 51, 52, 53, 54 or 55
-        if (firstTwoDigit == 34 || firstTwoDigit == 34)
+        // VISA - starts with 4
+        if (firstTwoDigits == 34 || firstTwoDigits == 37)
         {
-            name = "AMEX";
+            return = "AMEX";
         }
+
+        if (firstTwoDigits == 51 || firstTwoDigits == 52 || firstTwoDigits == 53 || firstTwoDigits == 54 || firstTwoDigits == 55)
+        {
+            return = "MASTERCARD";
+        }
+
+        
 
         if (numb == 4)
         {
-            name = "VISA";
+            return = "VISA";
         }
-
-        if (numb == 5)
-        {
-            name = "MASTERCARD";
-        }
-
-        return name;
     }
