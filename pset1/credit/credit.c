@@ -140,6 +140,7 @@ int get_total_number(long number)
 
     string get_flag_card(long number)
     {
+        // Store temporally
         long firstDigit = number;
 
         while (firstDigit >= 10)
