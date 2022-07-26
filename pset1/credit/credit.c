@@ -46,7 +46,12 @@ void validate_credit(long number)
     do
     {
         if (count % 2 == 0) {
-            multipliedBy2 = num % 10;
+            int result = num % 10;
+
+            if (result > 9) {
+                
+            }
+
             num /= 10;
         } else {
             notMultipliedBy2 = num % 10;
