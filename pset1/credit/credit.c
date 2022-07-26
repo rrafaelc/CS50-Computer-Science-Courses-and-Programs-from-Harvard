@@ -52,6 +52,8 @@ void validate_credit(long number)
             notMultipliedBy2 = num % 10;
             num /= 10;
         }
+
+        count++;
     }
     while (num > 0);
 
