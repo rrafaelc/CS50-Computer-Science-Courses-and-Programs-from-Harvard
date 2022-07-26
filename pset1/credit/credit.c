@@ -37,9 +37,16 @@ long get_card_number()
 
 void validate_credit(long number)
 {
-    
+    long lastNumber = number;
 
+    int multipliedBy2;
+    int notMultipliedBy2;
 
+    do
+    {
+        
+    }
+    while (lastNumber > 0)
 
     printf("\n");
 
