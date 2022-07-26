@@ -140,15 +140,21 @@ int get_total_number(long number)
 
     string get_flag_card(long number)
     {
-        // Store temporally
+        string card_name;
+
+        // Store temporary number
         long firstDigit = number;
 
+        // Remove last digit from number till only one digit is left
         while (firstDigit >= 10)
         {
             firstDigit /= 10;
         }
 
-        printf("%li\n", firstDigit);
+        // Check card name based on first Digit
+        // AMEX - 15 digits, starts with 34 or 37
+        // Mastercard - 16 digits, starts with 51, 52, 53, 54 or 55
+        // Visa - 13 or 16 digits, starts with 4
 
         return "AA";
     }
