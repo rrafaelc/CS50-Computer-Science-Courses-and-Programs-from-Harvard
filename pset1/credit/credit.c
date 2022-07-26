@@ -41,10 +41,13 @@ void validate_credit(long number)
 
     int multipliedBy2;
     int notMultipliedBy2;
+    int count = 1;
 
     do
     {
-        
+        if (count % 2 == 0) {
+            
+        }
     }
     while (lastNumber > 0)
 
