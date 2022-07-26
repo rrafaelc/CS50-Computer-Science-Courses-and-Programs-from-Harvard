@@ -138,17 +138,16 @@ int get_total_number(long number)
         return count;
     }
 
-    string get_flag_card(long number) {
-        int numb = number;
-        int digit;
+    string get_flag_card(long number)
+    {
+        long firstDigit = number;
 
-        while (numb >= 10)
+        while (firstDigit >= 10)
         {
-            numb /= 10;
-            digit = numb;
+            firstDigit /= 10;
         }
 
-        printf("%i\n", digit);
+        printf("%li\n", firstDigit);
 
         return "AA";
     }
