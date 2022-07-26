@@ -1,6 +1,5 @@
 #include <cs50.h>
 #include <stdio.h>
-#include <math.h>
 
 // AMEX, MASTERCARD, VISA or INVALID
 
@@ -42,7 +41,8 @@ void validate_credit(long number)
 
     for (int i = 0; i < total_number; i++)
     {
-        printf("%li", number % pow(10, (i + 1)));
+
+        printf("%li", number % result);
     }
 
     printf("\n");
