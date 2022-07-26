@@ -182,5 +182,5 @@ int get_total_number(long number)
             return "VISA";
         }
 
-        return "INVALIDo";
+        return "INVALID";
     }
