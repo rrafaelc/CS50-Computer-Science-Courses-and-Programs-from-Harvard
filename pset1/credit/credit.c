@@ -30,6 +30,13 @@ int main(void)
         if (result == 0)
         {
             string card_name = get_flag_card(card_number);
+
+            // Print the card name
+            printf("%s\n", card_name);
+        }
+        else
+        {
+            printf("INVALID\n");
         }
     } else
     {
@@ -140,7 +147,7 @@ int get_total_number(long number)
 
     string get_flag_card(long number)
     {
-        string card_name;
+        string name;
 
         // Store temporary number
         long firstDigit = number;
@@ -152,9 +159,23 @@ int get_total_number(long number)
         }
 
         // Check card name based on first Digit
-        // AMEX - 15 digits, starts with 34 or 37
-        // Mastercard - 16 digits, starts with 51, 52, 53, 54 or 55
-        // Visa - 13 or 16 digits, starts with 4
+        // AMEX - starts with 34 or 37
+        // VISA - starts with 4
+        // MASTERCARD - starts with 51, 52, 53, 54 or 55
+        if (firstDigit == 3)
+        {
+            name = "AMEX";
+        }
 
-        return "AA";
+        if (firstDigit == 4)
+        {
+            name = "VISA";
+        }
+
+        if (firstDigit == 5)
+        {
+            name = "MASTERCARD";
+        }
+
+        return name;
     }
