@@ -49,7 +49,9 @@ void validate_credit(long number)
             int result = num % 10;
 
             if (result > 9) {
-                
+                while (result > 0) {
+                    result /= 10;
+                }
             }
 
             num /= 10;
