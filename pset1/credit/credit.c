@@ -29,7 +29,7 @@ int main(void)
         // Check if value is 0 and show the card flag name based on number
         if (result == 0)
         {
-
+            string card_name = get_flag_card(card_number);
         }
     } else
     {
@@ -139,5 +139,14 @@ int get_total_number(long number)
     }
 
     string get_flag_card(long number) {
-        
+        int numb = number;
+
+        while(numb >= 10)
+        {
+            numb /= 10;
+        }
+
+        printf("%i\n", numb);
+
+        return "AA";
     }
