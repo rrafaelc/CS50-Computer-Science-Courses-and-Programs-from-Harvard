@@ -35,11 +35,10 @@ long get_card_number()
 }
 
 void validate_credit(long number) {
-    long n = number;
-
     for (int i = 0; i < number; i++)
     {
-        n =
-        printf("%i", number);
+        printf("%li", number % 10 * (i + 1));
     }
+
+    printf("\n");
 }
