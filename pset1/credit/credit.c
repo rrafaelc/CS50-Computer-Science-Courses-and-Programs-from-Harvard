@@ -148,7 +148,7 @@ int get_total_number(long number)
             digit = numb;
         }
 
-        printf("%i\n", numb);
+        printf("%i\n", digit);
 
         return "AA";
     }
