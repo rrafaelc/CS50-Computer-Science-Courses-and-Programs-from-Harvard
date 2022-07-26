@@ -46,8 +46,10 @@ void validate_credit(long number)
 
     printf("\n");
 
+    string nToStr = printf("%li", number);
+
     for (int i = total_number; i > 0; i--) {
-        printf("%i", number[i]);
+        printf("%i", nToStr[i]);
     }
 }
 
