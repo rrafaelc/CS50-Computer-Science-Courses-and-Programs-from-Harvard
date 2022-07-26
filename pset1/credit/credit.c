@@ -111,6 +111,9 @@ void validate_credit(long number)
 
     // Get the final result
     int finalResult = notMultipliedBy2 + multipliedBy2;
+
+    // Check if is a valid card 
+    return finalResult % 10;
 }
 
 int get_total_number(long number)
