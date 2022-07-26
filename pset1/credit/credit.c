@@ -154,7 +154,7 @@ int get_total_number(long number)
         // Remove last digit from number till only one digit is left
         while (firstTwoDigits >= 100)
         {
-            firstTwoDigits /= 100;
+            firstTwoDigits /= 10;
         }
 
         printf("%li\n", firstTwoDigits);
