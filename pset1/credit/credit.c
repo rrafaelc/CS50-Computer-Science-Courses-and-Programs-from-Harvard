@@ -51,13 +51,17 @@ void validate_credit(long number)
 
             int multBy2 = n * 2;
 
-            printf("%i\n", multBy2);
+            // printf("%i\n", multBy2);
 
             if (multBy2 > 9)
             {
                 int firstNum = multBy2 % 10;
                 int secondNum = multBy2 / 10;
                 int sum = firstNum + secondNum;
+
+                printf("%i\n", firstNum);
+                printf("%i\n", secondNum);
+                printf("%i\n", sum);
 
                 multipliedBy2 += sum;
 
