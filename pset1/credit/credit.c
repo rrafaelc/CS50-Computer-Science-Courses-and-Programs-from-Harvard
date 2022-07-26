@@ -37,20 +37,15 @@ long get_card_number()
 
 void validate_credit(long number)
 {
-    int total_number = get_total_number(number);
+    
 
-    // for (int i = 0; i < total_number; i++)
-    // {
-        // printf("%li", number % result);
-    // }
+
 
     printf("\n");
 
-    string nToStr = printf("%li", number);
 
-    for (int i = total_number; i > 0; i--) {
-        printf("%i", nToStr[i]);
-    }
+
+
 }
 
 int get_total_number(long number)
