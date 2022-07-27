@@ -23,8 +23,17 @@ int main(void)
 
 int compute_score(string word)
 {
-    for (int i = 0; n = strlen(word); i < n; i++)
+    for (int i = 0, n = strlen(word); i < n; i++)
     {
-        if(word[i] )
+        if(islower(word[i]))
+        {
+            printf("Sim");
+            return 0;
+        }
+
+        printf("Nao");
+        return 0;
     }
+
+    return 0;
 }
