@@ -29,8 +29,10 @@ int compute_score(string word)
         {
             printf("Sim\n");
         }
-
-        printf("Nao\n");
+        else
+        {
+            printf("Nao\n");
+        }
     }
 
     return 0;
