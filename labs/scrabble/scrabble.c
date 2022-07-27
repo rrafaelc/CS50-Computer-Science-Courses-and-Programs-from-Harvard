@@ -28,11 +28,9 @@ int compute_score(string word)
         if(islower(word[i]))
         {
             printf("Sim\n");
-            return 0;
         }
 
         printf("Nao\n");
-        return 0;
     }
 
     return 0;
