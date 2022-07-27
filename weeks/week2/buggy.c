@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <cs50.h>
 
+int get_negative_int(void);
+
 int main(void)
 {
     int i = get_negative_int();
