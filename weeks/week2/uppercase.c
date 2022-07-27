@@ -8,7 +8,10 @@ int main(void)
     printf("After: ");
     for (int i = 0, n = strlen(s); i < n; i++)
     {
-        printf("%c", s[i]);
+        if (s[i] >= 'a' && s[i] <= 'z')
+        {
+            
+        }
     }
     printf("\n");
 }
