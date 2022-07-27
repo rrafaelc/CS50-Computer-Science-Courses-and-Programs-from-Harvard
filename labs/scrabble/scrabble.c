@@ -27,8 +27,9 @@ int compute_score(string word)
     {
         if (islower(word[i]))
         {
-            // The alphabet has 26 letters, in lower case, the letter z finish in 122
-            // 
+            // The alphabet has 26 letters, in lower case, the ASCII z finish in 122
+            // Then subtract 122 to current word in ASCII, for example b, that is 98
+            // Will be 24, so 26 - 24 = 2
             printf("Lower - posicao %i\n", 26 - ((122 - word[i]) + 1));
             // printf("Lower - posicao %i\n", word[i]);
         }
