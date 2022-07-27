@@ -25,8 +25,8 @@ int main(void)
     {
         printf("Player 1 Wins!\n");
     }
-
-    if (compare < 0)
+    // 1 - 4 = -3
+    else if (compare < 0)
     {
         printf("Player 1 Wins!\n");
     }
