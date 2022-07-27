@@ -27,11 +27,13 @@ int compute_score(string word)
     {
         if (islower(word[i]))
         {
-            printf("Lower - letra %c\n", (109 - word[i]) + 1);
+            printf("Lower - posicao %i\n", (122 - word[i]) + 1);
+            // printf("Lower - posicao %i\n", word[i]);
         }
         else if (isupper(word[i]))
         {
-            printf("Upper - letra %c\n", (90 - word[i]) + 1);
+            printf("Upper - posicao %i\n", (90 - word[i]) + 1);
+            // printf("Upper - posicao %i\n", word[i]);
         }
         else
         {
