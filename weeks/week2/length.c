@@ -9,8 +9,6 @@ int main(void)
 
     while (name[i] != '\0')
     {
-        char c;
-        c= name[6];
         i++;
     }
 
