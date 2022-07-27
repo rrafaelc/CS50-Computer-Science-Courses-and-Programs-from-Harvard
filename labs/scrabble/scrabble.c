@@ -29,12 +29,15 @@ int compute_score(string word)
         {
             // The alphabet has 26 letters, in lower case, the ASCII z finish in 122
             // Then subtract 122 to current word in ASCII, for example b, that is 98
-            // Will be 24, so 26 - 24 = 2
+            // 122 - 98 equals 24, so 26 - 24 equal 2, the second in position in ASCII
+            // To be easy to use array points, add 1, because the c language counts from 0
+            // So the 24 will be 25. Then 26 - 25 equal 1, the "second" position in the array points
             printf("Lower - posicao %i\n", 26 - ((122 - word[i]) + 1));
             // printf("Lower - posicao %i\n", word[i]);
         }
         else if (isupper(word[i]))
         {
+            // The same as above, but the uppercase Z letter finish at 90
             printf("Upper - posicao %i\n", 26 - ((90 - word[i]) + 1));
             // printf("Upper - posicao %i\n", word[i]);
         }
