@@ -5,5 +5,10 @@
 int main(void)
 {
     string s = get_string("Input: ");
-    // int length = strlen(name);
     printf("Output: ");
+    for (int i = 0; i < strlen(s); i++)
+    {
+        printf("%c", s[i]);
+    }
+    printf("\n");
+}
