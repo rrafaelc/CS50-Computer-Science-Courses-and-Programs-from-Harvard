@@ -25,13 +25,17 @@ int compute_score(string word)
 {
     for (int i = 0, n = strlen(word); i < n; i++)
     {
-        if(islower(word[i]))
+        if (islower(word[i]))
         {
-            printf("Sim\n");
+            printf("Lower\n");
+        }
+        else if (isupper(word[i]))
+        {
+            printf("Upper\n");
         }
         else
         {
-            printf("Nao\n");
+            printf("Not a letter\n");
         }
     }
 
