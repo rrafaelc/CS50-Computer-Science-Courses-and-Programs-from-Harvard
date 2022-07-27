@@ -9,7 +9,8 @@ int main(void)
 
     while (name[i] != '\0')
     {
-        printf("%c", name[i]);
+        char c;
+        c= name[i];
         i++;
     }
 
