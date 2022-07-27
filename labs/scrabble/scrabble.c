@@ -38,14 +38,14 @@ int compute_score(string word)
             int posiLower = 26 - ((122 - word[i]) + 1);
 
             // Add points to score, base on position given from the code above
-            score += POINTS[posiLower]
+            score += POINTS[posiLower];
         }
         else if (isupper(word[i]))
         {
             // The same as above, but the uppercase Z letter finish at 90
-            int posiUpper 26 - ((90 - word[i]) + 1);
+            int posiUpper = 26 - ((90 - word[i]) + 1);
 
-            score += POINTS[posiUpper]
+            score += POINTS[posiUpper];
 
         }
 
