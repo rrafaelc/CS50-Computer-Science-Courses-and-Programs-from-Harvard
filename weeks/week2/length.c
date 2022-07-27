@@ -10,7 +10,7 @@ int main(void)
     while (name[i] != '\0')
     {
         char c;
-        c= name[i];
+        c= name[6];
         i++;
     }
 
