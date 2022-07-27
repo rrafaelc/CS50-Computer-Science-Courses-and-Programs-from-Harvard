@@ -23,6 +23,9 @@ int main(void)
 
 int compute_score(string word)
 {
+    int score = 0;
+
+    // For loop by the length of word
     for (int i = 0, n = strlen(word); i < n; i++)
     {
         if (islower(word[i]))
@@ -32,19 +35,18 @@ int compute_score(string word)
             // 122 - 98 equals 24, so 26 - 24 equal 2, the second in position in ASCII
             // To be easy to use array points, add 1, because the c language counts from 0
             // So the 24 will be 25. Then 26 - 25 equal 1, the "second" position in the array points
-            printf("Lower - posicao %i\n", 26 - ((122 - word[i]) + 1));
-            // printf("Lower - posicao %i\n", word[i]);
+            int posiLower = 26 - ((122 - word[i]) + 1);
+
+            // Add points to score, base on position given from the code above
         }
         else if (isupper(word[i]))
         {
             // The same as above, but the uppercase Z letter finish at 90
-            printf("Upper - posicao %i\n", 26 - ((90 - word[i]) + 1));
-            // printf("Upper - posicao %i\n", word[i]);
+            int posiUpper 26 - ((90 - word[i]) + 1);
+
         }
-        else
-        {
-            printf("Not a letter\n");
-        }
+
+        // 
     }
 
     return 0;
