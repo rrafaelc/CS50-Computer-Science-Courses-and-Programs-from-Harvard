@@ -24,6 +24,10 @@ int main(int argc, string argv[])
 
         return 1;
     }
+
+
+    printf("%c", rotate('Y', atoi(argv[1])));
+
 }
 
 bool only_digits(string s)
@@ -43,9 +47,10 @@ bool only_digits(string s)
 
 char rotate(char c, int k)
 {
-    if (isupper(atoi(c)))
+    if (isupper(c))
     {
-        return (char) ((c - 65) + k) % 26;
+        // return (char) ((c - 65) + k) % 26;
+        return ''
     }
 
     return 'F';
