@@ -49,7 +49,12 @@ char rotate(char c, int k)
 {
     if (isupper(c))
     {
-        return ((c - 65) + k) % 26;
+        // (('Y' - 65) + 3) % 26 = 1
+        // 65 + 1 = 66
+        // 66 ASCII = 'B'
+        int shiftUpper = ((c - 65) + k) % 26;
+
+        return (char) 65 + shiftUpper;
     }
 
     return 'f';
