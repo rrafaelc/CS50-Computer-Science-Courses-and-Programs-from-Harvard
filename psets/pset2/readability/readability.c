@@ -20,6 +20,7 @@ int main(void)
     // For now
     printf("%i Letters\n", letters);
     printf("%i Words\n", words);
+    printf("%i Sentences\n", sentences);
 }
 
 int count_letters(string text)
@@ -51,7 +52,7 @@ int count_words(string text)
     // Loop the array text
     for (int i = 0, n = strlen(text); i < n; i ++)
     {
-        // Count how much spaces in ASCII, that is 32
+        // Count how much spaces in ASCII, which is 32
         if (text[i] == 32)
         {
             c_words++;
@@ -66,5 +67,27 @@ int count_words(string text)
 
 int count_sentences(string text)
 {
-    return 0;
+    int c_sentences = 0;
+
+    // Loop the string
+    for (int i = 0, n = strlen(text); i < n; i++)
+    {
+        // Check if has . ASCII which is 46
+        if (text[i] == 46)
+        {
+            c_sentences++;
+        }
+        // Check if has ! ASCII which is 33
+        else if (text[i] == 33)
+        {
+            c_sentences++;
+        }
+        // Check if has ? ASCII which is 63
+        else if (text[i] == 63)
+        {
+            c_sentences++;
+        }
+    }
+
+    return c_sentences;
 }
