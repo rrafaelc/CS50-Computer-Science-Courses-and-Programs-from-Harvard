@@ -6,13 +6,17 @@
 
 int main(int argc, string argv[])
 {
+    // If has one command, which is call the file ./caesar
+    // And if has more than 2 commands ./caesar 1 2
     if (argc == 1 || argc > 2)
     {
-        // Check if has no command
         printf("Usage: ./caesar key\n");
 
         return 1;
     }
+    // Check if is letter
+    else if (is)
+    {}
 
     // printf("-> %i\n", (('Y' - 65) + 3) % 26);
 }
