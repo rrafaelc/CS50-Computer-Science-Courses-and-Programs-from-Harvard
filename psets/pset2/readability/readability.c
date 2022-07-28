@@ -26,8 +26,12 @@ int main(void)
     // Calculate using formula
     float l = (float) letters / words * 100;
     float s = (float) sentences / words * 100;
+
+    int readability = round(0.0588 * l - 0.296 * s - 15.8);
+
     printf("L is %f\n",  l);
     printf("S is %f\n",  s);
+    printf("Grade %i\n",  readability);
 
 }
 
