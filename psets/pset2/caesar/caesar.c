@@ -26,7 +26,7 @@ int main(int argc, string argv[])
     }
 
 
-    printf("%c", rotate('Y', atoi(argv[1])));
+    printf("%c\n", rotate('Y', atoi(argv[1])));
 
 }
 
@@ -49,11 +49,10 @@ char rotate(char c, int k)
 {
     if (isupper(c))
     {
-        // return (char) ((c - 65) + k) % 26;
-        return ''
+        return ((c - 65) + k) % 26;
     }
 
-    return 'F';
+    return 'f';
 }
 
 // printf("-> %i\n", (('Y' - 65) + 3) % 26);
