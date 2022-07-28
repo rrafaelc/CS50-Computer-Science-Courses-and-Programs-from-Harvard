@@ -4,6 +4,8 @@
 #include <ctype.h>
 #include <string.h>
 
+bool only_digits(string s);
+
 int main(int argc, string argv[])
 {
     // If has one command, which is call the file ./caesar
@@ -14,17 +16,22 @@ int main(int argc, string argv[])
 
         return 1;
     }
+
+
+
+    // printf("-> %i\n", (('Y' - 65) + 3) % 26);
+}
+
+bool only_digits(string s)
+{
     // Check if have a letter
     for (int i = 0, n = strlen(argv[1]); i < n; i++)
     {
         if (isalpha(argv[1][i]))
         {
             printf("Usage: ./caesar key\n");
-            
+
             return 1;
         }
     }
-
-
-    // printf("-> %i\n", (('Y' - 65) + 3) % 26);
 }
