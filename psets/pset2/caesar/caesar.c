@@ -15,8 +15,8 @@ int main(int argc, string argv[])
         return 1;
     }
     // Check if is letter
-    else if (is)
-    {}
+    int t = atoi(argv[1]);
+    isalpha(argv[1]);
 
     // printf("-> %i\n", (('Y' - 65) + 3) % 26);
 }
