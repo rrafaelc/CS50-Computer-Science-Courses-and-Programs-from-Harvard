@@ -14,13 +14,13 @@ int main(int argc, string argv[])
 
         return 1;
     }
-    // Check if is letter
+    // Check if have a letter
     for (int i = 0, n = strlen(argv[1]); i < n; i++)
     {
-        if (!isalpha(argv[1][i]))
+        if (isalpha(argv[1][i]))
         {
             printf("Usage: ./caesar key\n");
-
+            
             return 1;
         }
     }
