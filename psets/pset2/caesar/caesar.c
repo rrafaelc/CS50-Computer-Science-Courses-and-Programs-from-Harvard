@@ -24,8 +24,6 @@ int main(int argc, string argv[])
 
         return 1;
     }
-
-    // printf("-> %i\n", (('Y' - 65) + 3) % 26);
 }
 
 bool only_digits(string s)
@@ -45,5 +43,10 @@ bool only_digits(string s)
 
 char rotate(char c, int k)
 {
-    
+    if (isupper(atoi(c)))
+    {
+        return ((c - 65) + 3) % 26;
+    }
 }
+
+// printf("-> %i\n", (('Y' - 65) + 3) % 26);
