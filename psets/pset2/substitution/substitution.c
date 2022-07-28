@@ -4,26 +4,36 @@
 #include <ctype.h>
 #include <string.h>
 
-bool only_digits(string s);
+bool only_alpha(string s);
 char rotate(char c, int k);
 
 int main(int argc, string argv[])
 {
-    // If has one command, which is call the file ./caesar
-    // And if has more than 2 commands ./caesar 1 2
+    // If has one command, which is call the file ./substitution
+    // And if has more than 2 commands ./substitution 1 2
     if (argc == 1 || argc > 2)
     {
-        printf("Usage: ./caesar key\n");
+        printf("Usage: ./substitution key\n");
 
         return 1;
     }
 
-    if (!only_digits(argv[1]))
+    if (only_alpha(argv[1]))
     {
-        printf("Usage: ./caesar key\n");
+        printf("Usage: ./substitution key\n");
 
         return 1;
     }
+
+    // If has 26 letters
+    if (strlen(argv[1]) < 26)
+    {
+        printf("Key must contain 26 characters.\n");
+
+        return 1;
+    }
+
+    return 0;
 
     // Get user input
     string plaintext = get_string("plaintext: ");
@@ -38,15 +48,17 @@ int main(int argc, string argv[])
     }
 
     printf("\n");
+
+    return 0;
 }
 
-bool only_digits(string s)
+bool only_alpha(string s)
 {
     // Loop the string
     for (int i = 0, n = strlen(s); i < n; i++)
     {
-        // Check if all is digit
-        if (!isdigit(s[i]))
+        // Check if all is alphabet
+        if (!isalpha(s[i]))
         {
             return false;
         }
