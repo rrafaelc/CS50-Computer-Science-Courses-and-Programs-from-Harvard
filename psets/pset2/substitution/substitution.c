@@ -5,6 +5,7 @@
 #include <string.h>
 
 bool only_alpha(string s);
+bool check_duplicate_characters(string s);
 char substitution(char c, string k);
 
 int main(int argc, string argv[])
@@ -18,12 +19,16 @@ int main(int argc, string argv[])
         return 1;
     }
 
+    // If not have only alphabet
     if (!only_alpha(argv[1]))
     {
         printf("Usage: ./substitution key\n");
 
         return 1;
     }
+
+    if (!check_duplicate_characters(argv[1]))
+    {}
 
     // If not have 26 letters
     if (strlen(argv[1]) < 26 || strlen(argv[1]) > 26)
@@ -64,6 +69,9 @@ bool only_alpha(string s)
 
     return true;
 }
+
+bool check_duplicate_characters(string s)
+{}
 
 char substitution(char c, string k)
 {
