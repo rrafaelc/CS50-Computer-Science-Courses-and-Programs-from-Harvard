@@ -57,6 +57,17 @@ char rotate(char c, int k)
         return (char) 65 + shiftUpper;
     }
 
+    if (isupper(c))
+    {
+        // (('y' - 97) + 3) % 26 = 1
+        // 97 + 1 = 98
+        // 98 ASCII = 'b'
+        int shiftLower = ((c - 97) + k) % 26;
+
+        return (char) 65 + shiftLower;
+    }
+
+    // If not a letter, return the same char
     return 'f';
 }
 
