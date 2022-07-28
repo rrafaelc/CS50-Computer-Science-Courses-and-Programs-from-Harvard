@@ -24,8 +24,8 @@ int main(void)
     printf("%i Sentences\n", sentences);
 
     // Calculate using formula
-    float l = (float) letters/words * 100;
-    printf("L is %f\n", l);
+    // float l = (float) letters/words * 100;
+    printf("L is %f\n",  (float) letters / words * 100);
 
 }
 
