@@ -25,8 +25,16 @@ int main(int argc, string argv[])
         return 1;
     }
 
+    // Get user input
+    string plaintext = get_string("plaintext: ");
 
-    printf("%c\n", rotate('Y', atoi(argv[1])));
+    // Loop the string
+    for (int i = 0, n = strlen(plaintext); i < n; i++)
+    {
+        // Print the letter shifted
+        printf("%c\n", rotate('y', atoi(argv[1])));
+    }
+
 
 }
 
@@ -50,25 +58,25 @@ char rotate(char c, int k)
     if (isupper(c))
     {
         // (('Y' - 65) + 3) % 26 = 1
-        // 65 + 1 = 66
-        // 66 ASCII = 'B'
         int shiftUpper = ((c - 65) + k) % 26;
 
+        // 65 + 1 = 66
+        // 66 ASCII = 'B'
         return (char) 65 + shiftUpper;
     }
 
-    if (isupper(c))
+    if (islower(c))
     {
         // (('y' - 97) + 3) % 26 = 1
-        // 97 + 1 = 98
-        // 98 ASCII = 'b'
         int shiftLower = ((c - 97) + k) % 26;
 
-        return (char) 65 + shiftLower;
+        // 97 + 1 = 98
+        // 98 ASCII = 'b'
+        return (char) 97 + shiftLower;
     }
 
     // If not a letter, return the same char
-    return 'f';
+    return c;
 }
 
 // printf("-> %i\n", (('Y' - 65) + 3) % 26);
