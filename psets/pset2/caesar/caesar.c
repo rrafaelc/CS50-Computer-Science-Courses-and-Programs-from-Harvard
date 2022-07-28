@@ -28,14 +28,16 @@ int main(int argc, string argv[])
     // Get user input
     string plaintext = get_string("plaintext: ");
 
+    printf("ciphertext: ");
+
     // Loop the string
     for (int i = 0, n = strlen(plaintext); i < n; i++)
     {
         // Print the letter shifted
-        printf("%c\n", rotate('y', atoi(argv[1])));
+        printf("%c", rotate(plaintext[i], atoi(argv[1])));
     }
 
-
+    printf("\n");
 }
 
 bool only_digits(string s)
