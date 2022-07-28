@@ -20,6 +20,8 @@ int main(int argc, string argv[])
         if (!isalpha(argv[1][i]))
         {
             printf("Usage: ./caesar key\n");
+
+            return 1;
         }
     }
 
