@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    string names[] = {4, 6, 8, 2, 7, 5, 0};
+    string names[] = {};
 
     for (int i = 0; i < 7; i++)
     {
