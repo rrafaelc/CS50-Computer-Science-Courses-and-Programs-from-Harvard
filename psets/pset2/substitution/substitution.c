@@ -27,13 +27,18 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    if (!check_duplicate_characters(argv[1]))
-    {}
-
     // If not have 26 letters
     if (strlen(argv[1]) < 26 || strlen(argv[1]) > 26)
     {
         printf("Key must contain 26 characters.\n");
+
+        return 1;
+    }
+
+    // If have duplicate characters
+    if (check_duplicate_characters(argv[1]))
+    {
+        printf("Duplicate characters not allowed.\n");
 
         return 1;
     }
@@ -71,7 +76,9 @@ bool only_alpha(string s)
 }
 
 bool check_duplicate_characters(string s)
-{}
+{
+    
+}
 
 char substitution(char c, string k)
 {
