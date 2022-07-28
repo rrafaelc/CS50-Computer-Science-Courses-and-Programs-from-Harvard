@@ -4,5 +4,5 @@
 
 int main(int argc, string argv[])
 {
-    printf("-> ", 24 % 26);
+    printf("-> %i\n", (24 + 3) % 26);
 }
