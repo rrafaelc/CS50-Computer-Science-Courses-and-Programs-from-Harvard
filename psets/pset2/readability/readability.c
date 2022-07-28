@@ -12,10 +12,12 @@ int main(void)
     // Get user input
     string text = get_string("Text: ");
 
+    // Store variables for later
     int letters = count_letters(text);
     int words = count_words(text);
     int sentences = count_sentences(text);
 
+    // For now
     printf("Letters: %i\n", letters);
 }
 
@@ -23,12 +25,15 @@ int count_letters(string text)
 {
     int c_letters = 0;
 
+    // Loop the string text array
     for (int i = 0, n = strlen(text); i < n; i++)
     {
+        // Check if is lower
         if (islower(text[i]))
         {
             c_letters++;
         }
+        // Check if is upper
         else if (isupper(text[i]))
         {
             c_letters++;
