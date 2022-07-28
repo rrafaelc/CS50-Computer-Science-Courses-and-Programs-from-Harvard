@@ -22,6 +22,9 @@ int main(void)
     printf("%i Letters\n", letters);
     printf("%i Words\n", words);
     printf("%i Sentences\n", sentences);
+
+    // Calculate using formula
+    
 }
 
 int count_letters(string text)
