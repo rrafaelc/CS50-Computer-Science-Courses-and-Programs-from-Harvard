@@ -4,11 +4,11 @@
 
 int main(void)
 {
-    string names[] = {};
+    string names[] = {"Bill", "Charlie", "Fred", "George", "Ginny", "Percy", "Ron"};
 
     for (int i = 0; i < 7; i++)
     {
-        if (numbers[i] == -1)
+        if (names[i] == "Ron")
         {
             printf("Found\n");
             return 0;
