@@ -5,7 +5,7 @@
 #include <string.h>
 
 bool only_alpha(string s);
-char rotate(char c, int k);
+char substitution(char c, string k);
 
 int main(int argc, string argv[])
 {
@@ -42,7 +42,7 @@ int main(int argc, string argv[])
     for (int i = 0, n = strlen(plaintext); i < n; i++)
     {
         // Print the letter shifted
-        printf("%c", rotate(plaintext[i], atoi(argv[1])));
+        printf("%c", substitution(plaintext[i], argv[1]);
     }
 
     printf("\n");
