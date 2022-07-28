@@ -18,7 +18,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    if (only_alpha(argv[1]))
+    if (!only_alpha(argv[1]))
     {
         printf("Usage: ./substitution key\n");
 
