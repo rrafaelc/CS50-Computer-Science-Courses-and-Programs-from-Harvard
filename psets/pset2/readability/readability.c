@@ -19,6 +19,7 @@ int main(void)
 
     // For now
     printf("Letters: %i\n", letters);
+    printf("Words: %i\n", words);
 }
 
 int count_letters(string text)
@@ -51,9 +52,16 @@ int count_words(string text)
     for (int i = 0, n = strlen(text); i < n; i ++)
     {
         // Count how much spaces in ASCII, that is 32
+        if (text[i] == 32)
+        {
+            c_words++;
+        }
     }
 
-    return 0;
+    // Add one more to count the final word
+    c_words++;
+
+    return c_words;
 }
 
 int count_sentences(string text)
