@@ -18,11 +18,6 @@ int main(void)
     int words = count_words(text);
     int sentences = count_sentences(text);
 
-    // For now
-    printf("%i Letters\n", letters);
-    printf("%i Words\n", words);
-    printf("%i Sentences\n", sentences);
-
     // Using variables for better look
     float l = (float) letters / words * 100;
     float s = (float) sentences / words * 100;
@@ -40,6 +35,7 @@ int main(void)
     {
         printf("Grade 16+\n");
     }
+    // If none, then print the Grade
     else
     {
         printf("Grade %i\n",  readability);
