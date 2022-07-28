@@ -30,11 +30,20 @@ int main(void)
     // Calculate using formula
     int readability = round(0.0588 * l - 0.296 * s - 15.8);
 
-    // float readability = 0.0588 * l - 0.296 * s - 15.8;
-
-
-    printf("Grade %i\n",  readability);
-
+    // Use conditional for Grade
+    if (readability < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    // If is 16 or higher
+    else if (readability >= 16)
+    {
+        printf("Grade 16+\n");
+    }
+    else
+    {
+        printf("Grade %i\n",  readability);
+    }
 }
 
 int count_letters(string text)
