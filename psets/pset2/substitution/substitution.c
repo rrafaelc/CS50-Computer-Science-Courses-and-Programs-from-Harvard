@@ -82,7 +82,7 @@ bool has_duplicate_characters(string s)
     {
         // Check letter by letter, return true if find duplicated
         int count = 0;
-        for (int j = 0, n = strlen(s); j < n; j++ )
+        for (int j = 0, n = strlen(s); j < n; j++)
         {
             // 'A' == 'A'
             // 'A' == 65
