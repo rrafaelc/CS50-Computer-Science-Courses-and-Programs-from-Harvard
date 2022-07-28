@@ -18,8 +18,8 @@ int main(void)
     int sentences = count_sentences(text);
 
     // For now
-    printf("Letters: %i\n", letters);
-    printf("Words: %i\n", words);
+    printf("%i Letters\n", letters);
+    printf("%i Words\n", words);
 }
 
 int count_letters(string text)
