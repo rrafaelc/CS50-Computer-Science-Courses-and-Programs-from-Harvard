@@ -33,8 +33,6 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    return 0;
-
     // Get user input
     string plaintext = get_string("plaintext: ");
 
