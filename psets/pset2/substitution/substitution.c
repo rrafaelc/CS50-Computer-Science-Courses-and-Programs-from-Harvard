@@ -77,7 +77,10 @@ bool only_alpha(string s)
 
 bool check_duplicate_characters(string s)
 {
-    
+    string characters = toupper(s);
+
+    // If have more than one character then is duplicated
+    if()
 }
 
 char substitution(char c, string k)
