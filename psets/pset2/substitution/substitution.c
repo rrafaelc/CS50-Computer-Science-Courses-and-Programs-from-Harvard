@@ -73,22 +73,20 @@ char substitution(char c, string k)
         // 72 - 65 = 7
         int posiUpper = c - 65;
 
-        // Return based on position
-        return k[posiUpper];
+        // Return based on position and make sure is upper
+        return (char) toupper(k[posiUpper]);
     }
 
     if (islower(c))
     {
         // 'H' - 97 = 7
         // 104 - 97 = 7
-        int posiUpper = c - 97;
+        int posiLower = c - 97;
 
-        // Return based on position
-        return k[posiUpper];
+        // Return based on position and make sure is lower
+        return (char) tolower(k[posiLower]);
     }
 
     // If not a letter, return the same char
     return c;
 }
-
-// printf("-> %i\n", (('Y' - 65) + 3) % 26);
