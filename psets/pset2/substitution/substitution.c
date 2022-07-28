@@ -5,7 +5,7 @@
 #include <string.h>
 
 bool only_alpha(string s);
-bool check_duplicate_characters(string s);
+bool has_duplicate_characters(string s);
 char substitution(char c, string k);
 
 int main(int argc, string argv[])
@@ -36,7 +36,7 @@ int main(int argc, string argv[])
     }
 
     // If have duplicate characters
-    if (check_duplicate_characters(argv[1]))
+    if (has_duplicate_characters(argv[1]))
     {
         printf("Duplicate characters not allowed.\n");
 
@@ -75,12 +75,31 @@ bool only_alpha(string s)
     return true;
 }
 
-bool check_duplicate_characters(string s)
+bool has_duplicate_characters(string s)
 {
-    string characters = toupper(s);
+    // ASCII for upper letter
+    for (int i = 65; i < 90; i++)
+    {
+        // Check letter by letter, return true if find duplicated
+        int count = 0;
+        for (int j = 0, n = strlen(s); j < n; j++ )
+        {
+            // 'A' == 'A'
+            // 'A' == 65
+            if (toupper(s[j]) == i)
+            {
+                count++;
+            }
 
-    // If have more than one character then is duplicated
-    for ()
+            // If count is higher than 1, return true
+            if (count > 1)
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 char substitution(char c, string k)
