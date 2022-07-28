@@ -15,8 +15,13 @@ int main(int argc, string argv[])
         return 1;
     }
     // Check if is letter
-    int t = atoi(argv[1]);
-    isalpha(argv[1]);
+    // isalpha(argv[1]);
+
+    for (int i = 0, n = strlen(argv[1]); i < n; i++)
+    {
+        printf("%i\n", isalpha(argv[1][i]));
+    }
+
 
     // printf("-> %i\n", (('Y' - 65) + 3) % 26);
 }
