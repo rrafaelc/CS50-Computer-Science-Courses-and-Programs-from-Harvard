@@ -45,8 +45,10 @@ char rotate(char c, int k)
 {
     if (isupper(atoi(c)))
     {
-        return ((c - 65) + 3) % 26;
+        return (char) ((c - 65) + k) % 26;
     }
+
+    return 'F';
 }
 
 // printf("-> %i\n", (('Y' - 65) + 3) % 26);
