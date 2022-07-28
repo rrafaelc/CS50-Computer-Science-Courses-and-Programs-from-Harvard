@@ -45,6 +45,14 @@ int count_letters(string text)
 
 int count_words(string text)
 {
+    int c_words = 0;
+
+    // Loop the array text
+    for (int i = 0, n = strlen(text); i < n; i ++)
+    {
+        // Count how much spaces in ASCII, that is 32
+    }
+
     return 0;
 }
 
