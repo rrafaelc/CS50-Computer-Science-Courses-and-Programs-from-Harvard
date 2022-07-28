@@ -41,8 +41,8 @@ int main(int argc, string argv[])
     // Loop the string
     for (int i = 0, n = strlen(plaintext); i < n; i++)
     {
-        // Print the letter shifted
-        printf("%c", substitution(plaintext[i], argv[1]);
+        // Print the letter substitution
+        printf("%c", substitution(plaintext[i], argv[1]));
     }
 
     printf("\n");
@@ -65,16 +65,15 @@ bool only_alpha(string s)
     return true;
 }
 
-char rotate(char c, int k)
+char substitution(char c, string k)
 {
     if (isupper(c))
     {
         // (('Y' - 65) + 3) % 26 = 1
         int shiftUpper = ((c - 65) + k) % 26;
 
-        // 65 + 1 = 66
-        // 66 ASCII = 'B'
-        return (char) 65 + shiftUpper;
+
+        return (char) ;
     }
 
     if (islower(c))
