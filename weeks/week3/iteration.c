@@ -3,5 +3,7 @@
 
 int main(void)
 {
-    int height = get_int()
+    int height = get_int("Height: ");
+
+    draw(height);
 }
