@@ -69,21 +69,22 @@ char substitution(char c, string k)
 {
     if (isupper(c))
     {
-        // (('Y' - 65) + 3) % 26 = 1
-        int shiftUpper = ((c - 65) + k) % 26;
+        // 'H' - 65 = 7
+        // 72 - 65 = 7
+        int posiUpper = c - 65;
 
-
-        return (char) ;
+        // Return based on position
+        return k[posiUpper];
     }
 
     if (islower(c))
     {
-        // (('y' - 97) + 3) % 26 = 1
-        int shiftLower = ((c - 97) + k) % 26;
+        // 'H' - 97 = 7
+        // 104 - 97 = 7
+        int posiUpper = c - 97;
 
-        // 97 + 1 = 98
-        // 98 ASCII = 'b'
-        return (char) 97 + shiftLower;
+        // Return based on position
+        return k[posiUpper];
     }
 
     // If not a letter, return the same char
