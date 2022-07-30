@@ -183,7 +183,6 @@ void tabulate(void)
         }
     }
 
-    count = 0;
     return;
 }
 
