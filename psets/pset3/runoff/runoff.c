@@ -218,10 +218,10 @@ bool print_winner(void)
         }
     }
 
-    // If winner has one vote
-    if (winner == 1)
+    // If winner has more than one vote
+    if (winner >= 2)
     {
-        return true;
+        return false;
     }
 
     return false;
