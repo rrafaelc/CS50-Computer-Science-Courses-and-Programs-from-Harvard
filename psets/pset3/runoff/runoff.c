@@ -183,6 +183,7 @@ void tabulate(void)
         }
     }
 
+    candidates[1].eliminated = true;
     return;
 }
 
