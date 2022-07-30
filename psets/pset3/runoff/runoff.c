@@ -265,11 +265,7 @@ bool is_tie(int min)
         // Only if the candidate is not eliminated
         if(!candidates[i].eliminated)
         {
-            // If the candidate votes is small than the min
-            if (candidates[i].votes < min)
-            {
-                min = candidates[i].votes;
-            }
+            // If one candidate is different from min
         }
     }
 
