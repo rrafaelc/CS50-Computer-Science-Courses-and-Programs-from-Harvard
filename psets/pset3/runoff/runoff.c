@@ -90,6 +90,9 @@ int main(int argc, string argv[])
         // Calculate votes given remaining candidates
         tabulate();
 
+        // Temp
+        candidates[1].eliminated = true;
+
         if (count == 0)
         {
             for (int i = 0; i < candidate_count; i++)
