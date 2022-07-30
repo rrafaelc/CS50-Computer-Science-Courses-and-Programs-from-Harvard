@@ -227,7 +227,7 @@ bool print_winner(void)
             // Find the candidate that matches the condition
             if (candidates[i].votes == condition)
             {
-                printf("%s is the winner", candidates[i].name);
+                printf("%s is the winner\n", candidates[i].name);
                 return true;
             }
         }
