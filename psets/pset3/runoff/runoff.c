@@ -80,14 +80,6 @@ int main(int argc, string argv[])
             }
         }
 
-        printf("Voter %i: ", i);
-
-        for (int k = 0; k < candidate_count; k++)
-        {
-            printf("%i ", preferences[i][k]);
-        }
-
-
         printf("\n");
     }
 
