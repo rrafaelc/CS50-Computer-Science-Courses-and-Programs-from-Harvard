@@ -24,7 +24,6 @@ candidate candidates[MAX_CANDIDATES];
 // Numbers of voters and candidates
 int voter_count;
 int candidate_count;
-int count = 0;
 
 // Function prototypes
 bool vote(int voter, int rank, string name);
@@ -89,17 +88,6 @@ int main(int argc, string argv[])
     {
         // Calculate votes given remaining candidates
         tabulate();
-
-        if (count == 0)
-        {
-            for (int i = 0; i < candidate_count; i++)
-            {
-                printf("%s: %i votes\n", candidates[i].name, candidates[i].votes);
-            }
-
-            count++;
-        }
-
 
         // Check if election has been won
         bool won = print_winner();
