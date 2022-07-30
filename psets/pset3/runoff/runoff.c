@@ -266,11 +266,15 @@ bool is_tie(int min)
         if(!candidates[i].eliminated)
         {
             // If one candidate is different from min, so it's not tie
-            if (candidates)
+            if (candidates[i].votes > min)
+            {
+                return false;
+            }
         }
     }
 
-    return false;
+    // If no candidate is higher than min, than is tie
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
