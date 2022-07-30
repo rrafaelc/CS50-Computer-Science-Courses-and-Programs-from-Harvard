@@ -219,18 +219,12 @@ bool print_winner(void)
         }
     }
 
-    // If winner has more than one vote
-    if (winner >= 2)
-    {
-        return false;
-    }
-
     // Get the winner
     if (winner == 1)
     {
         for (int i = 0; i < candidate_count; i++)
         {
-            // Find the candidate matches the condition
+            // Find the candidate that matches the condition
             if (candidates[i].votes == condition)
             {
                 printf("%s is the winner", candidates[i].name);
@@ -239,7 +233,7 @@ bool print_winner(void)
         }
     }
 
-    return true;
+    return false;
 }
 
 // Return the minimum number of votes any remaining candidate has
