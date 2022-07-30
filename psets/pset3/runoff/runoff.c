@@ -207,22 +207,6 @@ bool print_winner(void)
     // Condition to win is half vote plus 1
     int condition = voter_count / 2 + 1;
 
-    // int winner = 0;
-
-    // Query the candidates
-    // for (int i = 0; i < candidate_count; i++)
-    // {
-    //     // If the candidate matches the condition
-    //     if (candidates[i].votes == condition)
-    //     {
-    //         // Add one to winner
-    //         winner++;
-    //     }
-    // }
-
-    // Get the winner
-    // if (winner == 1)
-    // {
     for (int i = 0; i < candidate_count; i++)
     {
         // Find the candidate that matches the condition
@@ -233,7 +217,6 @@ bool print_winner(void)
             return true;
         }
     }
-    // }
 
     return false;
 }
