@@ -265,7 +265,8 @@ bool is_tie(int min)
         // Only if the candidate is not eliminated
         if(!candidates[i].eliminated)
         {
-            // If one candidate is different from min
+            // If one candidate is different from min, so it's not tie
+            if (candidates)
         }
     }
 
