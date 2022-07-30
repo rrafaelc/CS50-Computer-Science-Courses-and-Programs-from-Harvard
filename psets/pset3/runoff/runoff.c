@@ -83,11 +83,24 @@ int main(int argc, string argv[])
         printf("\n");
     }
 
+    int count = 0;
+
     // Keep holding runoffs until winner exists
     while (true)
     {
         // Calculate votes given remaining candidates
         tabulate();
+
+        if (count == 0)
+        {
+            for (int i = 0; i < candidate_count; i++)
+            {
+                printf("%s: %i votes\n", candidates[i].name, candidates[i].votes);
+            }
+
+            count++;
+        }
+
 
         // Check if election has been won
         bool won = print_winner();
@@ -128,7 +141,7 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    // Loop all candidates
+    // Query all candidates
     for (int i = 0; i < candidate_count; i++)
     {
         // Find the candidate name
@@ -148,7 +161,30 @@ bool vote(int voter, int rank, string name)
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    // TODO
+    // Query voters
+    for (int i = 0; i < voter_count; i++)
+    {
+        // Query the candidates
+        for (int j = 0; j < candidate_count; j++)
+        {
+            // Get candidate index
+            int candidate = preferences[i][j];
+
+            // If is eliminated go to next candidate
+            if (candidates[candidate].eliminated)
+            {
+                continue;
+            }
+
+            // Add one vote to the candidate
+            candidates[candidate].votes++;
+
+            //Break the for loop
+            break;
+        }
+    }
+
+
     return;
 }
 
