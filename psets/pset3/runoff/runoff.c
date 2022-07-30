@@ -88,7 +88,8 @@ int main(int argc, string argv[])
     while (true)
     {
         // TEMPORARY
-        // candidates[1].eliminated = true;
+        candidates[1].eliminated = true;
+        candidates[3].eliminated = true;
 
         // Calculate votes given remaining candidates
         tabulate();
@@ -227,7 +228,8 @@ bool print_winner(void)
         // Find the candidate that matches the condition
         if (candidates[i].votes == condition)
         {
-            printf("%s is the winner\n", candidates[i].name);
+            // printf("%s is the winner\n", candidates[i].name);
+            printf("%s\n", candidates[i].name);
             return true;
         }
     }
