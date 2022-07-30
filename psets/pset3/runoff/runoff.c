@@ -88,7 +88,7 @@ int main(int argc, string argv[])
     while (true)
     {
         // TEMPORARY
-        // candidates[1].eliminated = true;
+        candidates[1].eliminated = true;
 
         // Calculate votes given remaining candidates
         tabulate();
