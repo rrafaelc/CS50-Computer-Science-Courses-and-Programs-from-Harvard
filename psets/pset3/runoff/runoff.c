@@ -208,6 +208,7 @@ bool print_winner(void)
 
     int winner = 0;
 
+    // Query the candidates
     for (int i = 0; i < candidate_count; i++)
     {
         // If the candidate matches the condition
@@ -224,7 +225,18 @@ bool print_winner(void)
         return false;
     }
 
-    return false;
+    // Get the winner
+    for (int i = 0; i < candidate_count; i++)
+    {
+        // If the candidate matches the condition
+        if (candidates[i].votes == condition)
+        {
+            // Add one to winner
+            winner++;
+        }
+    }
+
+    return true;
 }
 
 // Return the minimum number of votes any remaining candidate has
