@@ -24,6 +24,7 @@ candidate candidates[MAX_CANDIDATES];
 // Numbers of voters and candidates
 int voter_count;
 int candidate_count;
+int count = 0;
 
 // Function prototypes
 bool vote(int voter, int rank, string name);
@@ -82,8 +83,6 @@ int main(int argc, string argv[])
 
         printf("\n");
     }
-
-    int count = 0;
 
     // Keep holding runoffs until winner exists
     while (true)
@@ -184,7 +183,7 @@ void tabulate(void)
         }
     }
 
-
+    count = 0;
     return;
 }
 
