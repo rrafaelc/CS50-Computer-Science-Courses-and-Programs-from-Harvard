@@ -130,8 +130,12 @@ void record_preferences(int ranks[])
     {
         // int count = 0;
 
+        printf("Candidato %s\n", candidates[i]);
+        printf("_____________________\n");
+
         for (int j = 0; j < candidate_count; j++)
         {
+            printf("Candidato posicao %s [%i %i]\n", candidates[i], i, preferences[i][j]);
             printf("Antes %s\n", candidates[preferences[i][j]]);
 
             for (int k = 0; k < candidate_count; k++)
@@ -143,7 +147,7 @@ void record_preferences(int ranks[])
             }
 
             printf("Depois %s\n", candidates[preferences[i][j]]);
-            printf("==========\n");
+
         }
     }
 
