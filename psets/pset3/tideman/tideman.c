@@ -132,6 +132,8 @@ void record_preferences(int ranks[])
 
         for (int j = 0; j < candidate_count; j++)
         {
+            printf("Antes %i\n", preferences[i][j]);
+
             for (int k = 0; k < candidate_count; k++)
             {
                 if (ranks[k] == j)
@@ -139,6 +141,8 @@ void record_preferences(int ranks[])
                     preferences[i][j] += ranks[k];
                 }
             }
+
+            printf("Depois %i\n", preferences[i][j]);
         }
     }
 
