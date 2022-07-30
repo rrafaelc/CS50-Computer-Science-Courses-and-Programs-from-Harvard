@@ -88,7 +88,7 @@ int main(int argc, string argv[])
     while (true)
     {
         // TEMPORARY
-        candidates[1].eliminated = true;
+        // candidates[1].eliminated = true;
 
         // Calculate votes given remaining candidates
         tabulate();
@@ -205,6 +205,24 @@ bool print_winner(void)
 {
     // Condition to win is half vote plus 1
     int condition = voter_count / 2 + 1;
+
+    int winner = 0;
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        // If the candidate matches the condition
+        if (candidates[i].votes == condition)
+        {
+            // Add one to winner
+            winner++;
+        }
+    }
+
+    // If winner has one vote
+    if (winner == 1)
+    {
+        return true;
+    }
 
     return false;
 }
