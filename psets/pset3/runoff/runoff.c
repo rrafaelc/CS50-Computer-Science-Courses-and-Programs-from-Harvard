@@ -172,6 +172,7 @@ void tabulate(void)
             // If is eliminated go to next candidate
             if (candidates[candidate].eliminated)
             {
+                printf("Eliminado\n");
                 continue;
             }
 
