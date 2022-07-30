@@ -163,6 +163,8 @@ void tabulate(void)
     // Query voters
     for (int i = 0; i < voter_count; i++)
     {
+        bool compute_vote = true;
+
         // Query the candidates
         for (int j = 0; j < candidate_count; j++)
         {
@@ -172,19 +174,26 @@ void tabulate(void)
             // If is eliminated go to next candidate
             if (candidates[candidate].eliminated)
             {
-                printf("Eliminado\n");
-                continue;
+                // If the current candidate is eliminated, don't let vote
+                compute_vote = false;
+            }
+            else
+            {
+                // If not, compute the vote
+                compute_vote = true;
             }
 
-            // Add one vote to the candidate
-            candidates[candidate].votes++;
+            // Add one vote to the candidate if compute_vote is true
+            if (compute_vote)
+            {
+                candidates[candidate].votes++;
 
-            //Break the for loop
-            break;
+                //Break the for loop
+                break;
+            }
         }
     }
 
-    candidates[1].eliminated = true;
     return;
 }
 
