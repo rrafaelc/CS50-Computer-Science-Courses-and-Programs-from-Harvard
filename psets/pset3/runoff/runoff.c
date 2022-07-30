@@ -225,7 +225,7 @@ int find_min(void)
     for (int i = 0; i < candidate_count; i++)
     {
         // Only if the candidate is not eliminated
-        if(!candidates[i].eliminated)
+        if (!candidates[i].eliminated)
         {
             // If the candidate votes is small than the min
             if (candidates[i].votes < min)
@@ -244,7 +244,7 @@ bool is_tie(int min)
     for (int i = 0; i < candidate_count; i++)
     {
         // Only if the candidate is not eliminated
-        if(!candidates[i].eliminated)
+        if (!candidates[i].eliminated)
         {
             // If one candidate is different from min, so it's not tie
             if (candidates[i].votes > min)
