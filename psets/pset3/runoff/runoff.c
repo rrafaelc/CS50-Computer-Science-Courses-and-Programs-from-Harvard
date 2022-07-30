@@ -282,8 +282,20 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-
-    for
+    // Query the candidates
+    for (int i = 0; i < candidate_count; i++)
+    {
+        // If wasn't already eliminated
+        if (!candidates[i].eliminated)
+        {
+            // If the candidate matches the min
+            if (candidates[i].votes == min)
+            {
+                // Set eliminated to true
+                candidates[i].eliminated = true;
+            }
+        }
+    }
 
     return;
 }
