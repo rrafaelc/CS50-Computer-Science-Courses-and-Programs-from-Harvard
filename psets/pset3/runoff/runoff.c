@@ -149,7 +149,8 @@ bool vote(int voter, int rank, string name)
         // Find the candidate name
         if (strcmp(candidates[i].name, name) == 0)
         {
-            // Check if 
+            // Check if the candidate was already voted in rank of the voter
+            for (int j; )
 
             // [0][0] = 2
             // [Joe][rank1] = Charlie
