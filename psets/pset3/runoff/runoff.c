@@ -226,13 +226,16 @@ bool print_winner(void)
     }
 
     // Get the winner
-    for (int i = 0; i < candidate_count; i++)
+    if (winner == 1)
     {
-        // If the candidate matches the condition
-        if (candidates[i].votes == condition)
+        for (int i = 0; i < candidate_count; i++)
         {
-            printf("%s is the winner", candidates[i].name);
-            return true;
+            // Find the candidate matches the condition
+            if (candidates[i].votes == condition)
+            {
+                printf("%s is the winner", candidates[i].name);
+                return true;
+            }
         }
     }
 
