@@ -85,6 +85,8 @@ int main(int argc, string argv[])
             }
         }
 
+        printf("\n");
+
         for (int k = 0; k < candidate_count; k++)
         {
             printf("%s\n", candidates[ranks[k]]);
