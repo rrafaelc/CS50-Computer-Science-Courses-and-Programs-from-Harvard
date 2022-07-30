@@ -87,11 +87,11 @@ int main(int argc, string argv[])
     // Keep holding runoffs until winner exists
     while (true)
     {
-        // Calculate votes given remaining candidates
-        tabulate();
-
         // Temp
         candidates[1].eliminated = true;
+
+        // Calculate votes given remaining candidates
+        tabulate();
 
         if (count == 0)
         {
