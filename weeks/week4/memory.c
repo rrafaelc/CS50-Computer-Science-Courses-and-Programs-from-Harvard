@@ -6,10 +6,9 @@ int main(void)
 {
     int *x = malloc(3 * sizeof(int));
 
-    // char *s = get_string("s: ");
     x[0] = 72;
     x[1] = 73;
-    x[2] = 33;
+    x[3] = 33;
 
     printf("");
 
