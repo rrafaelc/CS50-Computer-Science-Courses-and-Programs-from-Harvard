@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <cs50.h>
 
 int main(void)
 {
@@ -13,7 +12,7 @@ int main(void)
     // printf("%p\n", &s[0]);
     // char *s = "HI!";
 
-    string s = "HI!";
+    char *s = "HI!";
     printf("%c\n", s[0]);
     printf("%c\n", s[1]);
     printf("%c\n", s[2]);
