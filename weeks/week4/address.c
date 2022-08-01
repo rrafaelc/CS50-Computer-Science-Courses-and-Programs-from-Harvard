@@ -1,4 +1,3 @@
-#include <cs50.h>
 #include <stdio.h>
 
 int main(void)
@@ -8,7 +7,7 @@ int main(void)
     // printf("%p\n", p);
     // printf("%i\n", *p);
 
-    string s = "HI!";
+    char *s = "HI!";
     char *p = &s[0];
     printf("%p\n", p);
     printf("%p\n", s);
