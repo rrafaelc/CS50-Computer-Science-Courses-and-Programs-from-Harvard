@@ -11,6 +11,7 @@ int main(void)
     // char *p = &s[0];
 
     char *s = "HI!";
+    printf("%p\n", s);
     printf("%p\n", &s[0]);
     printf("%p\n", &s[1]);
     printf("%p\n", &s[2]);
