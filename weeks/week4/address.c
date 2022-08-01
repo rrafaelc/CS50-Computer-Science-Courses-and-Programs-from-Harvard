@@ -1,4 +1,4 @@
-// #include <cs50.h>
+#include <cs50.h>
 #include <stdio.h>
 
 int main(void)
@@ -8,6 +8,8 @@ int main(void)
     // printf("%p\n", p);
     // printf("%i\n", *p);
 
-    char *s = "HI!";
-    printf("%s\n", s);
+    string s = "HI!";
+    char c = s[0];
+    char *p = &c;
+    printf("%p\n", p);
 }
