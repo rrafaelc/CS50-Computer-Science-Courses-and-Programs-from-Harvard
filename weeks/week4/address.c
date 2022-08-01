@@ -12,8 +12,10 @@ int main(void)
     // printf("%p\n", &s[0]);
     // char *s = "HI!";
 
-    char *s = "HI!";
-    printf("%c\n", *s);
-    printf("%c\n", *(s + 1));
-    printf("%c\n", *(s + 2));
+    // char *s = "HI!";
+    // printf("%c\n", *s);
+    // printf("%c\n", *(s + 1));
+    // printf("%c\n", *(s + 2));
+
+    int numbers[] = {4, 6, 8, 2, 7, 5, 0};
 }
