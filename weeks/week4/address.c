@@ -9,8 +9,7 @@ int main(void)
     // printf("%i\n", *p);
 
     string s = "HI!";
-    char c = s[0];
-    char *p = &c;
-    printf("%p\n", s);
+    char *p = &s[0];
     printf("%p\n", p);
+    printf("%p\n", s);
 }
