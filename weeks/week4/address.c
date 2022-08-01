@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <cs50.h>
 
 int main(void)
 {
@@ -9,11 +10,11 @@ int main(void)
     // printf("%p\n", p);
     // printf("%p\n", s);
     // char *p = &s[0];
+    // printf("%p\n", &s[0]);
+    // char *s = "HI!";
 
-    char *s = "HI!";
-    printf("%p\n", s);
-    printf("%p\n", &s[0]);
-    printf("%p\n", &s[1]);
-    printf("%p\n", &s[2]);
-    printf("%p\n", &s[3]);
+    string s = "HI!";
+    printf("%c\n", s[0]);
+    printf("%c\n", s[1]);
+    printf("%c\n", s[2]);
 }
