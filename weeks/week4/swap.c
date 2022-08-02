@@ -14,7 +14,9 @@ int main(void)
 
 void swap(int a, int b)
 {
+    printf("a is %i, b is %i\n", a, b);
     int tmp = a;
     a = b;
     b = tmp;
+    printf("a is %i, b is %i\n", a, b);
 }
