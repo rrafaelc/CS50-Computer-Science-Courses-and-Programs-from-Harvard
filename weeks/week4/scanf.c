@@ -2,8 +2,8 @@
 
 int main(void)
 {
-    int x = 1;
-    int y = 2;
-
-    printf("x is %i, y is %i\n", x, y);
+    int x;
+    printf("x: ");
+    scanf("%i", &x);
+    printf("x: %i\n", x);
 }
