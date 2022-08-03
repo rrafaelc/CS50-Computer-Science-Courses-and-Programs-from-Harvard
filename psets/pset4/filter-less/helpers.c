@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include <math.h>
+#include <stdio.h>
 
 // get last row of image image[height - 1]
 // image[0] first row
@@ -144,9 +145,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         // Loop the width
         for (int l = 0; l < width; l++)
         {
-            printf("%i\n", image[k][l].rgbtRed);
+            // printf("%i\n", image[k][l].rgbtRed);
         }
     }
+
+    printf("%i\n", image[-1][0].rgbtRed);
 
     return;
 }
