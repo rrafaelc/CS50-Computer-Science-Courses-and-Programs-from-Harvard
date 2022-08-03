@@ -17,13 +17,14 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // Get all 3 rgb colors
-            double red = image[i][j].rgbtRed;
-            double green = image[i][j].rgbtGreen;
-            double blue = image[i][j].rgbtBlue;
+            int red = image[i][j].rgbtRed;
+            int green = image[i][j].rgbtGreen;
+            int blue = image[i][j].rgbtBlue;
 
-            // Calculate the average and round
-            double average = (red + green + blue) / 3;
+            // Calculate the average with float numbers first to not lose any information
+            float average = (float) (red + green + blue) / 3;
 
+            // Round the float after
             average = round(average);
 
             // If the average is higher than 255 set to 255
