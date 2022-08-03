@@ -123,18 +123,35 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    int originalImage[height][width];
+
     // Loop the height
     for (int i = 0; i < height; i++)
     {
         // Loop the width
         for (int j = 0; j < width; j++)
         {
-            // Get all 3 rgb colors
-            int red = image[i][j].rgbtRed;
-            int green = image[i][j].rgbtGreen;
-            int blue = image[i][j].rgbtBlue;
+            // Copy all 3 rgb colors to originalImage
+            originalImage[i][j] = image[i][j].rgbtRed;
+            originalImage[i][j] = image[i][j].rgbtGreen;
+            originalImage[i][j] = image[i][j].rgbtBlue;
         }
     }
+
+    // Loop the height
+    for (int k = 0; k < height; k++)
+    {
+        // Loop the width
+        for (int l = 0; l < width; l++)
+        {
+            // Copy all 3 rgb colors to originalImage
+            // originalImage[i][j] = image[i][j].rgbtRed;
+            // originalImage[i][j] = image[i][j].rgbtGreen;
+            // originalImage[i][j] = image[i][j].rgbtBlue;
+        }
+    }
+
+    image = originalImage;
 
     return;
 }
