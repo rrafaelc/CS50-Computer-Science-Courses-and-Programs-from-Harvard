@@ -22,7 +22,9 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             int blue = image[i][j].rgbtBlue;
 
             // Calculate the average and round
-            double average = round((red + green + blue) / 3);
+            double average = (red + green + blue) / 3;
+
+            average = round(average);
 
             // If the average is higher than 255 set to 255
             if (average > 255)
