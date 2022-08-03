@@ -99,6 +99,10 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             int tmpGreen = image[i][j].rgbtGreen;
             int tmpBlue = image[i][j].rgbtBlue;
 
+            // Get the last value of array
+            // j = 1
+            // 10 - j - 1 = 0
+            // 10 - 1 - 1 = 0
             image[i][j].rgbtRed = image[i][width - j - 1].rgbtRed;
             image[i][j].rgbtGreen = image[i][width - j - 1].rgbtGreen;
             image[i][j].rgbtBlue = image[i][width - j - 1].rgbtBlue;
