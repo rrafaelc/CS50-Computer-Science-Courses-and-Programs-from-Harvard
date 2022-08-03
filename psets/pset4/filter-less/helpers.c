@@ -54,25 +54,31 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             int green = image[i][j].rgbtGreen;
             int blue = image[i][j].rgbtBlue;
 
+            int sepia[3];
+
             // Calculate the sepiaRed and round
-            int sepiaRed = round(.393 * red + .769 * green + .189 * blue);
+            int sepia[0] = round(.393 * red + .769 * green + .189 * blue);
 
             // Calculate the sepiaGreen and round
-            int sepiaGreen = round(.349 * red + .686 * green + .168 * blue);
+            int sepia[1] = round(.349 * red + .686 * green + .168 * blue);
 
             // Calculate the sepiaBlue and round
-            int sepiaBlue = round(.272 * red + .534 * green + .131 * blue);
+            int sepia[2] = round(.272 * red + .534 * green + .131 * blue);
 
-            // If the average is higher than 255 set to 255
-            if (average > 255)
+            // Loop the sepias value
+            for (int k = 0; k < 3; k++)
             {
-                average = 255;
+                if (sepia[k] > 255)
+            {
+                sepia[k] = 255;
+            }
             }
 
+
             // Set for each pixel the result of average
-            image[i][j].rgbtRed = sepiaRed;
-            image[i][j].rgbtGreen = sepiaGreen;
-            image[i][j].rgbtBlue = sepiaBlue;
+            image[i][j].rgbtRed = sepia[0];
+            image[i][j].rgbtGreen = sepia[1];
+            image[i][j].rgbtBlue = sepia[2];
         }
     }
 
