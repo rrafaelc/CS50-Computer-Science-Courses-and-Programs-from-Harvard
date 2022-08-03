@@ -99,13 +99,17 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             // int reflectedGreen = image[i][j].rgbtGreen;
             // int reflectedBlue = image[i][j].rgbtBlue;
 
-            int tmpRed = image[i][width - j].rgbtRed;
-            int tmpGreen = image[i][width - j].rgbtGreen;
-            int tmpBlue = image[i][width - j].rgbtBlue;
+            int tmpNegativeRed = image[i][width - j].rgbtRed;
+            int tmpNegativeGreen = image[i][width - j].rgbtGreen;
+            int tmpNegativeBlue = image[i][width - j].rgbtBlue;
 
-            image[i][j].rgbtRed =
-            image[i][j].rgbtGreen =
-            image[i][j].rgbtBlue =
+            image[i][width - j].rgbtRed = image[i][j].rgbtRed;
+            image[i][width - j].rgbtGreen = image[i][j].rgbtGreen;
+            image[i][width - j].rgbtBlue = image[i][j].rgbtBlue;
+
+            image[i][j].rgbtRed = tmpNegativeRed;
+            image[i][j].rgbtGreen = tmpNegativeGreen;
+            image[i][j].rgbtBlue = tmpNegativeBlue;
         }
     }
 
