@@ -43,6 +43,40 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 // Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
+    // Loop the height
+    for (int i = 0; i < height; i++)
+    {
+        // Loop the width
+        for (int j = 0; j < width; j++)
+        {
+            // Get all 3 rgb colors
+            int red = image[i][j].rgbtRed;
+            int green = image[i][j].rgbtGreen;
+            int blue = image[i][j].rgbtBlue;
+
+            // Calculate the sepiaRed and round
+            int sepiaRed = round(.393 * red + .769 * green + .189 * blue);
+
+            // Calculate the sepiaGreen and round
+            int sepiaGreen = round(.349 * red + .686 * green + .168 * blue);
+
+            // Calculate the sepiaBlue and round
+            int sepiaBlue = round(.272 * red + .534 * green + .131 * blue);
+
+            // If the average is higher than 255 set to 255
+            if (average > 255)
+            {
+                average = 255;
+            }
+
+            // Set for each pixel the result of average
+            image[i][j].rgbtRed = sepiaRed;
+            image[i][j].rgbtGreen = sepiaGreen;
+            image[i][j].rgbtBlue = sepiaBlue;
+        }
+    }
+
+
     return;
 }
 
