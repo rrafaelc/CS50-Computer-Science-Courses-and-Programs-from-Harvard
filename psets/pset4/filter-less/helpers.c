@@ -147,9 +147,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         // Loop the width
         for (int col = 0; col < width; col++)
         {
-            int dTL[3], top[3], dTR[3], left[3], right[3], dBL[3], bottom[3], dBR[3];
+            // int dTL[3], top[3], dTR[3], left[3], right[3], dBL[3], bottom[3], dBR[3];
             // Get the diagonal top left pixels
-            
+            float avg;
+
 
 
         }
