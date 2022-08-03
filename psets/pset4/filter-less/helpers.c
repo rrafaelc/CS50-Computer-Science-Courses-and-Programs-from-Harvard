@@ -124,7 +124,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    int originalImage[height][width];
+    RGBTRIPLE originalImage[height][width];
 
     // Loop the height
     for (int i = 0; i < height; i++)
@@ -133,9 +133,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // Copy all 3 rgb colors to originalImage
-            originalImage[i][j] = image[i][j].rgbtRed;
-            originalImage[i][j] = image[i][j].rgbtGreen;
-            originalImage[i][j] = image[i][j].rgbtBlue;
+            originalImage[i][j].rgbtRed = image[i][j].rgbtRed;
+            originalImage[i][j].rgbtGreen = image[i][j].rgbtGreen;
+            originalImage[i][j].rgbtBlue = image[i][j].rgbtBlue;
         }
     }
 
@@ -148,14 +148,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int dTL[3], top[3], dTR[3], left[3], right[3], dBL[3], bottom[3], dBR[3];
             // Get the diagonal top left pixels
 
-            if (originalImage[0][-1] < 0)
+            if (originalImage[0][-1].rgbtRed == 0)
             {
-                printf("Nao\n");
+                printf("Nao");
             }
         }
     }
-
-    printf("%i\n", image[-1][-1]);
 
     return;
 }
