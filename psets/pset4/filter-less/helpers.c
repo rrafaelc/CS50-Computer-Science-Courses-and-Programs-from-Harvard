@@ -150,7 +150,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int dTL[3], top[3], dTR[3], left[3], right[3], dBL[3], bottom[3], dBR[3];
             // Get the diagonal top left pixels
 
-            if (row + 1 > height && col <= 0)
+            if (row + 2 > height)
             {
                 count++;
                 printf("%i\n", count);
