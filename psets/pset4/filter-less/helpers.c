@@ -140,6 +140,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     }
 
     // Loop the height
+    int count = 0;
+
     for (int row = 0; row < height; row++)
     {
         // Loop the width
@@ -148,9 +150,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int dTL[3], top[3], dTR[3], left[3], right[3], dBL[3], bottom[3], dBR[3];
             // Get the diagonal top left pixels
 
-            if (originalImage[0][-1].rgbtRed == 0)
+            if (row - 1 == 0)
             {
-                printf("Nao");
+                count++;
+                printf("%i\n", count);
             }
         }
     }
