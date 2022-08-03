@@ -57,13 +57,13 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             int sepia[3];
 
             // Calculate the sepiaRed and round
-            int sepia[0] = round(.393 * red + .769 * green + .189 * blue);
+            sepia[0] = round(.393 * red + .769 * green + .189 * blue);
 
             // Calculate the sepiaGreen and round
-            int sepia[1] = round(.349 * red + .686 * green + .168 * blue);
+            sepia[1] = round(.349 * red + .686 * green + .168 * blue);
 
             // Calculate the sepiaBlue and round
-            int sepia[2] = round(.272 * red + .534 * green + .131 * blue);
+            sepia[2] = round(.272 * red + .534 * green + .131 * blue);
 
             // Loop the sepias value
             for (int k = 0; k < 3; k++)
