@@ -149,7 +149,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    printf("%i\n", image[-1][0].rgbtRed);
+    if (image[-1][0].rgbtRed == NUL)
+    {
+        printf("NULL\n");
+    }
+
+    // printf("%i\n", image[-1][0].rgbtRed);
 
     return;
 }
