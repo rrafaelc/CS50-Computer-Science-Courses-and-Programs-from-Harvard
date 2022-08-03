@@ -68,14 +68,14 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             // Loop the sepias value
             for (int k = 0; k < 3; k++)
             {
+                // If value is higher than 255, set to 255
                 if (sepia[k] > 255)
             {
                 sepia[k] = 255;
             }
             }
 
-
-            // Set for each pixel the result of average
+            // Set for each pixel the result of sepia
             image[i][j].rgbtRed = sepia[0];
             image[i][j].rgbtGreen = sepia[1];
             image[i][j].rgbtBlue = sepia[2];
