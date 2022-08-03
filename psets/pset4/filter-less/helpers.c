@@ -120,5 +120,44 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    // Loop the height
+    for (int i = 0; i < height; i++)
+    {
+        // Loop the width
+        for (int j = 0; j < width; j++)
+        {
+            // Get all 3 rgb colors
+            int red = image[i][j].rgbtRed;
+            int green = image[i][j].rgbtGreen;
+            int blue = image[i][j].rgbtBlue;
+
+            int sepia[3];
+
+            // Calculate the sepiaRed and round
+            sepia[0] = round(.393 * red + .769 * green + .189 * blue);
+
+            // Calculate the sepiaGreen and round
+            sepia[1] = round(.349 * red + .686 * green + .168 * blue);
+
+            // Calculate the sepiaBlue and round
+            sepia[2] = round(.272 * red + .534 * green + .131 * blue);
+
+            // Loop the sepias value
+            for (int k = 0; k < 3; k++)
+            {
+                // If value is higher than 255, set to 255
+                if (sepia[k] > 255)
+                {
+                    sepia[k] = 255;
+                }
+            }
+
+            // Set for each pixel the result of sepia
+            image[i][j].rgbtRed = sepia[0];
+            image[i][j].rgbtGreen = sepia[1];
+            image[i][j].rgbtBlue = sepia[2];
+        }
+    }
+
     return;
 }
