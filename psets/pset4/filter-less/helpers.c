@@ -70,9 +70,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             {
                 // If value is higher than 255, set to 255
                 if (sepia[k] > 255)
-            {
-                sepia[k] = 255;
-            }
+                {
+                    sepia[k] = 255;
+                }
             }
 
             // Set for each pixel the result of sepia
