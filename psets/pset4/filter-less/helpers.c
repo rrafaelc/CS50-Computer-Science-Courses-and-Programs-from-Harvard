@@ -91,25 +91,21 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     // Loop the height
     for (int i = 0; i < height; i++)
     {
-        // Loop the width
-        for (int j = 0; j < width; j++)
+        // Loop the width and divide the width by 2
+        for (int j = 0; j < width / 2; j++)
         {
-            // Get all 3 rgb colors
-            // int reflectedRed = image[i][j].rgbtRed;
-            // int reflectedGreen = image[i][j].rgbtGreen;
-            // int reflectedBlue = image[i][j].rgbtBlue;
+            // Temp rgb colors
+            int tmpRed = image[i][j].rgbtRed;
+            int tmpGreen = image[i][j].rgbtGreen;
+            int tmpBlue = image[i][j].rgbtBlue;
 
-            int tmpNegativeRed = image[i][width - j].rgbtRed;
-            int tmpNegativeGreen = image[i][width - j].rgbtGreen;
-            int tmpNegativeBlue = image[i][width - j].rgbtBlue;
+            image[i][j].rgbtRed = image[i][width - j - 1].rgbtRed;
+            image[i][j].rgbtGreen = image[i][width - j - 1].rgbtGreen;
+            image[i][j].rgbtBlue = image[i][width - j - 1].rgbtBlue;
 
-            image[i][width - j].rgbtRed = image[i][j].rgbtRed;
-            image[i][width - j].rgbtGreen = image[i][j].rgbtGreen;
-            image[i][width - j].rgbtBlue = image[i][j].rgbtBlue;
-
-            image[i][j].rgbtRed = tmpNegativeRed;
-            image[i][j].rgbtGreen = tmpNegativeGreen;
-            image[i][j].rgbtBlue = tmpNegativeBlue;
+            image[i][width - j - 1].rgbtRed = tmpRed;
+            image[i][width - j - 1].rgbtGreen = tmpGreen;
+            image[i][width - j - 1].rgbtBlue = tmpBlue;
         }
     }
 
