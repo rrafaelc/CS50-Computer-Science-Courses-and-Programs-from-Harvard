@@ -148,12 +148,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int dTL[3], top[3], dTR[3], left[3], right[3], dBL[3], bottom[3], dBR[3];
             // Get the diagonal top left pixels
 
-            if (originalImage[-1][0] < 0)
+            if (originalImage[0][-1] < 0)
             {
                 printf("Nao\n");
             }
         }
     }
+
+    printf("%i\n", image[-1][-1]);
 
     return;
 }
