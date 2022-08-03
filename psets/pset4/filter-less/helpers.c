@@ -95,9 +95,13 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // Get all 3 rgb colors
-            int red = image[i][j].rgbtRed;
-            int green = image[i][j].rgbtGreen;
-            int blue = image[i][j].rgbtBlue;
+            // int reflectedRed = image[i][j].rgbtRed;
+            // int reflectedGreen = image[i][j].rgbtGreen;
+            // int reflectedBlue = image[i][j].rgbtBlue;
+
+            image[i][j].rgbtRed = image[i][width - j].rgbtRed;
+            image[i][j].rgbtGreen = image[i][width - j].rgbtGreen;
+            image[i][j].rgbtBlue = image[i][width - j].rgbtBlue;
         }
     }
 
