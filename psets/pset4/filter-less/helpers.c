@@ -1,5 +1,7 @@
 #include "helpers.h"
 
+// get last row of image image[height - 1]
+
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
