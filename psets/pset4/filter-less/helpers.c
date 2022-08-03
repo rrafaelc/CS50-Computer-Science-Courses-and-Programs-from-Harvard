@@ -145,7 +145,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         // Loop the width
         for (int l = 0; l < width; l++)
         {
-            // printf("%i\n", image[k][l].rgbtRed);
+            int dTL, top, dTR, left, right, dBL, bottom, dBR
+            // Get the diagonal top left pixel
+            if ()
         }
     }
 
