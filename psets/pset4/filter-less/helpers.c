@@ -132,10 +132,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         // Loop the width
         for (int j = 0; j < width; j++)
         {
-            // Copy all 3 rgb colors to originalImage
-            originalImage[i][j].rgbtRed = image[i][j].rgbtRed;
-            originalImage[i][j].rgbtGreen = image[i][j].rgbtGreen;
-            originalImage[i][j].rgbtBlue = image[i][j].rgbtBlue;
+            // Copy image
+            originalImage[i][j] = image[i][j];
+            originalImage[i][j] = image[i][j];
+            originalImage[i][j] = image[i][j];
         }
     }
 
@@ -155,9 +155,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    printf("%i\n", originalImage[0][-1000].rgbtRed);
-    printf("%i\n", originalImage[0][-1000].rgbtBlue);
-    printf("%i\n", originalImage[0][-1000].rgbtGreen);
+    printf("%i\n", originalImage[-1][-1].rgbtRed);
+    printf("%i\n", originalImage[-1][-1].rgbtBlue);
+    printf("%i\n", originalImage[-1][-1].rgbtGreen);
 
     return;
 }
