@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     if (f == NULL)
     {
         printf("Could not open %s\n", filename);
-        return 4;
+        return 1;
     }
 
     fclose(f);
