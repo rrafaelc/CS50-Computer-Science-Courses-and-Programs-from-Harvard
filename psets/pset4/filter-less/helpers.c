@@ -98,7 +98,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         // Loop the width and divide the width by 2
         for (int j = 0; j < width / 2; j++)
         {
-            // Temp rgb colors
+            // copy rgb colors
             int tmpRed = image[i][j].rgbtRed;
             int tmpGreen = image[i][j].rgbtGreen;
             int tmpBlue = image[i][j].rgbtBlue;
@@ -111,7 +111,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtGreen = image[i][width - j - 1].rgbtGreen;
             image[i][j].rgbtBlue = image[i][width - j - 1].rgbtBlue;
 
-            // Put the temp colors
+            // Put the copy colors
             image[i][width - j - 1].rgbtRed = tmpRed;
             image[i][width - j - 1].rgbtGreen = tmpGreen;
             image[i][width - j - 1].rgbtBlue = tmpBlue;
@@ -124,41 +124,45 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE temp[height][width];
+    // Copy the image
+    RGBTRIPLE copy[height][width];
 
+    // Loop the height
     for (int i = 0; i < height; i++)
     {
+        // Loop the width
         for (int j = 0; j < width; j++)
         {
-            float sumBlue = 0;
-            float sumGreen = 0;
-            float sumRed = 0;
+            // Initialize the variable for sum
+            float sBlue = 0;
+            float sGreen = 0;
+            float sRed = 0;
             float counter = 0;
 
-            for (int r = -1; r < 2; r++)
+            for (int row = -1; row < 2; row++)
             {
-                for (int c = -1; c < 2; c++)
+                for (int col = -1; col < 2; col++)
                 {
-                    if (i + r < 0 || i + r > height - 1)
+                    if (i + row < 0 || i + row > height - 1)
                     {
                         continue;
                     }
 
-                    if (j + c < 0 || j + c > width - 1)
+                    if (j + col < 0 || j + col > width - 1)
                     {
                         continue;
                     }
 
-                    sumBlue += image[i + r][j + c].rgbtBlue;
-                    sumGreen += image[i + r][j + c].rgbtGreen;
-                    sumRed += image[i + r][j + c].rgbtRed;
+                    sBlue += image[i + row][j + col].rgbtBlue;
+                    sGreen += image[i + row][j + col].rgbtGreen;
+                    sRed += image[i + row][j + col].rgbtRed;
                     counter++;
                 }
             }
 
-            temp[i][j].rgbtBlue = round(sumBlue / counter);
-            temp[i][j].rgbtGreen = round(sumGreen / counter);
-            temp[i][j].rgbtRed = round(sumRed / counter);
+            copy[i][j].rgbtBlue = round(sBlue / counter);
+            copy[i][j].rgbtGreen = round(sGreen / counter);
+            copy[i][j].rgbtRed = round(sRed / counter);
         }
     }
 
@@ -166,9 +170,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            image[i][j].rgbtBlue = temp[i][j].rgbtBlue;
-            image[i][j].rgbtGreen = temp[i][j].rgbtGreen;
-            image[i][j].rgbtRed = temp[i][j].rgbtRed;
+            image[i][j].rgbtBlue = copy[i][j].rgbtBlue;
+            image[i][j].rgbtGreen = copy[i][j].rgbtGreen;
+            image[i][j].rgbtRed = copy[i][j].rgbtRed;
         }
 
     }
