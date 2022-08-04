@@ -134,10 +134,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // Initialize the variable for sum
-            float sBlue = 0;
-            float sGreen = 0;
-            float sRed = 0;
-            float counter = 0;
+            float sr = 0;
+            float sg = 0;
+            float sb = 0;
+            float c = 0;
 
             for (int row = -1; row < 2; row++)
             {
@@ -153,16 +153,17 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         continue;
                     }
 
-                    sBlue += image[i + row][j + col].rgbtBlue;
-                    sGreen += image[i + row][j + col].rgbtGreen;
-                    sRed += image[i + row][j + col].rgbtRed;
-                    counter++;
+                    sb += image[i + row][j + col].rgbtBlue;
+                    sg += image[i + row][j + col].rgbtGreen;
+                    sr += image[i + row][j + col].rgbtRed;
+                    c++;
                 }
             }
 
-            copy[i][j].rgbtBlue = round(sBlue / counter);
-            copy[i][j].rgbtGreen = round(sGreen / counter);
-            copy[i][j].rgbtRed = round(sRed / counter);
+            // Copy the variables
+            copy[i][j].rgbtBlue = round(sb / c);
+            copy[i][j].rgbtGreen = round(sg / c);
+            copy[i][j].rgbtRed = round(sr / c);
         }
     }
 
