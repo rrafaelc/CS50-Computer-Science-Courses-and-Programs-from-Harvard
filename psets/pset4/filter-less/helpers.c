@@ -147,18 +147,73 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         // Loop the width
         for (int col = 0; col < width; col++)
         {
-            // int dTL[3], top[3], dTR[3], left[3], right[3], dBL[3], bottom[3], dBR[3];
+            int curr[3], dtl[3], top[3], dtr[3], left[3], right[3], dbl[3], bottom[3], dbr[3];
+
             // Get the diagonal top left pixels
-            float avg;
+            dtl[0] = originalImage[row - 1][col - 1].rgbtRed;
+            dtl[1] = originalImage[row - 1][col - 1].rgbtGreen;
+            dtl[2] = originalImage[row - 1][col - 1].rgbtBlue;
 
+            top[0] = originalImage[row - 1][0].rgbtRed;
+            top[1] = originalImage[row - 1][0].rgbtGreen;
+            top[2] = originalImage[row - 1][0].rgbtBlue;
 
+            dtr[0] = originalImage[row - 1][col + 1].rgbtRed;
+            dtr[1] = originalImage[row - 1][col + 1].rgbtGreen;
+            dtr[2] = originalImage[row - 1][col + 1].rgbtBlue;
 
+            left[0] = originalImage[0][col - 1].rgbtRed;
+            left[1] = originalImage[0][col - 1].rgbtGreen;
+            left[2] = originalImage[0][col - 1].rgbtBlue;
+
+            right[0] = originalImage[0][col + 1].rgbtRed;
+            right[1] = originalImage[0][col + 1].rgbtGreen;
+            right[2] = originalImage[0][col + 1].rgbtBlue;
+
+            dbl[0] = originalImage[row + 1][col - 1].rgbtRed;
+            dbl[1] = originalImage[row + 1][col - 1].rgbtGreen;
+            dbl[2] = originalImage[row + 1][col - 1].rgbtBlue;
+
+            bottom[0] = originalImage[row + 1][0].rgbtRed;
+            bottom[1] = originalImage[row + 1][0].rgbtGreen;
+            bottom[2] = originalImage[row + 1][0].rgbtBlue;
+
+            dbr[0] = originalImage[row + 1][col + 1].rgbtRed;
+            dbr[1] = originalImage[row + 1][col + 1].rgbtGreen;
+            dbr[2] = originalImage[row + 1][col + 1].rgbtBlue;
+
+            curr[0] = originalImage[row][col].rgbtRed;
+            curr[1] = originalImage[row][col].rgbtGreen;
+            curr[2] = originalImage[row][col].rgbtBlue;
+
+            float avgRed, avgGreen, avgBlue;
+
+            avgRed = (float)curr[0] + dtl[0] + top[0] + dtr[0] + left[0] + right[0] + dbl[0] + bottom[0] + dbr[0] / 9;
+            avgGreen = (float)curr[1] + dtl[1] + top[1] + dtr[1] + left[1] + right[1] + dbl[1] + bottom[1] + dbr[1] / 9;
+            avgBlue = (float)curr[2] + dtl[2] + top[2] + dtr[2] + left[2] + right[2] + dbl[2] + bottom[2] + dbr[2] / 9;
+
+            avgRed = round(avgRed);
+            avgGreen = round(avgGreen);
+            avgBlue = round(avgBlue);
+
+            if (avgRed > 255)
+            {
+                avgRed = 255;
+            }
+            if (avgGreen > 255)
+            {
+                avgGreen = 255;
+            }
+            if (avgBlue > 255)
+            {
+                avgBlue = 255;
+            }
+
+            image[row][col].rgbtRed = (int)avgRed;
+            image[row][col].rgbtGreen = (int)avgGreen;
+            image[row][col].rgbtBlue = (int)avgBlue;
         }
     }
-
-    printf("%i\n", originalImage[-1][-1].rgbtRed);
-    printf("%i\n", originalImage[-1][-1].rgbtBlue);
-    printf("%i\n", originalImage[-1][-1].rgbtGreen);
 
     return;
 }
