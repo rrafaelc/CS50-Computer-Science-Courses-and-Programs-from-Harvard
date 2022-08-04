@@ -22,18 +22,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    unsigned char buffer[3];
-
-    size_t ret = fread(buffer, 3, sizeof(*buffer), f);
-
-    if (ret != sizeof(*buffer)) {
-        fprintf(stderr, "fread() failed: %zu\n", ret);
-        exit(EXIT_FAILURE);
-    }
-
-    printf("ELF magic: %#04x%02x%02x\n", buffer[0], buffer[1],
-           buffer[2]);
-
 
     fclose(f);
 }
