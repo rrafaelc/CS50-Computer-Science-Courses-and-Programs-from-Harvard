@@ -139,6 +139,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             float sb = 0;
             float c = 0;
 
+            // Begin in -1 to check if is before 0
             for (int row = -1; row < 2; row++)
             {
                 for (int col = -1; col < 2; col++)
