@@ -21,4 +21,6 @@ int main(int argc, char *argv[])
         printf("Could not open %s\n", filename);
         return 4;
     }
+
+    fclose(f);
 }
