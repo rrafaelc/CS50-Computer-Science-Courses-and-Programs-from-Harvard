@@ -10,9 +10,15 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Get the value of command
-    char *path = argv[1];
+    // Get the filename
+    char *filename = argv[1];
 
 
-    
+    // Open file
+    FILE *f = fopen(filename, "r");
+    if (f == NULL)
+    {
+        printf("Could not open %s\n", filename);
+        return 4;
+    }
 }
