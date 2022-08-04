@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +11,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    char *path = argv[1];
+    char *path = malloc(strlen(argv[1]) * sizeof(char));
+    path = argv[1];
     printf("%s\n", path);
+
+    free(path);
 }
