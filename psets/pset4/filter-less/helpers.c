@@ -142,18 +142,22 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // Begin in -1 to check if is before 0
             for (int row = -1; row < 2; row++)
             {
+                // The same with col
                 for (int col = -1; col < 2; col++)
                 {
+                    // If the row is before 0 or height is after the total of height skip
                     if (i + row < 0 || i + row > height - 1)
                     {
                         continue;
                     }
 
+                    // Same for row, but for col
                     if (j + col < 0 || j + col > width - 1)
                     {
                         continue;
                     }
 
+                    // Sum the rest
                     sb += image[i + row][j + col].rgbtBlue;
                     sg += image[i + row][j + col].rgbtGreen;
                     sr += image[i + row][j + col].rgbtRed;
@@ -161,13 +165,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-            // Copy the variables
+            // Round the result
             copy[i][j].rgbtBlue = round(sb / c);
             copy[i][j].rgbtGreen = round(sg / c);
             copy[i][j].rgbtRed = round(sr / c);
         }
     }
 
+    // Change the image with the blur values
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
