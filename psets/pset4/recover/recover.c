@@ -10,6 +10,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    // Get the value of command
     char *path = argv[1];
-    printf("%s\n", path);
+
+
+    
 }
