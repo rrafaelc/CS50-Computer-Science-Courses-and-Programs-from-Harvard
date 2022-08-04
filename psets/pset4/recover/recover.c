@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 
     unsigned char buffer[512];
 
+    fread(buffer, sizeof(char), 1, f);
 
     fclose(f);
 }
