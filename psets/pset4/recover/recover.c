@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     char *filename = argv[1];
 
 
-    // Open file
+    // Open file as read mode
     FILE *f = fopen(filename, "r");
     if (f == NULL)
     {
