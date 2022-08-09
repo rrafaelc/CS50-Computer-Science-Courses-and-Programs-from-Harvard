@@ -40,6 +40,8 @@ unsigned int hash(const char *word)
     int total = 0;
     int *len = malloc(sizeof(int));
 
+    len = strlen(word);
+
     for (int i = 0; i < len; i++)
     {
         // Sum a total value
