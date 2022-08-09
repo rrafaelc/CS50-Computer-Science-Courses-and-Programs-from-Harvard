@@ -31,7 +31,7 @@ bool check(const char *word)
     // Get hash value for word
     int hash_value = hash(word);
 
-    printf("%s\n", table[hash_value]->word);
+    printf("CHECK: %s\n", table[hash_value]->word);
     // strcasecmp();
 
     return false;
