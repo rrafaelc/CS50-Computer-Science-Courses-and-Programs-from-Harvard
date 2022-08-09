@@ -65,6 +65,7 @@ bool check(const char *word)
         n = n->next;
     }
 
+    // If not find the word, return false
     return false;
 }
 
