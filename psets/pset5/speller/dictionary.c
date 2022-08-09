@@ -42,6 +42,7 @@ bool check(const char *word)
     // If the hash is NULL
     if (cursor == NULL)
     {
+        free(cursor);
         return false;
     }
 
@@ -50,9 +51,11 @@ bool check(const char *word)
     {
         if (strcasecmp(cursor->word, word) == 0)
         {
+            free(cursor);
             return true;
         }
 
+        free(cursor);
         // There is no next more to check, so return false
         return false;
     }
@@ -63,6 +66,7 @@ bool check(const char *word)
         // Keep checking the strings
         if (strcasecmp(cursor->word, word) == 0)
         {
+            free(cursor);
             return true;
         }
 
