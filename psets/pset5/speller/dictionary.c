@@ -41,7 +41,7 @@ unsigned int hash(const char *word)
     for (int i = 0; i < len; i++)
     {
         // Sum a total value
-        total += len + total + toupper(word[i]);
+        total += len + toupper(word[i]);
     }
 
     // Get the value in range of N
