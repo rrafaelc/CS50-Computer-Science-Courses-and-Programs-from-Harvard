@@ -52,12 +52,17 @@ bool check(const char *word)
         return false;
     }
 
+    // Check if still have next
     while(n->next != NULL)
     {
+        // Keep checking the strings
         if (strcasecmp(n->word, word) == 0)
         {
             return true;
         }
+
+        // Move the cursor to the next
+        n = n->next;
     }
 
     return false;
