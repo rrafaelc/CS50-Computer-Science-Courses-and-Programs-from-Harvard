@@ -22,7 +22,6 @@ const unsigned int N = 26;
 // Hash table
 node *table[N];
 
-unsigned int hash_location;
 unsigned int contador;
 
 // Returns true if word is in dictionary, else false
@@ -64,7 +63,7 @@ bool load(const char *dictionary)
         strcpy(n->word, word);
 
         // Get hash location
-        hash_location = hash(word);
+        int hash_location = hash(word);
 
         // Pointer the next *n node to head table
         n->next = table[hash_location];
