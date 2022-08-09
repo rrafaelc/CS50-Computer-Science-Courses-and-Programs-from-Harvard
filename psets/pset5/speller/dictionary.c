@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <strings.h>
 
 #include "dictionary.h"
 
@@ -31,8 +32,16 @@ bool check(const char *word)
     // Get hash value for word
     int hash_value = hash(word);
 
-    printf("CHECK: %s\n", table[hash_value]->word);
-    // strcasecmp();
+    char *str = table[hash_value]->word;
+    if(str == NULL)
+    {
+        return false;
+    }
+
+    if (strcasecmp())
+
+    printf("CHECK: %s\n", str);
+
 
     return false;
 }
