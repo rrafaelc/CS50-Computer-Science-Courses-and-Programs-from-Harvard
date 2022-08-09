@@ -47,6 +47,9 @@ bool check(const char *word)
         {
             return true;
         }
+
+        // There is no next more to check, so return false
+        return false;
     }
 
     while(n->next != NULL)
