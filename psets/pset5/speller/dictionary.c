@@ -57,7 +57,7 @@ bool check(const char *word)
         return false;
     }
 
-    // Check if still have next
+    // While still have next
     while(cursor->next != NULL)
     {
         // Keep checking the strings
