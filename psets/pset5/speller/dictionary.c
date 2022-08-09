@@ -35,8 +35,17 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    // C - A = 2 // 67 - 65 = 2
-    return toupper(word[0]) - 'A';
+    int total = 0;
+    int len = strlen(word);
+
+    for (int i = 0; i < len; i++)
+    {
+        // Sum a total value
+        total += len + total + toupper(word[i]);
+    }
+
+    // Get the value in range of N
+    return total % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -62,14 +71,12 @@ bool load(const char *dictionary)
 
         strcpy(n->word, word);
 
-        // Get hash location
-        int hash_location = hash(word);
+        // Get hash
+        int hash_value = hash(word);
 
-        // Pointer the next *n node to head table
-        n->next = table[hash_location];
+        n->next = table[hash_value];
 
-        // Put the *n node head table
-        table[hash_location] = n;
+        table[hash_value] = n;
 
         contador++;
     }
