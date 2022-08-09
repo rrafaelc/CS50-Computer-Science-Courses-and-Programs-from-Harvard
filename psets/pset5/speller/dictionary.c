@@ -32,18 +32,30 @@ bool check(const char *word)
     // Get hash value for word
     int hash_value = hash(word);
 
-    char *str = table[hash_value]->word;
-
-    while
-
-    if(str == NULL)
+    node *n = malloc(sizeof(node));
+    if (n == NULL)
     {
         return false;
     }
 
-    if (strcasecmp(str, word) == 0)
+    n = table[hash_value];
+
+    // Check the first hash table if next is null
+    if (n->next == NULL)
     {
-        return true;
+        if (strcasecmp(n->word, word) == 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    while(n->next != NULL)
+    {
+        if (strcasecmp(str, word) == 0)
+        {
+            return true;
+        }
     }
 
     return false;
