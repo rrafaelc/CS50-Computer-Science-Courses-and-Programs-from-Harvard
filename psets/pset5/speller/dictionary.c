@@ -38,13 +38,15 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     int total = 0;
-    int len = strlen(word);
+    int *len = malloc(sizeof(int));
 
     for (int i = 0; i < len; i++)
     {
         // Sum a total value
         total += len + toupper(word[i]);
     }
+
+    free(len);
 
     // Get the value in range of N
     return total % N;
