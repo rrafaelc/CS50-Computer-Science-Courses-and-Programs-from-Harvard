@@ -22,12 +22,14 @@ const unsigned int N = 26;
 // Hash table
 node *table[N];
 
-unsigned int contador;
+int wordcount = 0;
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
     // TODO
+    tolower(word);
+
     return false;
 }
 
@@ -61,7 +63,7 @@ bool load(const char *dictionary)
     char word[LENGTH + 1];
 
     // While fscanf returning data
-    while(fscanf(file, "%s", word) == 1)
+    while (fscanf(file, "%s", word) == 1)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
@@ -78,7 +80,7 @@ bool load(const char *dictionary)
 
         table[hash_value] = n;
 
-        contador++;
+        wordcount++;
     }
 
     fclose(file);
@@ -90,7 +92,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    return 0;
+    return wordcount;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
