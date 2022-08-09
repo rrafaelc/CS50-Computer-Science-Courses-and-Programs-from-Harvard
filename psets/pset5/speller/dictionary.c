@@ -32,18 +32,18 @@ bool check(const char *word)
     // Get hash value for word
     int hash_value = hash(word);
 
-    node *n = malloc(sizeof(node));
-    if (n == NULL)
+    node *cursor = malloc(sizeof(node));
+    if (cursor == NULL)
     {
         return false;
     }
 
-    n = table[hash_value];
+    cursor = table[hash_value];
 
     // Check the first hash table if next is null
-    if (n->next == NULL)
+    if (cursor->next == NULL)
     {
-        if (strcasecmp(n->word, word) == 0)
+        if (strcasecmp(cursor->word, word) == 0)
         {
             return true;
         }
@@ -53,18 +53,19 @@ bool check(const char *word)
     }
 
     // Check if still have next
-    while(n->next != NULL)
-    {
+    // while(cursor->next != NULL)
+    // {
         // Keep checking the strings
-        if (strcasecmp(n->word, word) == 0)
-        {
-            return true;
-        }
+        // if (strcasecmp(cursor->word, word) == 0)
+        // {
+            // return true;
+        // }
 
         // Move the cursor to the next
-        n = n->next;
-    }
+        // cursor = cursor->next;
+    // }
 
+    free(cursor);
     // If not find the word, return false
     return false;
 }
