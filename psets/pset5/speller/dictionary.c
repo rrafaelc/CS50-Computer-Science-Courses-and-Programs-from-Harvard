@@ -39,6 +39,11 @@ bool check(const char *word)
     }
 
     cursor = table[hash_value];
+    // If the hash is NULL
+    if (cursor == NULL)
+    {
+        return false;
+    }
 
     // Check the first hash table if next is null
     if (cursor->next == NULL)
@@ -53,17 +58,17 @@ bool check(const char *word)
     }
 
     // Check if still have next
-    // while(cursor->next != NULL)
-    // {
+    while(cursor->next != NULL)
+    {
         // Keep checking the strings
-        // if (strcasecmp(cursor->word, word) == 0)
-        // {
-            // return true;
-        // }
+        if (strcasecmp(cursor->word, word) == 0)
+        {
+            return true;
+        }
 
         // Move the cursor to the next
-        // cursor = cursor->next;
-    // }
+        cursor = cursor->next;
+    }
 
     free(cursor);
     // If not find the word, return false
