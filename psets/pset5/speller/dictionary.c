@@ -38,10 +38,10 @@ bool check(const char *word)
         return false;
     }
 
-    if (strcasecmp())
-
-    printf("CHECK: %s\n", str);
-
+    if (strcasecmp(str, word) == 0)
+    {
+        return true;
+    }
 
     return false;
 }
