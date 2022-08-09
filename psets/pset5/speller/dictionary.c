@@ -47,12 +47,11 @@ bool check(const char *word)
         {
             return true;
         }
-        return false;
     }
 
     while(n->next != NULL)
     {
-        if (strcasecmp(str, word) == 0)
+        if (strcasecmp(n->word, word) == 0)
         {
             return true;
         }
