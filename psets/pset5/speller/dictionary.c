@@ -33,6 +33,9 @@ bool check(const char *word)
     int hash_value = hash(word);
 
     char *str = table[hash_value]->word;
+
+    while
+
     if(str == NULL)
     {
         return false;
