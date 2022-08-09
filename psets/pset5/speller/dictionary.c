@@ -28,7 +28,7 @@ int wordcount = 0;
 bool check(const char *word)
 {
     // TODO
-    tolower(word);
+    char *s = tolower(word);
 
     return false;
 }
