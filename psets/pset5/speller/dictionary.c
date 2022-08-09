@@ -28,6 +28,10 @@ int wordcount = 0;
 bool check(const char *word)
 {
     // TODO
+    // Get hash value for word
+    int hash_value = hash(word);
+
+    printf("%s\n", table[hash_value]->word);
     // strcasecmp();
 
     return false;
