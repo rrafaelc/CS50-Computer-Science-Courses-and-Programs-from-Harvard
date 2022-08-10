@@ -130,6 +130,8 @@ bool load(const char *dictionary)
         wordcount++;
     }
 
+    free(n);
+
     fclose(file);
 
     return true;
