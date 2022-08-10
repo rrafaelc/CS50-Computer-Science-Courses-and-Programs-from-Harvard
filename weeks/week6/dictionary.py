@@ -13,3 +13,9 @@ def load(dictionary):
         words.add(word)
     file.close()
     return True
+
+def size():
+    return len(words)
+
+def unload():
+    return True
