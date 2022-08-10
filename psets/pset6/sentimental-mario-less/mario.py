@@ -7,6 +7,19 @@ while (True):
     if(height in range(1, 9)):
         break
 
-# for i in range(height):
-    # for j in range(height):
+for i in range(height):
+    # Get the amount of hash needed
+    hash = i + 1
 
+    # The spaces is the height - hash
+    spaces = height - hash
+
+    # Do a loop for spaces first
+    for s in range(spaces):
+        print(" ", end="")
+
+    # Do a loop for hash
+    for h in range(hash):
+        print("#", end="")
+
+    print("")
