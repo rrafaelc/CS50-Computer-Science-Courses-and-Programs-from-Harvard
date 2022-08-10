@@ -174,10 +174,9 @@ bool unload(void)
             free(tmp);
         }
 
-
-
         free(cursor);
+        free(tmp);
     }
 
-    return false;
+    return true;
 }
