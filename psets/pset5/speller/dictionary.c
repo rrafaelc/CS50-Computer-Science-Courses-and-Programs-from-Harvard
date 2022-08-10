@@ -33,10 +33,6 @@ bool check(const char *word)
     int hash_value = hash(word);
 
     node *cursor = table[hash_value];
-    if (cursor == NULL)
-    {
-        return false;
-    }
 
     // If the hash is NULL
     if (cursor == NULL)
@@ -57,7 +53,7 @@ bool check(const char *word)
     }
 
     // While still have next
-    while(cursor->next != NULL)
+    while (cursor->next != NULL)
     {
         // Keep checking the strings
         if (strcasecmp(cursor->word, word) == 0)
