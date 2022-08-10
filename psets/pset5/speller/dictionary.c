@@ -166,11 +166,12 @@ bool unload(void)
         while (cursor->next != NULL)
         {
             tmp = cursor;
-
+            cursor = cursor->next;
+            free(tmp);
         }
+
+        free(cursor);
     }
-
-
 
     return false;
 }
