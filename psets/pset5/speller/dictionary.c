@@ -108,16 +108,16 @@ bool load(const char *dictionary)
 
     char word[LENGTH + 1];
 
-    node *n = malloc(sizeof(node));
+    // While fscanf returning data
+    while (fscanf(file, "%s", word) == 1)
+    {
+        node *n = malloc(sizeof(node));
         if (n == NULL)
         {
             fclose(file);
             return false;
         }
 
-    // While fscanf returning data
-    while (fscanf(file, "%s", word) == 1)
-    {
         strcpy(n->word, word);
 
         // Get hash
@@ -129,8 +129,6 @@ bool load(const char *dictionary)
 
         wordcount++;
     }
-
-    free(n);
 
     fclose(file);
 
