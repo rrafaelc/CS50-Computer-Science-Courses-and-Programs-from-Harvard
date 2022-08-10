@@ -146,26 +146,15 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    node *tmp = malloc(sizeof(node));
-    if (tmp == NULL)
-    {
-        return false;
-    }
-
-    node *cursor = malloc(sizeof(node));
-    if (cursor == NULL)
-    {
-        return false;
-    }
-
     // Check for each array
     for (int i = 0; i < N; i++)
     {
-        cursor = table[i];
+        // Move the curso into beggining of table
+        node *cursor = table[i];
 
         while (cursor != NULL)
         {
-            tmp = cursor;
+            node *tmp = cursor;
             cursor = cursor->next;
             free(tmp);
         }
