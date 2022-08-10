@@ -162,7 +162,7 @@ bool unload(void)
     for (int i = 0; i < N; i++)
     {
         cursor = table[i];
-        if (cursor->next == NULL)
+        if (cursor == NULL)
         {
             free(cursor);
         }
