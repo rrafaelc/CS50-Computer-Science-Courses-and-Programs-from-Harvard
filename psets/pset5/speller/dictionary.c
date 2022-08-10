@@ -108,6 +108,7 @@ bool load(const char *dictionary)
             return false;
         }
 
+        // Copy the word for the new node created
         strcpy(n->word, word);
 
         // Get hash
