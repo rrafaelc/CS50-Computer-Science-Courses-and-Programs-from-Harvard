@@ -1,8 +1,16 @@
-# Import the get string function from cs50
-from cs50 import get_string
+# Import the get int function from cs50
+from cs50 import get_int
 
 # Get the input from user
-height = get_string("Height ")
+while (True):
+    height = get_int("Height: ")
 
-# Print the hello, {name}
-print(f"hello, {name}")
+    if(1 <= height <= 8 ):
+        break
+
+
+
+
+# for i in range(height):
+    # for j in range(height):
+
