@@ -147,18 +147,18 @@ bool unload(void)
 {
     // TODO
     // Check for each array
-    // for (int i = 0; i < N; i++)
-    // {
-    //     // Move the curso into beggining of table
-    //     node *cursor = table[i];
+    for (int i = 0; i < N; i++)
+    {
+        // Move the curso into beggining of table
+        node *cursor = table[i];
 
-    //     while (cursor != NULL)
-    //     {
-    //         node *tmp = cursor;
-    //         cursor = cursor->next;
-    //         free(tmp);
-    //     }
-    // }
+        while (cursor != NULL)
+        {
+            node *tmp = cursor;
+            cursor = cursor->next;
+            free(tmp);
+        }
+    }
 
     return true;
 }
