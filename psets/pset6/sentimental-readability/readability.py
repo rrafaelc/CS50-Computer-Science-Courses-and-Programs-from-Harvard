@@ -35,10 +35,11 @@ def count_letters(text):
     for (t in text):
         if(t.isalpha()):
             count += 1
+
     return count
 
 
-int count_words(string text)
+def count_words(string text)
 
     int c_words = 0
 
