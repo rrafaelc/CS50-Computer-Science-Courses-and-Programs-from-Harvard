@@ -88,16 +88,13 @@ def validate_credit(number)
                 num /= 10
 
         else:
+            # Add last digit to the variable
+            notMultipliedBy2 += num % 10
 
+            # Remove last digit
+            num /= 10
 
-        # Add last digit to the variable
-        notMultipliedBy2 += num % 10
-
-        # Remove last digit
-        num /= 10
-
-
-    count++
+    count += 1
 
 # The result will reach 0 eventually dividing by 10
 while (num > 0)
