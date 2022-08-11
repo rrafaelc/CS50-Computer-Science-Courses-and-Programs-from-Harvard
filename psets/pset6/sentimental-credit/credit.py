@@ -20,24 +20,15 @@ def main():
         result = validate_credit(card_number)
 
         # Check if value is 0 and show the card flag name based on number
-        if (result == 0)
-
-            string card_name = get_flag_card(card_number)
+        if (result == 0):
+            card_name = get_flag_card(card_number)
 
             # Print the card name
-            printf("%s\n", card_name)
-
-        else
-
-            printf("INVALID\n")
-
-
-    else
-
-        printf("INVALID\n")
-
-
-
+            print(card_name)
+        else:
+            print("INVALID")
+    else:
+        print("INVALID")
 
 def get_card_number():
     # Get card number from user
@@ -46,7 +37,7 @@ def get_card_number():
         if(card >= 0):
             break
 
-def validate_credit(number)
+def validate_credit(number):
     # Iniate variables for the operations
     num = number
     multipliedBy2 = 0
@@ -123,31 +114,20 @@ def get_flag_card(number):
     while (firstTwoDigits >= 100):
         firstTwoDigits /= 10
 
-
-    printf("%li\n", firstTwoDigits)
-
     # Check card name based on first 2 Digits
     # AMEX - starts with 34 or 37
     # MASTERCARD - starts with 51, 52, 53, 54 or 55
     # VISA - starts with 4
-    if (firstTwoDigits == 34 || firstTwoDigits == 37)
-
+    if (firstTwoDigits in [34, 37]):
         return "AMEX"
 
-
-    if (firstTwoDigits == 51 || firstTwoDigits == 52 || firstTwoDigits == 53 || firstTwoDigits == 54 || firstTwoDigits == 55)
-
+    if (firstTwoDigits in range(51, 56)):
         return "MASTERCARD"
 
-
-
     # If don't pass the 2 conditional, than remove one more digit to check if is VISA
-    int firstDigit = firstTwoDigits / 10
-
-    if (firstDigit == 4)
-
+    firstDigit = firstTwoDigits / 10
+    if (firstDigit == 4):
         return "VISA"
-
 
     return "INVALID"
 
