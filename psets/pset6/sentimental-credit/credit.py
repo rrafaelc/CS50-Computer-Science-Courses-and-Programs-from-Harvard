@@ -58,8 +58,8 @@ def validate_credit(number):
             # If the result is higher than 9
             if (multBy2 > 9):
                 # The number can't be greater than 18, so i know there will be only 2 numbers to sum
-                firstNum = multBy2 % 10
-                secondNum = multBy2 / 10
+                firstNum = int(multBy2 % 10)
+                secondNum = multBy2 // 10
 
                 # Sum the numbers
                 sum = firstNum + secondNum
@@ -79,7 +79,7 @@ def validate_credit(number):
 
         else:
             # Add last digit to the variable
-            notMultipliedBy2 += num % 10
+            notMultipliedBy2 += int(num % 10)
 
             # Remove last digit
             num = num // 10
