@@ -94,7 +94,7 @@ def validate_credit(number):
     finalResult = notMultipliedBy2 + multipliedBy2
 
     # return the last digit, being 0 or not
-    return finalResult % 10
+    return int(finalResult % 10)
 
 def get_total_number(number):
     num = number
