@@ -99,27 +99,21 @@ def validate_credit(number)
         if (num == 0):
             break
 
-# The result will reach 0 eventually dividing by 10
-while (num > 0)
+    # Get the final result
+    finalResult = notMultipliedBy2 + multipliedBy2
 
-# Get the final result
-int finalResult = notMultipliedBy2 + multipliedBy2
+    # return the last digit, being 0 or not
+    return finalResult % 10
 
-# return the last digit, being 0 or not
-return finalResult % 10
+def get_total_number(number):
+    num = number
+    count = 0
 
-
-int get_total_number(long number)
-
-    long num = number
-    int count = 0
-
-    do
-
+    while(True):
         num /= 10
-        ++count
+        count += 1
 
-    while (num != 0)
+        if (num != 0)
 
     return count
 
