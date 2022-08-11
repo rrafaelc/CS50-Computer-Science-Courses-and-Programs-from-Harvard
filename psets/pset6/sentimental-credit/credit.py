@@ -109,20 +109,15 @@ def get_total_number(number):
     num = number
     count = 0
 
-    while(True):
+    while(num != 0):
         num /= 10
         count += 1
 
-        if (num != 0)
-
     return count
 
-
-string get_flag_card(long number)
-
-
+def get_flag_card(number):
     # Store temporary number
-    long firstTwoDigits = number
+    firstTwoDigits = number
 
     # Remove last digit from number till only one digit is left
     while (firstTwoDigits >= 100)
