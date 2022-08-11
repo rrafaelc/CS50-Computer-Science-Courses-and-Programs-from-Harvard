@@ -37,18 +37,18 @@ def get_cents():
 
 def calculate_quarters(cents):
     # Divide the cents by quarter number, and the int return the integer number, not float
-    return cents // 25
+    return round(cents / 25)
 
 def calculate_dimes(cents):
     # Divide the cents by dimes number
-    return cents // 10
+    return round(cents / 10)
 
 def calculate_nickels(cents):
     # Divide the cents by nickels number
-    return cents // 5
+    return round(cents / 5)
 
 def calculate_pennies(cents):
     # Divide the cents by pennies number
-    return cents // 1
+    return round(cents / 1)
 
 main()
