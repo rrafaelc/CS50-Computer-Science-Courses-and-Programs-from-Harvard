@@ -7,20 +7,25 @@ while(True):
         break
 
 # Multiple the float to 100
-coins = int(cents * 100)
+cents = int(cents * 100)
 
 # Get quarters coins
-quarters = coins // 25
-coins -= quarters * 25
+quarters = cents // 25
+cents -= quarters * 25
 
 # Get dimes coins
-dimes = coins // 10
-coins -= dimes * 10
+dimes = cents // 10
+cents -= dimes * 10
 
 # Get nickels coins
-nickels = coins // 5
-coins -= nickels * 5
+nickels = cents // 5
+cents -= nickels * 5
 
 # Get pennies coins
-pennies = coins // 1
-coins -= pennies * 1
+pennies = cents // 1
+
+# Sum coins
+coins = quarters + dimes + nickels + pennies
+
+# Print coins
+print(coins)
