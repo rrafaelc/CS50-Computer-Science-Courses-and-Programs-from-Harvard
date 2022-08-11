@@ -111,7 +111,7 @@ def get_flag_card(number):
     firstTwoDigits = number
 
     # Remove last digit from number till only one digit is left
-    while (firstTwoDigits >= 100):
+    while (int(firstTwoDigits) >= 100):
         firstTwoDigits /= 10
 
     # Check card name based on first 2 Digits
