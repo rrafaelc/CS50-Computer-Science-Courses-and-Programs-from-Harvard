@@ -1,4 +1,4 @@
-from cs50 import get_int
+from cs50 import get_float
 
 
 def main():
@@ -32,24 +32,24 @@ def main():
 def get_cents():
     # Get amount of positive cents
     while(True):
-        cents = get_int("Change Owed: ")
+        cents = get_float("Change Owed: ")
         if (cents >= 0):
             break
 
 def calculate_quarters(cents):
     # Divide the cents by quarter number, and the int return the integer number, not float
-    return cents / 25
+    return cents // 25
 
 def calculate_dimes(cents):
     # Divide the cents by dimes number
-    return cents / 10
+    return cents // 10
 
 def calculate_nickels(cents):
     # Divide the cents by nickels number
-    return cents / 5
+    return cents // 5
 
 def calculate_pennies(cents):
     # Divide the cents by pennies number
-    return cents / 1
+    return cents // 1
 
 main()
