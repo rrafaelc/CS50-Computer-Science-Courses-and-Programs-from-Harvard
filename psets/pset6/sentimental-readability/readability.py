@@ -32,6 +32,7 @@ def main():
 
 def count_letters(text):
     count = 0
+
     for (t in text):
         if(t.isalpha()):
             count += 1
@@ -39,7 +40,7 @@ def count_letters(text):
     return count
 
 
-def count_words(string text)
+def count_words(text):
 
     int c_words = 0
 
