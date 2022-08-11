@@ -35,7 +35,7 @@ def get_card_number():
     while(True):
         card = get_int("Number: ")
         if(card >= 0):
-            break
+            return card
 
 def validate_credit(number):
     # Iniate variables for the operations
