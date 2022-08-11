@@ -46,14 +46,13 @@ def count_words(text):
     # Loop the array text
     for t in text:
         # Count how much spaces in ASCII, which is 32
-        if (text[i] == 32)
+        if (ord(t) == 32):
             count += 1
 
-
     # Add one more to count the final word
-    c_words++
+    count += 1
 
-    return c_words
+    return count
 
 
 int count_sentences(string text)
