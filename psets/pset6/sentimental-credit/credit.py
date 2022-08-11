@@ -120,8 +120,7 @@ def get_flag_card(number):
     firstTwoDigits = number
 
     # Remove last digit from number till only one digit is left
-    while (firstTwoDigits >= 100)
-
+    while (firstTwoDigits >= 100):
         firstTwoDigits /= 10
 
 
