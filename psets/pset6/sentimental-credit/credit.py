@@ -129,7 +129,7 @@ def get_flag_card(number):
 
     # If don't pass the 2 conditional, than remove one more digit to check if is VISA
     firstDigit = firstTwoDigits / 10
-    if (firstDigit == 4):
+    if (int(firstDigit) == 4):
         return "VISA"
 
     return "INVALID"
