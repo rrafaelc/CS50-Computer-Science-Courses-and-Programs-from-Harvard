@@ -9,4 +9,3 @@ while(True):
 # Multiple the float to 100
 coins = int(cents * 100)
 
-print(coins)
