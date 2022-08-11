@@ -37,7 +37,7 @@ def count_letters(text):
         if(t.isalpha()):
             count += 1
 
-    return count
+    # return count
 
 
 def count_words(text):
