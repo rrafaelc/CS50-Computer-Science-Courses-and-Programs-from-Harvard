@@ -114,6 +114,9 @@ def get_flag_card(number):
     while (int(firstTwoDigits) >= 100):
         firstTwoDigits /= 10
 
+    # Get the int number
+    firstTwoDigits = int(firstTwoDigits)
+
     # Check card name based on first 2 Digits
     # AMEX - starts with 34 or 37
     # MASTERCARD - starts with 51, 52, 53, 54 or 55
