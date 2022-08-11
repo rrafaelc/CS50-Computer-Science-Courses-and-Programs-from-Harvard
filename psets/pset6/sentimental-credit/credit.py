@@ -30,12 +30,14 @@ def main():
     else:
         print("INVALID")
 
+
 def get_card_number():
     # Get card number from user
     while(True):
         card = get_int("Number: ")
         if(card >= 0):
             return card
+
 
 def validate_credit(number):
     # Iniate variables for the operations
@@ -96,6 +98,7 @@ def validate_credit(number):
     # return the last digit, being 0 or not
     return int(finalResult % 10)
 
+
 def get_total_number(number):
     num = number
     count = 0
@@ -105,6 +108,7 @@ def get_total_number(number):
         count += 1
 
     return count
+
 
 def get_flag_card(number):
     # Store temporary number
@@ -133,5 +137,6 @@ def get_flag_card(number):
         return "VISA"
 
     return "INVALID"
+
 
 main()
