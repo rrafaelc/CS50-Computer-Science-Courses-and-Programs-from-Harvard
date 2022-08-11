@@ -41,18 +41,7 @@ def count_letters(text):
 
 
 def count_words(text):
-    count = 0
-
-    # Loop the array text
-    for t in text:
-        # Count how much spaces in ASCII, which is 32
-        if (ord(t) == 32):
-            count += 1
-
-    # Add one more to count the final word
-    count += 1
-
-    return count
+    return text.count(' ') + 1
 
 
 int count_sentences(string text)
