@@ -6,7 +6,7 @@ while(True):
     if (cents >= 0):
         break
 
-# Multiple the float to 100
+# Multiple the float to 100 and get the integer number
 cents = int(cents * 100)
 
 # Get quarters coins
