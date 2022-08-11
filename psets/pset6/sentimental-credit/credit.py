@@ -50,7 +50,7 @@ def validate_credit(number):
     while(True):
         if (count % 2 == 0):
             # Get the last digit
-            n = num % 10
+            n = int(num % 10)
 
             # Multiply by 2
             multBy2 = n * 2
@@ -68,21 +68,21 @@ def validate_credit(number):
                 multipliedBy2 += sum
 
                 # And remove last digit from the num
-                num /= 10
+                num = num // 10
 
             else:
                 # If not greater than 9, only sum
                 multipliedBy2 += multBy2
 
                 # And remove last digit again
-                num /= 10
+                num = num // 10
 
         else:
             # Add last digit to the variable
             notMultipliedBy2 += num % 10
 
             # Remove last digit
-            num /= 10
+            num = num // 10
 
         count += 1
 
