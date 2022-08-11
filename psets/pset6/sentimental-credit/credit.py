@@ -100,7 +100,7 @@ def get_total_number(number):
     num = number
     count = 0
 
-    while(num != 0):
+    while(int(num) != 0):
         num /= 10
         count += 1
 
