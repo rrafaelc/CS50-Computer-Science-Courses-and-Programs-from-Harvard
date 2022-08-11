@@ -44,28 +44,21 @@ def count_words(text):
     return text.count(' ') + 1
 
 
-int count_sentences(string text)
-
-    int c_sentences = 0
+def count_sentences(text):
+    count = 0
 
     # Loop the string
-    for (int i = 0, n = strlen(text) i < n i++)
-
+    for t in text:
         # Check if has . ASCII which is 46
-        if (text[i] == 46)
-
-            c_sentences++
+        if (t == '.'):
+            count += 1
 
         # Check if has ! ASCII which is 33
-        else if (text[i] == 33)
-
-            c_sentences++
+        elif (t == '!'):
+            count += 1
 
         # Check if has ? ASCII which is 63
-        else if (text[i] == 63)
+        elif (t == '?'):
+            count += 1
 
-            c_sentences++
-
-
-
-    return c_sentences
+    return count
