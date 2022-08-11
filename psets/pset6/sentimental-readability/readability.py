@@ -31,22 +31,7 @@ def main():
 
 
 def count_letters(text):
-    c_letters = 0
-
-    # Loop the string text array
-    for (i in len(text)):
-        # Check if is lower
-        if (islower(text[i]))
-            c_letters++
-
-        # Check if is upper
-        else if (isupper(text[i]))
-
-            c_letters++
-
-
-
-    return c_letters
+    return text.count()
 
 
 int count_words(string text)
