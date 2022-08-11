@@ -31,7 +31,11 @@ def main():
 
 
 def count_letters(text):
-    return text.count()
+    count = 0
+    for (t in text):
+        if(t.isalpha()):
+            count += 1
+    return count
 
 
 int count_words(string text)
