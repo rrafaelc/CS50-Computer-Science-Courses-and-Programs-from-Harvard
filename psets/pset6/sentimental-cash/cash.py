@@ -2,7 +2,6 @@ from cs50 import get_float
 
 
 def main():
-
     # Ask how many cents the customer is owed
     cents = get_cents()
 
