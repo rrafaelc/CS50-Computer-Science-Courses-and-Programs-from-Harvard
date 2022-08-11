@@ -65,7 +65,6 @@ def validate_credit(number)
             multBy2 = n * 2
 
             # If the result is higher than 9
-
             if (multBy2 > 9):
                 # The number can't be greater than 18, so i know there will be only 2 numbers to sum
                 firstNum = multBy2 % 10
@@ -94,7 +93,11 @@ def validate_credit(number)
             # Remove last digit
             num /= 10
 
-    count += 1
+        count += 1
+
+        # The result will reach 0 eventually dividing by 10
+        if (num == 0):
+            break
 
 # The result will reach 0 eventually dividing by 10
 while (num > 0)
