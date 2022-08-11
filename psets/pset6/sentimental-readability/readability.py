@@ -33,25 +33,21 @@ def main():
 def count_letters(text):
     count = 0
 
-    for (t in text):
+    for t in text:
         if(t.isalpha()):
             count += 1
 
-    # return count
+    return count
 
 
 def count_words(text):
-
-    int c_words = 0
+    count = 0
 
     # Loop the array text
-    for (int i = 0, n = strlen(text) i < n i ++)
-
+    for t in text:
         # Count how much spaces in ASCII, which is 32
         if (text[i] == 32)
-
-            c_words++
-
+            count += 1
 
 
     # Add one more to count the final word
