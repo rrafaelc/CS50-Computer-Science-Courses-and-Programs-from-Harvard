@@ -33,18 +33,19 @@ def main():
     # print(len(sequences))
 
     # TODO: Find longest match of each STR in DNA sequence
-    dnas_sequences = {}
+    dnas = {}
 
     for data in database[0]:
         # Add all the dnas sequences without the name to dict
         if (data != "name"):
             # Iniate the sequences with 0
-            dnas_sequences[data] = 0
+            dnas[data] = 0
 
     # print(len(database))
-    print(dnas_sequences)
+    for key in dnas.keys():
+        dnas[key] = longest_match(sequences, key)
 
-    # m = longest_match(sequences, 'TATC')
+    print(dnas)
 
     # TODO: Check database for matching profiles
 
