@@ -9,7 +9,7 @@ def main():
         sys.exit("Usage: python dna.py data.csv sequence.txt")
 
     # TODO: Read database file into a variable
-    database = {}
+    database = []
     with open(sys.argv[1]) as data:
         reader = csv.DictReader(data)
         for d in reader:
@@ -17,9 +17,9 @@ def main():
             #     # If dict key different from "name", change the numbers to int
             #     if(d[k] != d["name"]):
             #         d[k] = int(d[k])
-            database += d
+            database.append(d)
 
-    print(database)
+    # print(database)
 
     # TODO: Read DNA sequence file into a variable
     sequences = ''
@@ -35,7 +35,8 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     match_str = []
 
-    print(database["name"])
+    # print(database[0]["name"])
+    print(len(database))
 
     # m = longest_match(sequences, 'TATC')
 
