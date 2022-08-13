@@ -49,7 +49,9 @@ def main():
 
     for i in range(len(database)):
         for data in database[i].keys():
-            print(database[data])
+            if (database[i][data] != "name"):
+                curr_profile_dnas.append(database[i][data])
+        print(curr_profile_dnas)
 
     return
 
