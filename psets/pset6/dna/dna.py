@@ -36,7 +36,11 @@ def main():
     match_str = []
 
     # print(database[0]["name"])
-    print(len(database))
+
+    for data in database[0]:
+        print(data)
+
+    # print(len(database))
 
     # m = longest_match(sequences, 'TATC')
 
