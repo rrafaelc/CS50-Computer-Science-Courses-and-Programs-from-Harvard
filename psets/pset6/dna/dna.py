@@ -45,10 +45,14 @@ def main():
 
     # TODO: Check database for matching profiles
     match = 'No match'
-    curr_profile_dnas_count = []
+    curr_profile_dnas = []
 
-    while(True):
-        
+    for key in database:
+        if (key != "name"):
+            curr_profile_dnas.append(key)
+        print(curr_profile_dnas)
+        print('Fim')
+
 
 
     return
