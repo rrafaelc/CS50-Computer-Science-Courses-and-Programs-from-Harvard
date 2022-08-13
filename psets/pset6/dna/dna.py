@@ -53,7 +53,7 @@ def main():
                 curr_profile_dnas.append(int(database[i][data]))
         print(curr_profile_dnas)
         print(dnas)
-        print(curr_profile_dnas == dnas)
+        print((curr_profile_dnas == dnas).all())
         curr_profile_dnas = []
 
     return
