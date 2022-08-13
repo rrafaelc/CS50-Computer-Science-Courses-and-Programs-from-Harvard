@@ -14,7 +14,10 @@ def main():
         reader = csv.DictReader(data)
         for d in reader:
             for k in d.keys():
-                print(d[k])
+                # If in dict the key name diff from "name", change the numbers to int
+                if(d[k] != d["name"]):
+                    print(d[k].isnumeric())
+                    d[k] = int(d[k])
             database.append(d)
 
     # print(database)
