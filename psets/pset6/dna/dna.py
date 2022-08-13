@@ -49,9 +49,12 @@ def main():
 
     for i in range(len(database)):
         for data in database[i].keys():
-            if (database[i][data] != "name"):
-                curr_profile_dnas.append(database[i][data])
+            if (database[i][data] != database[i]["name"]):
+                curr_profile_dnas.append(int(database[i][data]))
         print(curr_profile_dnas)
+        print(dnas)
+        print(curr_profile_dnas == dnas)
+        curr_profile_dnas = []
 
     return
 
