@@ -14,7 +14,7 @@ def main():
         reader = csv.DictReader(data)
         for d in reader:
             for k in d.keys():
-                # If in dict the key name diff from "name", change the numbers to int
+                # If dict key different from "name", change the numbers to int
                 if(d[k] != d["name"]):
                     d[k] = int(d[k])
             database.append(d)
