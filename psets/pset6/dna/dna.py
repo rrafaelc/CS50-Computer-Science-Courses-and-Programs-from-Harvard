@@ -16,11 +16,10 @@ def main():
             for k in d.keys():
                 # If in dict the key name diff from "name", change the numbers to int
                 if(d[k] != d["name"]):
-                    print(d[k].isnumeric())
                     d[k] = int(d[k])
             database.append(d)
 
-    # print(database)
+    print(database)
 
     # TODO: Read DNA sequence file into a variable
 
