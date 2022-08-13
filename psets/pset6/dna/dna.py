@@ -33,9 +33,9 @@ def main():
     # print(len(sequences))
 
     # TODO: Find longest match of each STR in DNA sequence
-    dna_str = []
+    match_str = []
 
-    
+    m = longest_match(sequences, 'TATC')
 
     # TODO: Check database for matching profiles
 
