@@ -55,12 +55,14 @@ def main():
         # Check if the current array is equal to dnas array
         if (curr_profile_dnas == dnas):
             match = database[i]["name"]
-            return match
+            print(match)
+            return
 
         # If not matches, then reset the array for the new profile
         curr_profile_dnas = []
 
-    # If not found, return no match
+    # If not found, print and return
+    print(match)
     return match
 
 
