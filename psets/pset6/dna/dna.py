@@ -45,6 +45,11 @@ def main():
 
     # TODO: Check database for matching profiles
     match = 'No match'
+    curr_profile_dnas_count = []
+
+    while(True):
+        
+
 
     return
 
