@@ -21,16 +21,15 @@ def main():
 
     # print(database)
 
-    sequences = []
+    sequences = ''
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2]) as f:
         lines = f.read().splitlines()
-
         for line in lines:
-            sequences.append(line)
+            sequences += line
 
-    print(sequences)
-
+    # print(sequences)
+    # print(len(sequences))
 
 
 
