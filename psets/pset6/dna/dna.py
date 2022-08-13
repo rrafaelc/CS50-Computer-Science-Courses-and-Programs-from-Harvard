@@ -33,12 +33,13 @@ def main():
     # print(len(sequences))
 
     # TODO: Find longest match of each STR in DNA sequence
-    match_str = []
+    strs = {}
 
     # print(database[0]["name"])
 
     for data in database[0]:
-        print(data)
+        if (data != "name"):
+            
 
     # print(len(database))
 
