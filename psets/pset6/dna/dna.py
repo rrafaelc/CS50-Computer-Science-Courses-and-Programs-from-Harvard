@@ -47,11 +47,9 @@ def main():
     match = 'No match'
     curr_profile_dnas = []
 
-    for i in len(database):
-        print(data)
-        print('Fim')
-
-
+    for i in range(len(database)):
+        for data in database[i].keys():
+            print(database[data])
 
     return
 
