@@ -19,7 +19,7 @@ def main():
                     d[k] = int(d[k])
             database.append(d)
 
-    print(database)
+    # print(database)
 
     # TODO: Read DNA sequence file into a variable
 
