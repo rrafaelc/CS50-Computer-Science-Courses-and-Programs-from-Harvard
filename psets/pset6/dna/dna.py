@@ -13,13 +13,13 @@ def main():
     with open(sys.argv[1]) as data:
         reader = csv.DictReader(data)
         for d in reader:
-            for k in d.keys():
-                # If dict key different from "name", change the numbers to int
-                if(d[k] != d["name"]):
-                    d[k] = int(d[k])
+            # for k in d.keys():
+            #     # If dict key different from "name", change the numbers to int
+            #     if(d[k] != d["name"]):
+            #         d[k] = int(d[k])
             database.append(d)
 
-    # print(database)
+    print(database)
 
     sequences = ''
     # TODO: Read DNA sequence file into a variable
