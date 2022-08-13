@@ -51,12 +51,17 @@ def main():
         for data in database[i].keys():
             if (database[i][data] != database[i]["name"]):
                 curr_profile_dnas.append(int(database[i][data]))
-        print(curr_profile_dnas)
-        print(dnas)
-        print(arr())
+
+        # Check if the current array is equal to dnas array
+        if (curr_profile_dnas == dnas):
+            match = database[i]["name"]
+            return match
+
+        # If not matches, then reset the array for the new profile
         curr_profile_dnas = []
 
-    return
+    # If not found, return no match
+    return match
 
 
 def longest_match(sequence, subsequence):
