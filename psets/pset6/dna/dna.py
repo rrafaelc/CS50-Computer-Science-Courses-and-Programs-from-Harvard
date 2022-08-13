@@ -24,13 +24,13 @@ def main():
     sequences = ''
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2]) as f:
+        # Read the lines, removing the \n
         lines = f.read().splitlines()
         for line in lines:
             sequences += line
 
     # print(sequences)
     # print(len(sequences))
-
 
     # TODO: Find longest match of each STR in DNA sequence
 
