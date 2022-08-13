@@ -24,7 +24,7 @@ def main():
     sequences = []
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2]) as f:
-        sequences = f.readlines().splitlines()
+        sequences = f.read().splitlines()
 
     print(sequences)
 
