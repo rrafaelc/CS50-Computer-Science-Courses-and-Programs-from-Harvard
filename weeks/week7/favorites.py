@@ -8,7 +8,9 @@ title = input("Title: ").strip()
 
 rows = db.execute("SELECT COUNT(*) AS counter FROM favorites WHERE title LIKE ?", title)
 
-print(rows)
+# print(rows)
+# [{'counter': 4}]
+
 row = rows[0]
 
 print(row["counter"])
