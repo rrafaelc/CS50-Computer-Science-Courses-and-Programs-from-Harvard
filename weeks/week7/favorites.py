@@ -6,7 +6,8 @@ db = SQL("sqlite:///favorites.db")
 
 title = input("Title: ").strip()
 
-rows = db.execute("SELECT COUNT(*) AS counter FROM favorites WHERE title LIKE ?", title)
+# rows = db.execute("SELECT COUNT(*) AS counter FROM favorites WHERE title LIKE ?", title)
+rows = db.execute("SELECT title counter FROM favorites WHERE title LIKE ?", title)
 
 # print(rows)
 # [{'counter': 4}]
