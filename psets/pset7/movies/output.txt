@@ -1,27 +1,5 @@
-+----------------------------------------------------------+
-|                          title                           |
-+----------------------------------------------------------+
-| All I Know Is                                            |
-| Premak Basaat                                            |
-| Widow of the Revolution: The Anna Larina Story           |
-| Electric Burma                                           |
-| Days of Géants                                           |
-| Days of Géants II                                        |
-| Pulling Power from the Sky: The Story of Makani          |
-| Tari Sathe                                               |
-| Don't Say Sorry                                          |
-| Salzburg. Eine Kunstgeschichte.                          |
-| Queer Icon: The Cult of Bette Davis                      |
-| Orders from Above                                        |
-| Saint-Petersburg. Gatchina. Tsarskoe selo                |
-| Wild Horses and Renegades                                |
-| Nayanam                                                  |
-| One Planet: Save It                                      |
-| Incoming                                                 |
-| I Chose Life: Stories of Suicide and Survival            |
-| Living Utopia and the Birth of Freedom                   |
-| Thea: To somre, en vinter                                |
-| The Jewel                                                |
-| Are We Making a Film? Behind the Scenes: Follow the Dead |
-| Kaye Ballard - The Show Goes On                          |
-+----------------------------------------------------------+
++--------------+
+| COUNT(title) |
++--------------+
+| 23           |
++--------------+

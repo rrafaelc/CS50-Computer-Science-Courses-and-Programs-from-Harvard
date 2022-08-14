@@ -2,4 +2,4 @@
 -- Your query should output a table with a single column and a single row (not counting the header) containing the number of movies with a 10.0 rating.
 
 
-SELECT title FROM ratings JOIN movies ON movies.id = ratings.movie_id WHERE rating = 10;
+SELECT COUNT(title) FROM ratings JOIN movies ON movies.id = ratings.movie_id WHERE rating = 10;
