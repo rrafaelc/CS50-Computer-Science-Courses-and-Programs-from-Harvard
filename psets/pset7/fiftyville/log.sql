@@ -38,4 +38,6 @@ ORDER BY hour LIMIT 1;
 
 -- Check the destination airport flights
 SELECT * FROM flights
-JOIN airports ON airports.id = flights.origin_airport_id
+WHERE origin_airport_id IN (
+SELECT id FROM airports
+)
