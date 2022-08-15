@@ -49,8 +49,6 @@ WHERE flight_id = 36
 SELECT * FROM airports WHERE id = 4;
 -- New York City
 
--- Check each name in phone call and receiver, and hope that i'm right :/
-
 -- airports              crime_scene_reports   people
 -- atm_transactions      flights               phone_calls
 -- bakery_security_logs  interviews
@@ -138,3 +136,18 @@ SELECT * FROM airports WHERE id = 4;
 -- | 279 | (826) 555-1652 | (066) 555-9701 | 2021 | 7     | 28  | 55       |
 -- | 281 | (338) 555-6650 | (704) 555-2131 | 2021 | 7     | 28  | 54       |
 -- +-----+----------------+----------------+------+-------+-----+----------+
+
+-- Check each name in phone call and receiver, and hope that i'm right :/
+
+-- select name from people where phone_number = "phone_number"
+
+-- Sofia | Jack
+-- Kelsey | Larry
+-- Bruce | Robin
+-- Kathryn | Luca
+-- Kelsey | Melissa
+-- Taylor | James
+-- Diana | Philip
+-- Carina | Jacqueline
+-- Kenny | Doris
+-- Benista | Anna
