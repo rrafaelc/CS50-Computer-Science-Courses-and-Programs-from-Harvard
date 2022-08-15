@@ -47,4 +47,4 @@ WHERE flight_id = 36
 
 -- Check the city flight
 SELECT * FROM airports WHERE id = 4;
--- LaGuardia Airport
+-- New York City
