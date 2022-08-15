@@ -13,7 +13,6 @@ WHERE hour = 10 AND minute = 15
 
 -- Check license plate
 SELECT * FROM people WHERE license_plate = "11J91FW"
--- Thief: Noah?
 
 -- Read the interview looking for bakery in transcription
  SELECT name, transcript FROM interviews
@@ -45,3 +44,5 @@ IN (
 SELECT passport_number FROM passengers
 WHERE flight_id = 36
 )
+
+-- Check the phone numbers
