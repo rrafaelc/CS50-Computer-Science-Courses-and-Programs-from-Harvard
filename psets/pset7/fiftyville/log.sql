@@ -31,4 +31,7 @@ AND month = 7
 AND transaction_type = "withdraw"
 AND atm_location = "Leggett Street";
 
--- Check the flight for
+-- Check the flight for the next day earliest
+SELECT * FROM flights
+WHERE day = 29 AND month = 7
+ORDER BY hour LIMIT 1;
