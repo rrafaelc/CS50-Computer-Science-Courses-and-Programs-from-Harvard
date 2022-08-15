@@ -20,3 +20,7 @@ SELECT * FROM people WHERE license_plate = "11J91FW"
  WHERE transcript LIKE "%bakery%"
 -- ACCOMPLICE: Eugene?
 
+-- Check the phone calls
+SELECT * FROM phone_calls
+WHERE day = 28 AND month = 7 AND duration <= 60
+
