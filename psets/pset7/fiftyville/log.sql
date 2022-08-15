@@ -36,3 +36,5 @@ SELECT * FROM flights
 WHERE day = 29 AND month = 7
 ORDER BY hour LIMIT 1;
 
+-- Check flight
+select * from passengers where flight_id = 36;
