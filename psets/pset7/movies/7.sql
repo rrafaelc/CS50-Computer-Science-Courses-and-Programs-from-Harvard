@@ -5,3 +5,5 @@
 -- Movies that do not have ratings should not be included in the result.
 
 SELECT title FROM movies JOIN ratings
+ON movies.id = ratings.movie_id
+IF (ratings.rating )
