@@ -30,3 +30,4 @@ WHERE day = 28
 AND month = 7
 AND transaction_type = "withdraw"
 AND atm_location = "Leggett Street";
+
