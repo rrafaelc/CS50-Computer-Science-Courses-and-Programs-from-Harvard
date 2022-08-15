@@ -24,3 +24,9 @@ SELECT * FROM people WHERE license_plate = "11J91FW"
 SELECT * FROM phone_calls
 WHERE day = 28 AND month = 7 AND duration <= 60
 
+-- Check the atm transactions
+SELECT * FROM atm_transactions
+WHERE day = 28
+AND month = 7
+AND transaction_type = "withdraw"
+AND atm_location = "Leggett Street";
