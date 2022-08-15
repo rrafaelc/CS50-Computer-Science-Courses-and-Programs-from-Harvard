@@ -43,5 +43,5 @@ select * from passengers where flight_id = 36;
 SELECT * FROM people
 WHERE passport_number
 IN (
-SELECT passengers ON passengers.passport_number = people.passport_number
+SELECT passport_number FROM passengers
 )
