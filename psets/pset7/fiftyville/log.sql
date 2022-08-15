@@ -8,3 +8,5 @@ WHERE month = 7 AND day = 28
 AND street = "Humphrey Street"
 
 -- Check the bakery security logs
+SELECT * FROM bakery_security_logs
+WHERE hour = 10 AND minute = 15
