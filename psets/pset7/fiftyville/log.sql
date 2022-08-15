@@ -48,3 +48,8 @@ WHERE flight_id = 36
 -- Check the city flight
 SELECT * FROM airports WHERE id = 4;
 -- New York City
+
+-- Check phone numbers
+SELECT name FROM people
+JOIN phone_call ON people.phone_number
+JOIN passengers ON 
