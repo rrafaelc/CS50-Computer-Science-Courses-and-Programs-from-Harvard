@@ -18,7 +18,6 @@ SELECT * FROM people WHERE license_plate = "11J91FW"
 -- Read the interview looking for bakery in transcription
  SELECT name, transcript FROM interviews
  WHERE transcript LIKE "%bakery%"
--- ACCOMPLICE: Eugene?
 
 -- Check the phone calls
 SELECT * FROM phone_calls
@@ -39,7 +38,7 @@ ORDER BY hour LIMIT 1;
 -- Check flight
 select * from passengers where flight_id = 36;
 
--- Check people
+-- Check people passport
 SELECT * FROM people
 WHERE passport_number
 IN (
