@@ -41,3 +41,4 @@ select * from passengers where flight_id = 36;
 
 -- Check people
 SELECT * FROM people
+JOIN passengers ON 
