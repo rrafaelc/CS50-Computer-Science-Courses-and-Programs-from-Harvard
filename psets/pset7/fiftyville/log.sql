@@ -36,5 +36,3 @@ SELECT * FROM flights
 WHERE day = 29 AND month = 7
 ORDER BY hour LIMIT 1;
 
-
-
