@@ -50,10 +50,3 @@ SELECT * FROM airports WHERE id = 4;
 -- New York City
 
 -- Check phone numbers
-SELECT name FROM people
-WHERE passport_number
-IN (
-SELECT passport_number FROM passengers
-WHERE flight_id = 36
-)
-JOIN phone_call ON people.phone_number
