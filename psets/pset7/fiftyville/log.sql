@@ -35,3 +35,6 @@ AND atm_location = "Leggett Street";
 SELECT * FROM flights
 WHERE day = 29 AND month = 7
 ORDER BY hour LIMIT 1;
+
+-- Check the destination airport passengers
+SELECT * FROM passengers
