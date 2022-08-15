@@ -10,3 +10,7 @@ AND street = "Humphrey Street"
 -- Check the bakery security logs
 SELECT * FROM bakery_security_logs
 WHERE hour = 10 AND minute = 15
+
+-- Read the interview
+ SELECT name, transcript FROM interviews
+ WHERE day = 27 AND month = 7
