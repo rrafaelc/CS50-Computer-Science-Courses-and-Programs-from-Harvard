@@ -5,4 +5,4 @@ ON movies.id = stars.movie_id
 
 
 
-WHERE movies.title LIKE "Toy Story%" 
+WHERE movies.title LIKE "Toy Story%";
