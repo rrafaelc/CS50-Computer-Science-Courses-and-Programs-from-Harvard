@@ -1,4 +1,4 @@
-SELECT name FROM people JOIN movies, stars
+SELECT name FROM people JOIN movies
 ON movies.id = stars.movie_id
 
 
