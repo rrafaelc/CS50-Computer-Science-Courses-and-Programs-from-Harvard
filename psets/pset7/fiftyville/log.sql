@@ -11,6 +11,6 @@ AND street = "Humphrey Street"
 SELECT * FROM bakery_security_logs
 WHERE hour = 10 AND minute = 15
 
--- Read the interview
+-- Read the interview looking for bakery in transcription
  SELECT name, transcript FROM interviews
  WHERE transcript LIKE "%bakery%"
