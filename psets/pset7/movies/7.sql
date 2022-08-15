@@ -4,6 +4,6 @@
 -- of each movie.
 -- Movies that do not have ratings should not be included in the result.
 
-SELECT title FROM movies JOIN ratings
+SELECT movies.title, ratings.rating FROM movies JOIN ratings
 ON movies.id = ratings.movie_id
-IF (ratings.rating )
+WHERE year = 2010
