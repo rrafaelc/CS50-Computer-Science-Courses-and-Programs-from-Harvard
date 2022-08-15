@@ -44,14 +44,3 @@ IN (
 SELECT passport_number FROM passengers
 WHERE flight_id = 36
 )
-
--- Check the phone numbers
-SELECT * FROM phone_calls
-WHERE day = 28 AND month = 7 AND duration <= 60
-IN (
-SELECT phone_number FROM people
-WHERE passport_number
-IN (
-SELECT passport_number FROM passengers
-WHERE flight_id = 36
-))
