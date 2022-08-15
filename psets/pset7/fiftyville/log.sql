@@ -31,3 +31,4 @@ AND month = 7
 AND transaction_type = "withdraw"
 AND atm_location = "Leggett Street";
 
+-- Check the flight for
