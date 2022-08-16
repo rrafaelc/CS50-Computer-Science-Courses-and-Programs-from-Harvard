@@ -6,21 +6,22 @@
         <link href="styles.css" rel="stylesheet">
         <title>Trivia!</title>
         <script>
+        function main {
+            const multiQuestion = number => number == 8 ? true : false
 
-        const multiQuestion = number => number == 8 ? true : false
+            const buttons = document.querySelectorAll('button')
 
-        const buttons = document.querySelector('button')
+            // buttons.forEach((button) => {
+            //     console.log(button)
+            // })
 
-        // buttons.forEach((button) => {
-        //     console.log(button)
-        // })
+            console.log(buttons)
 
-        console.log(buttons)
-
+        }
 
         </script>
     </head>
-    <body>
+    <body onload="main()">
         <div class="header">
             <h1>Trivia!</h1>
         </div>
