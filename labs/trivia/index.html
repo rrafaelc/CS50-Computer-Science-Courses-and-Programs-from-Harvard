@@ -6,16 +6,18 @@
         <link href="styles.css" rel="stylesheet">
         <title>Trivia!</title>
         <script>
-        function main {
-            const multiQuestion = number => number == 8 ? true : false
+        const multiQuestion = number => number == 8 ? true : false
+
+        function main() {
 
             const buttons = document.querySelectorAll('button')
 
-            // buttons.forEach((button) => {
-            //     console.log(button)
-            // })
+            buttons.forEach((button) => {
+                button.addEventListener('click', e => {
+                    console.log('Hello')
+                })
+            })
 
-            console.log(buttons)
 
         }
 
