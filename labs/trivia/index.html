@@ -39,7 +39,9 @@
 
             // Free Response
             submit.addEventListener('click', () => {
-                const value = input.value()
+                const value = input.value().trim()
+
+                // if(freeResponse(value))
             })
 
         }
@@ -86,6 +88,9 @@
                 <h3>How many days are in a year?</h3>
                 <input id="free" type="text" />
                 <input id="submit" type="submit" value="Check Answer"/>
+                <div>
+                    <span>---</span>
+                </div>
             </div>
         </div>
     </body>

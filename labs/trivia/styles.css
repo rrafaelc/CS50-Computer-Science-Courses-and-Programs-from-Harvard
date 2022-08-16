@@ -38,9 +38,9 @@ body {
     text-align: center;
 }
 
-.buttons span {
+.section span {
     font-weight: bold;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .section:hover {
