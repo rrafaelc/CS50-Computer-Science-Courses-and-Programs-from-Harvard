@@ -14,11 +14,15 @@
 
             buttons.forEach((button) => {
                 button.style.backgroundColor = '#d9edff';
+                button.style.color = 'black';
 
                 button.addEventListener('click', e => {
                     const number = e.target.outerText.split(' ')[0]
                     if (multiQuestion(number)){
-                        button.style.backgroundColor = 'red';
+                        button.style.backgroundColor = 'green';
+                        button.style.color = 'white';
+                    } else {
+                        button.style.backgroundColor = 'tomato';
                     }
                 })
             })
