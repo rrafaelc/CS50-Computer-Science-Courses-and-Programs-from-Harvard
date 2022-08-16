@@ -16,11 +16,11 @@
                 const button = ele.querySelector('button')
                 const span = ele.querySelector('span')
 
-                button.style.backgroundColor = '#d9edff';
-                button.style.color = 'black';
-
                 button.addEventListener('click', e => {
                     const number = e.target.outerText.split(' ')[0]
+
+                    span.style.visibility = 'visible';
+
                     if (multiQuestion(number)){
                         button.style.backgroundColor = 'green';
                         button.style.color = 'white';
@@ -63,7 +63,7 @@
                         <span>---</span>
                     </div>
                     <div class="buttons">
-                        <button>2 planets</button>
+                        <button>4 planets</button>
                         <span>---</span>
                     </div>
                     <div class="buttons">
@@ -77,7 +77,7 @@
                 <h2>Part 2: Free Response</h2>
                 <hr>
                 <h3>How many days are in a year?</h3>
-                <input id="free" type="text"  />
+                <input id="free" type="text" />
                 <input type="submit" value="Check Answer"/>
             </div>
         </div>
