@@ -12,7 +12,10 @@
 
             const buttons = document.querySelectorAll('.buttons')
 
-            buttons.forEach((button) => {
+            buttons.forEach((ele) => {
+                const button = ele.querySelector('button')
+                const span = ele.querySelector('span')
+
                 button.style.backgroundColor = '#d9edff';
                 button.style.color = 'black';
 
