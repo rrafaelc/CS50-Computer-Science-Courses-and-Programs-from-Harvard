@@ -46,11 +46,11 @@
                 const value = input.value.trim()
 
                 if (freeQuestion(value)) {
-                    input.style.borderColor = 'green';
+                    input.style.color = 'green';
                     freeSpan.style.color = 'green';
                     freeSpan.innerText = 'Correct!';
                 } else {
-                    input.style.borderColor = 'tomato';
+                    input.style.color = 'tomato';
                     freeSpan.style.color = 'tomato';
                     freeSpan.innerText = 'Incorrect';
                 }
