@@ -14,8 +14,10 @@
 
             buttons.forEach((button) => {
                 button.addEventListener('click', e => {
-                    const text = e.target.outerText.split(' ')[0]
-                    console.log(text)
+                    const number = e.target.outerText.split(' ')[0]
+                    if (multiQuestion(number)){
+                        
+                    }
                 })
             })
 
