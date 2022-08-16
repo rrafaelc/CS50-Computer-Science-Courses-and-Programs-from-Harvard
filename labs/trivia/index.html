@@ -43,15 +43,15 @@
                 const freeSpan = document.querySelector('#free-span')
                 freeSpan.style.visibility = 'visible';
 
-                const value = input.value().trim()
+                const value = input.value.trim()
 
-                if (freeResponse(value)) {
+                if (freeQuestion(value)) {
                     input.style.borderColor = 'green';
-                    freeSpan.color = 'green';
+                    freeSpan.style.color = 'green';
                     freeSpan.innerText = 'Correct!';
                 } else {
                     input.style.borderColor = 'tomato';
-                    freeSpan.color = 'tomato';
+                    freeSpan.style.color = 'tomato';
                     freeSpan.innerText = 'Incorrect';
                 }
             })
