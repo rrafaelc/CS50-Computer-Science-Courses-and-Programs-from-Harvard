@@ -11,8 +11,6 @@
 
         function main() {
             const buttons = document.querySelectorAll('.buttons')
-            const input = document.querySelector('#free')
-            const submit = document.querySelector('#submit')
 
             // Multiple Choice
             buttons.forEach((ele) => {
@@ -38,10 +36,23 @@
             })
 
             // Free Response
+            const input = document.querySelector('#free')
+            const submit = document.querySelector('#submit')
+
             submit.addEventListener('click', () => {
+                const freeSpan = document.querySelector('#free-span')
+
                 const value = input.value().trim()
 
-                // if(freeResponse(value))
+                if (freeResponse(value)) {
+                    input.style.borderColor = 'green';
+                    freeSpan.color = 'green';
+                    freeSpan.innerText = 'Correct!';
+                } else {
+                    input.style.borderColor = 'tomato';
+                    freeSpan.color = 'tomato';
+                    freeSpan.innerText = 'Incorrect';
+                }
             })
 
         }
@@ -89,7 +100,7 @@
                 <input id="free" type="text" />
                 <input id="submit" type="submit" value="Check Answer"/>
                 <div>
-                    <span>---</span>
+                    <span id="free-span">---</span>
                 </div>
             </div>
         </div>
