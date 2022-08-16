@@ -36,6 +36,12 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    text-transform: 
+}
+
+.buttons span {
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .section:hover {
