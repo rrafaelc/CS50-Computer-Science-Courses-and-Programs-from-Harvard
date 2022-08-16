@@ -40,7 +40,7 @@ body {
 
 .section span {
     font-weight: bold;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 .section:hover {
