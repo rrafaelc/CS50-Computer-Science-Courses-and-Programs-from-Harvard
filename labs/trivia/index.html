@@ -7,11 +7,14 @@
         <title>Trivia!</title>
         <script>
         const multiQuestion = number => number == 8 ? true : false
+        const freeQuestion = number => number == 365 ? true : false
 
         function main() {
-
             const buttons = document.querySelectorAll('.buttons')
+            const input = document.querySelector('#free')
+            const submit = document.querySelector('#submit')
 
+            // Multiple Choice
             buttons.forEach((ele) => {
                 const button = ele.querySelector('button')
                 const span = ele.querySelector('span')
@@ -34,6 +37,10 @@
                 })
             })
 
+            // Free Response
+            submit.addEventListener('click', () => {
+                const value = input.value()
+            })
 
         }
 
@@ -78,7 +85,7 @@
                 <hr>
                 <h3>How many days are in a year?</h3>
                 <input id="free" type="text" />
-                <input type="submit" value="Check Answer"/>
+                <input id="submit" type="submit" value="Check Answer"/>
             </div>
         </div>
     </body>
