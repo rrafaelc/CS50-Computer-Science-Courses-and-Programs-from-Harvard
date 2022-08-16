@@ -29,11 +29,13 @@ body {
 
 .multiple {
     display: flex;
+    gap: 10px;
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .section:hover {
