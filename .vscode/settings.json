@@ -3,6 +3,7 @@
   "editor.tabSize": 4,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
-"editor.autoClosingQuotes": "always",
-"gitdoc.enabled": true,
+  "editor.autoClosingQuotes": "always",
+  "gitdoc.enabled": true,
+  "editor.folding": true
 }
