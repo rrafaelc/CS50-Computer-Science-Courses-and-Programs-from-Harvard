@@ -1,3 +1,7 @@
+body {
+  padding-bottom: 30px;
+}
+
 .navbar {
   z-index: 999;
 }
@@ -8,4 +12,8 @@
 
 .lorem {
   text-align: center;
+}
+
+.card-button {
+  border: none;
 }
