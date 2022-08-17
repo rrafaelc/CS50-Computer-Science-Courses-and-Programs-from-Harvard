@@ -12,6 +12,12 @@ body {
 
 .lorem {
   text-align: center;
+  padding: 50px 0;
+  max-width: 600px;
+}
+
+.lorem p {
+  font-size: 18px;
 }
 
 .card-button {
