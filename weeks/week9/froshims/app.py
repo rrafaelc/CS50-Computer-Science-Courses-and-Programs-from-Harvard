@@ -5,3 +5,11 @@ app = Flask(__name__)
 @app.route("/")
 def index():
   return render_template("index.html")
+
+@app.route("/register")
+def register():
+  # Validate submission
+  if not request.form.get("name") or request.form.get("sport") not in ["Basketball", "Soccer", "Ultimate Frisbee"]:
+    return 
+
+  return render_template("register.html")
