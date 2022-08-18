@@ -12,5 +12,4 @@ def greet():
   if(name == ""):
     name = "world"
 
-
   return render_template("greet.html", name=name)
