@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 SPORTS = [
   "Basketball",
-  "Football"
+  "Football",
   "Soccer",
   "Ultimate Frisbee"
 ]
