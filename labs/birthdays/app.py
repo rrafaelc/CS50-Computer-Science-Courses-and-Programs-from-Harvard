@@ -35,8 +35,6 @@ def index():
 
         birthdays = db.execute("SELECT * FROM birthdays")
 
-        console.log(birthdays)
-
-        return render_template("index.html")
+        return render_template("index.html", birthdays)
 
 
