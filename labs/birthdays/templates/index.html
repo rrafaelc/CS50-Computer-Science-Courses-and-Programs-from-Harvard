@@ -34,9 +34,10 @@
                     </thead>
                     <tbody>
                       <tr>
-                        {%  %}
-                        <td>Harry</td>
-                        <td>7/31</td>
+                        {% for birthday in birthdays %}
+                          <td>{birthday.name}</td>
+                          <td>{birthday.month}</td>
+                        {% endfor %}
                       </tr>
                     </tbody>
                 </table>
