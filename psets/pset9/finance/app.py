@@ -75,7 +75,9 @@ def buy():
 
     # db.execute("INSERT INTO stocks (transactions, user_id) VALUES (?, ?)", json_object, 2)
 
-    bought = True
+    bought = False
+    if bought:
+        flash("Bought!")
 
     return render_template("buy.html", bought=bought)
 
