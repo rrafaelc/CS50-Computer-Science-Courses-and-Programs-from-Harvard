@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 
-
 {% if bought %}
   <header>
     <div class="alert alert-primary mb-0 text-center" role="alert">
       Bought!
     </div>
   </header>
+
 {% else %}
 {% block main %}
   <form action="/buy" method="post">
@@ -18,5 +18,5 @@
     </div>
     <button class="btn btn-primary" type="submit">Buy</button>
   </form>
-{% endif %}
 {% endblock %}
+{% endif %}
