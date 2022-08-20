@@ -70,7 +70,12 @@ def buy():
             return apology("invalid symbol", 400)
 
         # Check in database if already has stock
-        stocks = db.execute("SELECT * from")
+        stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
+
+        # If not in database, create new
+        if len(stocks == 0):
+            
+
 
 
     stock = [
