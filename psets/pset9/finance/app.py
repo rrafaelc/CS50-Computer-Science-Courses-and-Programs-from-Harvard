@@ -62,7 +62,7 @@ def buy():
 
     json_object = json.dumps(dic, indent = 4)
 
-    print(json_object)
+    db.execute("INSERT INTO stocks (transactions, user_id) VALUES (?, ?)", json_object, 2)
 
     return apology("TODO")
 
