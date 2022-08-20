@@ -137,7 +137,7 @@ def register():
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         # Check if username is already taken
-        if len(row) > 0:
+        if len(rows) > 0:
             return apology("username already taken", 403)
 
         # Hash password
