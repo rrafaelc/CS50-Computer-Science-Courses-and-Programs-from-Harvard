@@ -54,6 +54,13 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
+    if request.method == "POST":
+        stock = lookup(request.form.get("symbol"))
+
+        if not stock:
+            return apology("invalid symbol", 400)
+
+
     stock = [
         {
             "symbol": "PBR",
@@ -75,7 +82,7 @@ def buy():
 
     # db.execute("INSERT INTO stocks (transactions, user_id) VALUES (?, ?)", json_object, 2)
 
-    bought = True
+    bought = False
     if bought:
         flash("Bought!")
 
