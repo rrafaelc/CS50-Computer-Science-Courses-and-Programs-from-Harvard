@@ -73,21 +73,16 @@ def buy():
         stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
 
         # If not in database, create one
-        if len(stocks[0] == 0):
-            stock = [
-            {
+        if not stocks:
+            stock = [{
                 "symbol": request.form.get("symbol"),
                 "shares": int(request.form.get("shares")),
                 "price": stock["price"]
-            }
-            ]
+            }]
 
+            json_object = json.dumps(stock)
+            print(json_object)
 
-
-
-
-
-    # json_object = json.dumps(dic, indent = 4)
 
     # parsed = json.loads(json_object)
 
