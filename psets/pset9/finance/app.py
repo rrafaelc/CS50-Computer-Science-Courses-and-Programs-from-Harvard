@@ -9,6 +9,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from helpers import apology, login_required, lookup, usd
 
 # export API_KEY=pk_dd2c20ae829e43efa4a328269fed1819
+# Created 08/19/22
 
 # Configure application
 app = Flask(__name__)
