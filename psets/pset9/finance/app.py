@@ -143,7 +143,7 @@ def register():
         # Hash password
         hashed_password = generate_password_hash(request.form.get("password"))
 
-        db.execute("INSERT INTO users ")
+        db.execute("INSERT INTO users VALUES()")
 
 
     return render_template("register.html")
