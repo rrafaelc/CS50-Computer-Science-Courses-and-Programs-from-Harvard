@@ -92,6 +92,8 @@ def buy():
     row = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
     stocks = json.loads(row[0].transactions)
 
+    stocks.price
+
     return render_template("buy.html", bought=False, stocks=stocks)
 
 
