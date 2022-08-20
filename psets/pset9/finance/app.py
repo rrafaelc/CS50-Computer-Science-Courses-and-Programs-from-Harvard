@@ -113,7 +113,10 @@ def logout():
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
-    """Get stock quote."""
+    if request.methods == "POST":
+        
+
+
     return render_template("quote.html")
 
 
