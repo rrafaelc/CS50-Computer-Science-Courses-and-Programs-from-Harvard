@@ -135,7 +135,6 @@ def register():
             return apology("passwords don't match", 400)
 
 
-
     return render_template("register.html")
 
 
