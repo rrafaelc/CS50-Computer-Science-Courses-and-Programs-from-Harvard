@@ -54,11 +54,16 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    dic = [{
+    dic = [
+        {
         "symbol": "PBR",
         "shares": 2,
-        "price": 8.25
-    }]
+        "price": 8.25},
+        {
+        "symbol": "AAPL",
+        "shares": 5,
+        "price": 144.22},
+        ]
 
     json_object = json.dumps(dic, indent = 4)
 
