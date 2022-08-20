@@ -124,7 +124,7 @@ def register():
         return apology("logout first to register", 405)
 
     """Register user"""
-    if request.method == "POST": 
+    if request.method == "POST":
 
         # Ensure username was submitted
         if not request.form.get("username"):
@@ -155,8 +155,8 @@ def register():
         session.clear()
 
         # Add user to session
-        user_id = db.execute("SELECT id FROM users WHERE username = ?", username)
-        session["user_id"] = user_id[0]
+        user = db.execute("SELECT id FROM users WHERE username = ?", username)
+        session["user_id"] = user[0]["id"]
 
         # Redirect user to dashboard
         return redirect("/")
