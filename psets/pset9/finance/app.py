@@ -88,7 +88,7 @@ def buy():
             db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", json_stock, int(session["user_id"]))
             flash("Bought!")
 
-            # stock[0].price = usd(stock[0].price)
+            stock[0]["price"] = usd(stock[0]["price"])
             print(stock)
 
             return render_template("buy.html", bought=True, stock=stock)
