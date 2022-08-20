@@ -69,6 +69,9 @@ def buy():
         if not stock:
             return apology("invalid symbol", 400)
 
+        # Check in database if already has stock
+        stocks = db.execute("SELECT * from")
+
 
     stock = [
         {
