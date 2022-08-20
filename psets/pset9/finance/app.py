@@ -119,6 +119,10 @@ def quote():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    # Check if user is logged in
+    if len(session) > 0:
+        return apology("logout first to register", 405)
+
     """Register user"""
     if request.method == "POST":
 
