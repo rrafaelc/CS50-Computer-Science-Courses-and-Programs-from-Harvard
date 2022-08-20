@@ -78,7 +78,8 @@ def buy():
                 "symbol": request.form.get("symbol"),
                 "name": stock["name"],
                 "shares": int(request.form.get("shares")),
-                "price": stock["price"]
+                "price": stock["price"],
+                "total": stock["price"] * int(request.form.get("shares"))
             }]
 
             # Convert to string
@@ -89,6 +90,7 @@ def buy():
             flash("Bought!")
 
             stock[0]["price"] = usd(stock[0]["price"])
+            stock[0]["total"] = usd(stock[0]["total"])
             print(stock)
 
             return render_template("buy.html", bought=True, stocks=stock)
