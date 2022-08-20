@@ -88,15 +88,8 @@ def buy():
             flash("Bought!")
 
 
-
-    # parsed = json.loads(json_object)
-
-    # print(parsed[1]["shares"])
-
-    # db.execute("INSERT INTO stocks (transactions, user_id) VALUES (?, ?)", json_object, 2)
-
-    rows = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
-    parsed = json.loads(r)
+    row = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
+    stocks = json.loads(row[0].transactions)
 
     return render_template("buy.html", bought=True, stocks=stocks)
 
