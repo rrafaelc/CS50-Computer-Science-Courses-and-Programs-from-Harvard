@@ -65,7 +65,11 @@ def buy():
         "price": 144.22},
         ]
 
-    json_object = json.dumps(dic, indent = 4)
+    # json_object = json.dumps(dic, indent = 4)
+
+    # parsed = json.loads(json_object)
+
+    # print(parsed[1]["shares"])
 
     # db.execute("INSERT INTO stocks (transactions, user_id) VALUES (?, ?)", json_object, 2)
 
