@@ -72,24 +72,20 @@ def buy():
         # Check in database if already has stock
         stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
 
-        # If not in database, create new
-        if len(stocks == 0):
-            
+        # If not in database, create one
+        if len(stocks[0] == 0):
+            stock = [
+            {
+                "symbol": request.form.get("symbol"),
+                "shares": int(request.form.get("shares")),
+                "price": stock["price"]
+            }
+            ]
 
 
 
-    stock = [
-        {
-            "symbol": "PBR",
-            "shares": 2,
-            "price": 8.25
-        },
-        {
-            "symbol": "AAPL",
-            "shares": 5,
-            "price": 144.22
-        },
-        ]
+
+
 
     # json_object = json.dumps(dic, indent = 4)
 
