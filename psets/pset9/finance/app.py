@@ -80,8 +80,12 @@ def buy():
                 "price": stock["price"]
             }]
 
-            json_object = json.dumps(stock)
-            print(json_object)
+            # Convert to string
+            json_stock = json.dumps(stock)
+
+            # Add the json to the database
+            db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", json_stock, int(session["user_id"]))
+
 
 
     # parsed = json.loads(json_object)
@@ -90,7 +94,7 @@ def buy():
 
     # db.execute("INSERT INTO stocks (transactions, user_id) VALUES (?, ?)", json_object, 2)
 
-    bought = False
+    bought = True
     if bought:
         flash("Bought!")
 
