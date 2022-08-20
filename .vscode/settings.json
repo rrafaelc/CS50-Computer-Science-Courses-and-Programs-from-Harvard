@@ -1,6 +1,9 @@
 {
   "editor.formatOnSave": false,
-  "[c, python]": {
+  "[c]": {
+    "editor.tabSize": 4
+  },
+  "[python]": {
     "editor.tabSize": 4
   },
   "editor.insertSpaces": true,
