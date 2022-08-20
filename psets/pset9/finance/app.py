@@ -152,7 +152,7 @@ def register():
 
         # Add user to session
         user_id = db.execute("SELECT id FROM users WHERE username = ?", username)
-        session["user_id"]
+        session["user_id"] = user_id[0]
 
 
     return render_template("register.html")
