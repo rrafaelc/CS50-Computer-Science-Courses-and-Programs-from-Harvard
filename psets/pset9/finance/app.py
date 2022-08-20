@@ -61,7 +61,7 @@ def buy():
         elif not request.form.get("shares"):
             return apology("must provide shares", 400)
 
-        if request.form.get("shares") <= 0:
+        if int(request.form.get("shares")) <= 0:
             return apology("must provide shares above 0", 400)
 
         stock = lookup(request.form.get("symbol"))
