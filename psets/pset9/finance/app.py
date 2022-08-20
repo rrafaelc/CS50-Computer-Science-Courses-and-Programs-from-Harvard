@@ -141,7 +141,7 @@ def register():
             return apology("username already taken", 403)
 
         # Hash password
-        username = request.form.get("name")
+        username = request.form.get("username")
         hashed_password = generate_password_hash(request.form.get("password"))
         cash = 10000
 
@@ -153,6 +153,9 @@ def register():
         # Add user to session
         user_id = db.execute("SELECT id FROM users WHERE username = ?", username)
         session["user_id"] = user_id[0]
+
+        # Redirect user to dashboard
+        return redirect("/")
 
 
     return render_template("register.html")
