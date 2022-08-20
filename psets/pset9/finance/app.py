@@ -132,7 +132,7 @@ def register():
 
         # Ensure password confirmation was submitted
         if request.form.get("password") != request.get.form("confirmation"):
-            return apology("must provide password", 403)
+            return apology("passwords don't match", 400)
 
 
 
