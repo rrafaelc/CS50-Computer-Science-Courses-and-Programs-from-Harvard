@@ -88,13 +88,16 @@ def buy():
             db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", json_stock, int(session["user_id"]))
             flash("Bought!")
 
+            return render_template("buy.html", bought=False)
 
-    row = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
-    stocks = json.loads(row)
 
-    stocks[0].price = usd(stocks[0].price)
+    # row = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
+    # stocks = json.loads(row)
 
-    return render_template("buy.html", bought=False, stocks=stocks)
+    # stocks[0].price = usd(stocks[0].price)
+
+    return render_template("buy.html", bought=False)
+    # return render_template("buy.html", bought=False, stocks=stocks)
 
 
 @app.route("/history")
