@@ -93,9 +93,14 @@ def buy():
             stock[0]["total"] = usd(stock[0]["total"])
 
             # Get cash from user
-            cash = db.execute("SELECT")
+            cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-            return render_template("buy.html", bought=True, stocks=stock)
+            # Discount amount from total
+            cash -= int(stock[0]["total"])
+            total = usd(cash + int(stock[0]["total"]))
+            cash = usd(cash)
+
+            return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
 
 
     # row = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
