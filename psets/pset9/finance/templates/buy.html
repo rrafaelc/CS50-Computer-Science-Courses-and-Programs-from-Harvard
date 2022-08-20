@@ -2,7 +2,57 @@
 
 {% block main %}
 
-{% if not bought %}
+{% if bought %}
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th class="text-start">Symbol</th>
+          <th class="text-start">Name</th>
+          <th class="text-end">Shares</th>
+          <th class="text-end">Price</th>
+          <th class="text-end">TOTAL</th>
+      </tr>
+  </thead>
+ <tbody>
+
+          <tr>
+              <td class="text-start">AAPL</td>
+              <td class="text-start">Apple Inc</td>
+              <td class="text-end">7</td>
+              <td class="text-end">$174.15</td>
+              <td class="text-end">$1,219.05</td>
+          </tr>
+
+          <tr>
+              <td class="text-start">BDORY</td>
+              <td class="text-start">Banco Do Brasil S.A. - ADR</td>
+              <td class="text-end">3</td>
+              <td class="text-end">$8.05</td>
+              <td class="text-end">$24.15</td>
+          </tr>
+
+          <tr>
+              <td class="text-start">PBR</td>
+              <td class="text-start">Petroleo Brasileiro S.A. Petrobras - ADR</td>
+              <td class="text-end">11</td>
+              <td class="text-end">$14.21</td>
+              <td class="text-end">$156.31</td>
+          </tr>
+
+  </tbody>
+  <tfoot>
+      <tr>
+          <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+          <td class="border-0 text-end">$8,600.49</td>
+      </tr>
+      <tr>
+          <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+          <td class="border-0 w-bold text-end">$10,000.00</td>
+      </tr>
+  </tfoot>
+</table>
+
+{% else %}
   <form action="/buy" method="post">
     <div class="mb-3">
         <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text">
