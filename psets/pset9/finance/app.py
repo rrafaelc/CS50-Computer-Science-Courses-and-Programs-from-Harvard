@@ -156,9 +156,8 @@ def register():
         # Hash password
         username = request.form.get("username")
         hashed_password = generate_password_hash(request.form.get("password"))
-        cash = 10000
 
-        db.execute("INSERT INTO users (username, hash, cash) VALUES(?, ?, ?)", username, hashed_password, cash)
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hashed_password)
 
         # Clear session first
         session.clear()
