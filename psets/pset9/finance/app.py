@@ -91,7 +91,9 @@ def buy():
 
             stock[0]["price"] = usd(stock[0]["price"])
             stock[0]["total"] = usd(stock[0]["total"])
-            print(stock)
+
+            # Get cash from user
+            cash = db.execute("SELECT")
 
             return render_template("buy.html", bought=True, stocks=stock)
 
