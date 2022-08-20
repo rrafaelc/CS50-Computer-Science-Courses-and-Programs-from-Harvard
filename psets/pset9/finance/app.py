@@ -85,6 +85,7 @@ def buy():
 
             # Add the json to the database
             db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", json_stock, int(session["user_id"]))
+            flash("Bought!")
 
 
 
@@ -94,11 +95,10 @@ def buy():
 
     # db.execute("INSERT INTO stocks (transactions, user_id) VALUES (?, ?)", json_object, 2)
 
-    bought = True
-    if bought:
-        flash("Bought!")
+    rows = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
+    parsed = json.loads(r)
 
-    return render_template("buy.html", bought=bought)
+    return render_template("buy.html", bought=True, stocks=stocks)
 
 
 @app.route("/history")

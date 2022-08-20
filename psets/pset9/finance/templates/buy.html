@@ -14,13 +14,15 @@
       </tr>
   </thead>
  <tbody>
-      <tr>
-          <td class="text-start">AAPL</td>
-          <td class="text-start">Apple Inc</td>
-          <td class="text-end">7</td>
-          <td class="text-end">$174.15</td>
-          <td class="text-end">$1,219.05</td>
-      </tr>
+      {% for stock in stocks %}
+        <tr>
+            <td class="text-start">AAPL</td>
+            <td class="text-start">Apple Inc</td>
+            <td class="text-end">7</td>
+            <td class="text-end">$174.15</td>
+            <td class="text-end">$1,219.05</td>
+        </tr>
+      {% endfor %}
   </tbody>
   <tfoot>
       <tr>
