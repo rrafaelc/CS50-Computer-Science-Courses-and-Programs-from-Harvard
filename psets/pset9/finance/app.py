@@ -76,6 +76,7 @@ def buy():
         if not stocks:
             stock = [{
                 "symbol": request.form.get("symbol"),
+                "name": stock["name"],
                 "shares": int(request.form.get("shares")),
                 "price": stock["price"]
             }]
@@ -91,7 +92,7 @@ def buy():
     row = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
     stocks = json.loads(row[0].transactions)
 
-    return render_template("buy.html", bought=True, stocks=stocks)
+    return render_template("buy.html", bought=False, stocks=stocks)
 
 
 @app.route("/history")
