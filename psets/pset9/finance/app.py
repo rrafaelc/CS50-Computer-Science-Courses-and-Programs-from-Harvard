@@ -88,7 +88,7 @@ def buy():
             db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", json_stock, int(session["user_id"]))
             flash("Bought!")
 
-            return render_template("buy.html", bought=False)
+            return render_template("buy.html", bought=True)
 
 
     # row = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
