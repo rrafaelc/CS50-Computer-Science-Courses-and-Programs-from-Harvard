@@ -119,6 +119,8 @@ def quote():
         if not stock:
             return apology("invalid symbol", 400)
 
+        # convert to usd
+        stock["price"] = usd(stock["price"])
         return render_template("quote.html", stock=stock)
 
     return render_template("quote.html", stock=None)
