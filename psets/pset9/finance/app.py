@@ -140,6 +140,11 @@ def register():
         if len(row) > 0:
             return apology("username already taken", 403)
 
+        # Hash password
+        hashed_password = generate_password_hash(request.form.get("password"))
+
+        db.execute("INSERT INTO users ")
+
 
     return render_template("register.html")
 
