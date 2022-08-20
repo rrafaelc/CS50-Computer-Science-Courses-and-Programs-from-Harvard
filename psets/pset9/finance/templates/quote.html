@@ -9,6 +9,6 @@
     <button class="btn btn-primary" type="submit">Quote</button>
   </form>
 {% else %}
-  A share of {{ stock["name"] }} ({{ stock["symbol"] }}) costs {{ stock["price"] }}.
+  <p>A share of {{ stock["name"] }} ({{ stock["symbol"] }}) costs {{ stock["price"] }}.</p>
 {% endif %}
 {% endblock %}
