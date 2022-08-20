@@ -1,14 +1,23 @@
 {% extends "layout.html" %}
 
 {% block main %}
-{% if not stock %}
-  <form action="/quote" method="post">
-    <div class="mb-3">
-      <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text">
-    </div>
-    <button class="btn btn-primary" type="submit">Quote</button>
-  </form>
+{% if bought %}
+  <div class="alert alert-primary mb-0 text-center" role="alert">
+    Bought!
+  </div>
 {% else %}
-  <p>A share of {{ stock["name"] }} ({{ stock["symbol"] }}) costs {{ stock["price"] }}.</p>
+  <main class="container py-5 text-center">
+
+    <form action="/buy" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" min="1" name="shares" placeholder="Shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+
+  </main>
 {% endif %}
 {% endblock %}
