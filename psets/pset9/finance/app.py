@@ -93,6 +93,10 @@ def buy():
 
             # Discount cash from total
             cash = row[0]["cash"] - stock[0]["total"]
+
+            # Update user cash
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+
             total = usd(cash + stock[0]["total"])
             cash = usd(cash)
 
