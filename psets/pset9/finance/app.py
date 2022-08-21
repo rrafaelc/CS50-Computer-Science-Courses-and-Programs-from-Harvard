@@ -108,41 +108,41 @@ def buy():
             return render_template("buy.html", bought=True, stocks=stock, cash=cash, total_final=total_final)
 
         # If already in database
-        # elif len(stocks) == 1:
+        elif len(stocks) == 1:
 
-        #     # Convert to list
-        #     stocks = json.loads(stocks[0]["transactions"])
+            # Convert to list
+            stocks = json.loads(stocks[0]["transactions"])
 
-        #     for stock in stocks:
-        #         # Check if find same symbol, then update
-        #         if stock["symbol"] == stock_API["symbol"]:
-        #             stock["shares"] += int(request.form.get("shares"))
-        #             stock["total"] += stock_API["price"] * int(request.form.get("shares"))
+            for stock in stocks:
+                # Check if find same symbol, then update
+                if stock["symbol"] == stock_API["symbol"]:
+                    stock["shares"] += int(request.form.get("shares"))
+                    stock["total"] += stock_API["price"] * int(request.form.get("shares"))
 
-        #             # Convert to string
-        #             transactions = json.dumps(stocks)
+                    # Convert to string
+                    transactions = json.dumps(stocks)
 
-        #             # Add the json to the database
-        #             db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
+                    # Add the json to the database
+                    db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
-        #             # Get cash from user
-        #             row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+                    # Get cash from user
+                    row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-        #             # Discount cash from total
-        #             cash = row[0]["cash"] - stock["total"]
+                    # Discount cash from total
+                    cash = row[0]["cash"] - stock["total"]
 
-        #             # Update user cash
-        #             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+                    # Update user cash
+                    db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
-        #             total_final = usd(cash + sum_total_stocks(stocks))
-        #             cash = usd(cash)
+                    total_final = usd(cash + sum_total_stocks(stocks))
+                    cash = usd(cash)
 
-        #             # Convert to usd
-        #             stock["price"] = usd(stock["price"])
-        #             stock["total"] = usd(stock["total"])
+                    # Convert to usd
+                    stock["price"] = usd(stock["price"])
+                    stock["total"] = usd(stock["total"])
 
-        #             flash("Bought!")
-        #             return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
+                    flash("Bought!")
+                    return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
 
         #     # If not find symbol, append one
         #     newStocks = {
