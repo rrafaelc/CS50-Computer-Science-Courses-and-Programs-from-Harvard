@@ -73,4 +73,5 @@ def sum_total_stocks(stocks):
 
     return total
 
-def add_to_history(symbol, shares, price, user_id)
+def add_to_history(symbol, shares, price, user_id):
+    db.execute("INSERT INTO transactions (symbol, shares, price)")
