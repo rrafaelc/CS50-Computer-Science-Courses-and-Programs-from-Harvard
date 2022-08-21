@@ -49,7 +49,7 @@ def index():
     """Show portfolio of stocks"""
     return apology("TODO")
 
-
+# TODO LEMBRAR DE ADICIONAR A TABELA DE HISTORICO CADA TRANSACAO, INCLUSIVE A DE VENDA
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
