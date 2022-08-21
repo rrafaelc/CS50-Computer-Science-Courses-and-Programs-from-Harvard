@@ -64,9 +64,9 @@ def buy():
         if int(request.form.get("shares")) <= 0:
             return apology("share can't be zero or negative", 400)
 
-        stock = lookup(request.form.get("symbol"))
+        stock_API = lookup(request.form.get("symbol"))
 
-        if not stock:
+        if not stock_API:
             return apology("invalid symbol", 400)
 
         # Check in database if already has stock
@@ -75,10 +75,10 @@ def buy():
         # If not in database, create one
         if not stocks:
             stock = [{
-                "symbol": request.form.get("symbol"),
-                "name": stock["name"],
+                "symbol": stock_API.symbol,
+                "name": stock_API.name,
                 "shares": int(request.form.get("shares")),
-                "price": stock["price"],
+                "price": stock_API.price,
                 "total": stock["price"] * int(request.form.get("shares"))
             }]
 
@@ -116,7 +116,7 @@ def buy():
             for stock in stocks:
 
                 # Check if find same symbol, then update
-                if stock["symbol"] == request.form.get("symbol"):
+                if stock["symbol"] == stock_API.symbol:
                     stock["shares"] += int(request.form.get("shares"))
                     stock["total"] += stock["price"] * int(request.form.get("shares"))
 
@@ -147,10 +147,10 @@ def buy():
 
             # If not find symbol, append one
             newStocks = {
-                "symbol": request.form.get("symbol"),
-                "name": stock["name"],
+                "symbol": stock_API.symbol,
+                "name": stock_API.name,
                 "shares": int(request.form.get("shares")),
-                "price": stock["price"],
+                "price": stock_API.price,
                 "total": stock["price"] * int(request.form.get("shares"))
             }
 
