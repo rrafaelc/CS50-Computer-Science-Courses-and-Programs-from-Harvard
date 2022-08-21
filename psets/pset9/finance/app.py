@@ -371,20 +371,6 @@ def sell():
                 if count < 0:
                     return apology("too many shares", 400)
 
-        # Get user cash
-        row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-
-        cash = row[0]["cash"]
-
-        # Add the sell to cash
-        cash += int(request.form.get("shares")) * stock_API["price"]
-
-        # Update user cash
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
-
-        # Add to history
-        add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
-
         if stock["shares"] - int(request.form.get("shares")) == 0:
             # Find the same symbol choosed by user and remove from database if the shares is equal to 0
             updatedStock = []
@@ -398,6 +384,20 @@ def sell():
 
             # Update database for the user
             db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, session["user_id"])
+
+            # Get user cash
+            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+            cash = row[0]["cash"]
+
+            # Add the sell to cash
+            cash += int(request.form.get("shares")) * stock_API["price"]
+
+            # Update user cash
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+
+            # Add to history
+            add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
 
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(updatedStock))
@@ -423,6 +423,20 @@ def sell():
 
              # Update database
             db.execute("UPDATE stocks SET transactions = ?", transactions)
+
+            # Get user cash
+            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+            cash = row[0]["cash"]
+
+            # Add the sell to cash
+            cash += int(request.form.get("shares")) * stock_API["price"]
+
+            # Update user cash
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+
+            # Add to history
+            add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
 
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(stocks))
