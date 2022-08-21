@@ -416,6 +416,7 @@ def sell():
             for stock in stocks:
                 if stock["symbol"] == stock_API["symbol"]:
                     stock["shares"] - int(request.form.get("shares"))
+                    stock["total"] -= stock_API["price"] * int(request.form.get("shares"))
 
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(stocks))
