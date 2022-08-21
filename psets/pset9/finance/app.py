@@ -371,8 +371,14 @@ def sell():
                 if count < 0:
                     return apology("too many shares", 400)
 
-        sell =  count = stock["shares"] - int(request.form.get("shares"))
+        count = stock["shares"] - int(request.form.get("shares"))
 
         # Get user cash
+        row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+        cash = row[0]["cash"]
+
+        # Add the sell to cash
+        cash += int(request.form.get("shares")) * stock_API["price"]
 
     return render_template("sell.html", symbols=symbols)
