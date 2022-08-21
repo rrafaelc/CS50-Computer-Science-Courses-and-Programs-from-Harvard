@@ -103,6 +103,38 @@ def buy():
             flash("Bought!")
             return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
 
+        # If already in database
+        else:
+            stock = [{
+                "symbol": request.form.get("symbol"),
+                "name": stock["name"],
+                "shares": int(request.form.get("shares")),
+                "price": stock["price"],
+                "total": stock["price"] * int(request.form.get("shares"))
+            }]
+
+            # Convert to string
+            transactions = json.dumps(stock)
+
+            # Add the json to the database
+            db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", transactions, int(session["user_id"]))
+
+            # Get cash from user
+            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+            # Discount cash from total
+            cash = row[0]["cash"] - stock[0]["total"]
+            total = usd(cash + stock[0]["total"])
+            cash = usd(cash)
+
+            # Convert to usd
+            stock[0]["price"] = usd(stock[0]["price"])
+            stock[0]["total"] = usd(stock[0]["total"])
+
+            flash("Bought!")
+            return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
+
+
 
     # row = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
     # stocks = json.loads(row)
@@ -110,7 +142,6 @@ def buy():
     # stocks[0].price = usd(stocks[0].price)
 
     return render_template("buy.html", bought=False)
-    # return render_template("buy.html", bought=False, stocks=stocks)
 
 
 @app.route("/history")
