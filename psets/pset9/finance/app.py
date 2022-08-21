@@ -411,7 +411,7 @@ def sell():
             flash('Sold!')
             return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
 
-        elif:
+        else:
             # Update the share from database
             for stock in stocks:
                 if stock["symbol"] == stock_API["symbol"]:
@@ -436,5 +436,4 @@ def sell():
             return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
 
 
-    flash('Sold!')
-    return render_template("sell.html", symbols=symbols, sold=True)
+    return render_template("sell.html", symbols=symbols, sold=False)
