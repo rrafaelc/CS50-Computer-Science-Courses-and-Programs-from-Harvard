@@ -364,6 +364,7 @@ def sell():
             return apology("invalid symbol", 400)
 
         for stock in stocks:
-            if stock["symbol"] == 
+            if stock["symbol"] == stock_API["symbol"]:
+                
 
     return render_template("sell.html", symbols=symbols)
