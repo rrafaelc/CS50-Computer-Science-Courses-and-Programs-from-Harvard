@@ -161,13 +161,14 @@ def buy():
 
             # Initialize variable cash for the loop
             cash = row[0]["cash"]
+            total = 0
 
             # Loop the stocks
             for stock in stocks:
                 # Discount cash from from each total stocks
                 cash -= stock["total"]
+                total = cash + stock["total"]
 
-            total = usd(cash + stock["total"])
             cash = usd(cash)
 
             # Convert to usd
