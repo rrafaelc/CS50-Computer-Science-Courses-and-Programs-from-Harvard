@@ -333,5 +333,19 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
-    """Sell shares of stock"""
+    if request.method == "POST":
+        if not request.form.get("symbol"):
+            return apology("missing symbol", 400)
+
+        elif not request.form.get("shares"):
+            return apology("must provide shares", 400)
+
+        if int(request.form.get("shares")) <= 0:
+            return apology("share can't be zero or negative", 400)
+
+        stock_API = lookup(request.form.get("symbol"))
+
+        if not stock_API:
+            return apology("invalid symbol", 400)
+
     return render_template("sell.html")
