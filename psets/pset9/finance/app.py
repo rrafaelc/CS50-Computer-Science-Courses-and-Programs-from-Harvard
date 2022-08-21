@@ -92,9 +92,11 @@ def buy():
             row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
             # Discount cash from total
-            cash = row["cash"] - int(stock[0]["total"])
-            total = usd(cash + int(stock[0]["total"]))
-            cash = usd(cash)
+            # cash = row["cash"] - int(stock[0]["total"])
+            # total = usd(cash + int(stock[0]["total"]))
+            # cash = usd(cash)
+
+            print(stock[0]["total"])
 
             # Convert to usd
             stock[0]["price"] = usd(stock[0]["price"])
