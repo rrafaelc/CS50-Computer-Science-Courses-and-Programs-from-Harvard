@@ -393,6 +393,16 @@ def sell():
                 if stock["symbol"] != stock_API["symbol"]:
                     stocks.append(stock)
 
+            # Convert to usd
+            total_final = usd(cash + sum_total_stocks(stocks))
+            cash = usd(cash)
+
+            # Convert each one to usd
+            for stock in stocks:
+                stock["price"] = usd(stock["price"])
+                stock["total"] = usd(stock["total"])
+
+
             # Convert to string
             transactions = json.dumps(stocks)
 
