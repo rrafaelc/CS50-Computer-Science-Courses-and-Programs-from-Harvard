@@ -87,9 +87,11 @@ def buy():
 
             # Add the json to the database
             db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", json_stock, int(session["user_id"]))
-            flash("Bought!")
 
-            # Discount amount from total
+            # Get cash from user
+            cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+            # Discount cash from total
             cash -= int(stock[0]["total"])
             total = usd(cash + int(stock[0]["total"]))
             cash = usd(cash)
@@ -98,11 +100,7 @@ def buy():
             stock[0]["price"] = usd(stock[0]["price"])
             stock[0]["total"] = usd(stock[0]["total"])
 
-            # Get cash from user
-            cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-
-
-
+            flash("Bought!")
             return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
 
 
