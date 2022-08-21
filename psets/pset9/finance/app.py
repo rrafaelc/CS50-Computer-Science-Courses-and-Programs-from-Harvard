@@ -168,6 +168,9 @@ def buy():
             # Append the new stock
             stocks.append(newStock)
 
+            # Sort the list
+            stocks = sorted(stocks, key=lambda d: d["symbol"])
+
             # Convert to string
             transactions = json.dumps(stocks)
 
