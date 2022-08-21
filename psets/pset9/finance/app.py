@@ -69,9 +69,6 @@ def buy():
         if not stock_API:
             return apology("invalid symbol", 400)
 
-        # Check in database if already has stock
-        stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
-
         # Check if has enough cash to buy
         row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = row[0]["cash"]
@@ -79,6 +76,9 @@ def buy():
 
         if cash - price < 0:
             return apology("not enough cash to buy", 400)
+
+        # Check in database if already has stock
+        stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
 
         # If not in database, create one
         if not stocks:
