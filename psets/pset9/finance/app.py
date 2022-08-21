@@ -77,7 +77,7 @@ def buy():
         if cash - price < 0:
             return apology("not enough cash to buy", 400)
 
-        # Check in database if already has stock
+        # Check in database if the user already has stock
         stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
 
         # If not in database, create one
