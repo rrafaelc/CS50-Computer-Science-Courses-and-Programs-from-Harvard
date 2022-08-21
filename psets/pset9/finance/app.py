@@ -104,7 +104,7 @@ def buy():
             return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
 
         # If already in database
-        else:
+        elif stocks == 1:
             # Convert to list
             stocks = json.loads(stocks[0]["transactions"])
 
