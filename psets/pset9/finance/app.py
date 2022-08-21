@@ -113,9 +113,10 @@ def buy():
                 "total": stock["price"] * int(request.form.get("shares"))
             }]
 
-            for st in stocks:
-                if st["symbol"] = request.form.get("symbol"):
-                    
+            for sto in stocks:
+                if sto["symbol"] = request.form.get("symbol"):
+                    sto["shares"] += int(request.form.get("shares"))
+
 
             # Convert to string
             transactions = json.dumps(stock)
