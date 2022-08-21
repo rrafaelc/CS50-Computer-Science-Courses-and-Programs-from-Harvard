@@ -5,6 +5,8 @@ import urllib.parse
 from flask import redirect, render_template, request, session
 from functools import wraps
 
+from cs50 import SQL
+
 
 def apology(message, code=400):
     """Render message as an apology to user."""
@@ -74,4 +76,7 @@ def sum_total_stocks(stocks):
     return total
 
 def add_to_history(symbol, shares, price, user_id):
-    db.execute("INSERT INTO transactions (symbol, shares, price)")
+    # Configure CS50 Library to use SQLite database
+    db = SQL("sqlite:///finance.db")
+
+    db.execute("INSERT INTO transactions (symbol, shares, price, user_id) VALUES(?, ?, ?, ?)", symbol, int(shares), int(price), int(user_id))

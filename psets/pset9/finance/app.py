@@ -7,7 +7,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, lookup, usd, sum_total_stocks
+from helpers import apology, login_required, lookup, usd, sum_total_stocks, add_to_history
 
 # export API_KEY=pk_dd2c20ae829e43efa4a328269fed1819
 # Created 08/19/22
@@ -49,7 +49,6 @@ def index():
     """Show portfolio of stocks"""
     return apology("TODO")
 
-# TODO LEMBRAR DE ADICIONAR A TABELA DE HISTORICO CADA TRANSACAO, INCLUSIVE A DE VENDA
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
@@ -104,6 +103,9 @@ def buy():
             # Update user cash
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
+            # Add transactions to history
+            add_to_history(stock_API["symbol"], int(request.form.get("shares")), stock_API["price"], session["user_id"])
+
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(stock))
             cash = usd(cash)
@@ -142,6 +144,9 @@ def buy():
 
                     # Update user cash
                     db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+
+                    # Add transactions to history
+                    add_to_history(stock_API["symbol"], int(request.form.get("shares")), stock_API["price"], session["user_id"])
 
                     total_final = usd(cash + sum_total_stocks(stocks))
                     cash = usd(cash)
@@ -182,6 +187,9 @@ def buy():
 
             # Update user cash
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+
+            # Add transactions to history
+            add_to_history(stock_API["symbol"], int(request.form.get("shares")), stock_API["price"], session["user_id"])
 
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(stocks))
