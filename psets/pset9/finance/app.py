@@ -393,6 +393,12 @@ def sell():
                 if stock["symbol"] != stock_API["symbol"]:
                     stocks.append(stock)
 
+            # Convert to string
+            transactions = json.dumps(stocks)
+
+            # Update database
+            db.execute("UPDATE stocks SET transactions = ?", transactions)
+
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(stocks))
             cash = usd(cash)
@@ -401,12 +407,6 @@ def sell():
             for stock in stocks:
                 stock["price"] = usd(stock["price"])
                 stock["total"] = usd(stock["total"])
-
-            # Convert to string
-            transactions = json.dumps(stocks)
-
-            # Update database
-            db.execute("UPDATE stocks SET transactions = ?", transactions)
 
             flash('Sold!')
             return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
@@ -418,6 +418,12 @@ def sell():
                     stock["shares"] - int(request.form.get("shares"))
                     stock["total"] -= stock_API["price"] * int(request.form.get("shares"))
 
+            # Convert to string
+            transactions = json.dumps(stocks)
+
+             # Update database
+            db.execute("UPDATE stocks SET transactions = ?", transactions)
+
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(stocks))
             cash = usd(cash)
@@ -426,12 +432,6 @@ def sell():
             for stock in stocks:
                 stock["price"] = usd(stock["price"])
                 stock["total"] = usd(stock["total"])
-
-            # Convert to string
-            transactions = json.dumps(stocks)
-
-            # Update database
-            db.execute("UPDATE stocks SET transactions = ?", transactions)
 
             flash('Sold!')
             return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
