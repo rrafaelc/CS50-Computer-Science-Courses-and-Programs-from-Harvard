@@ -123,7 +123,7 @@ def buy():
                 transactions = json.dumps(stocks)
 
                 # Add the json to the database
-                db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", transactions, int(session["user_id"]))
+                db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
                 # Get cash from user
                 row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
