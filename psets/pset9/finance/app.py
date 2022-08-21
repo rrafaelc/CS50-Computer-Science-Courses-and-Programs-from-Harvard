@@ -350,6 +350,17 @@ def sell():
 
 
     # Get the users symbols from database
-    stocks = db.execute("SELECT ")
+    stocks = db.execute("SELECT transactions FROM stocks WHERE user_id = ?", session["user_id"])
 
-    return render_template("sell.html")
+    symbols = []
+
+    # Check if has stock
+    if len(stocks) == 1:
+        # Convert to list
+        stocks = json.loads(stocks[0]["transactions"])
+
+        # Append the symbols to symbols
+        for stock in stocks:
+            symbols.append(stock["symbol"])
+
+    return render_template("sell.html", symbols=symbols)

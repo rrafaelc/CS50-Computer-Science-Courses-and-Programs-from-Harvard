@@ -5,15 +5,9 @@
   <div class="mb-3">
       <select class="form-select mx-auto w-auto" name="symbol">
           <option disabled="" selected="">Symbol</option>
-
-              <option value="AAPL">AAPL</option>
-
-              <option value="BDORY">BDORY</option>
-
-              <option value="PBR">PBR</option>
-
-              <option value="ZIVOW">ZIVOW</option>
-
+            {% for symbol in symbols %}
+              <option value="{{ symbol }}">{{ symbol }}</option>
+            {% endfor %}
       </select>
   </div>
   <div class="mb-3">
