@@ -371,6 +371,8 @@ def sell():
                 if count < 0:
                     return apology("too many shares", 400)
 
-        
+        sell =  count = stock["shares"] - int(request.form.get("shares"))
+
+        # Get user cash
 
     return render_template("sell.html", symbols=symbols)
