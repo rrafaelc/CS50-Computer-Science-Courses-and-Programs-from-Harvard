@@ -154,9 +154,6 @@ def buy():
                 "total": stock["price"] * int(request.form.get("shares"))
             }
 
-            # Convert to list
-            stocks = json.loads(stocks[0]["transactions"])
-
             # Append the new stocks
             stocks.append(newStocks)
 
