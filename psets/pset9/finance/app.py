@@ -105,7 +105,7 @@ def buy():
 
         # If already in database
         else:
-            stock = [{
+            stocsk = [{
                 "symbol": request.form.get("symbol"),
                 "name": stock["name"],
                 "shares": int(request.form.get("shares")),
@@ -113,32 +113,34 @@ def buy():
                 "total": stock["price"] * int(request.form.get("shares"))
             }]
 
-            for sto in stocks:
-                if sto["symbol"] = request.form.get("symbol"):
-                    sto["shares"] += int(request.form.get("shares"))
-                    sto["total"]: sto["price"] * int(request.form.get("shares"))
+            # Check if find same symbol, then update
+            for stock in stocks:
+                if stock["symbol"] = request.form.get("symbol"):
+                    stock["shares"] += int(request.form.get("shares"))
+                    stock["total"]: sto["price"] * int(request.form.get("shares"))
 
+                # Convert to string
+                transactions = json.dumps(stocks)
 
-            # Convert to string
-            transactions = json.dumps(stock)
+                # Add the json to the database
+                db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", transactions, int(session["user_id"]))
 
-            # Add the json to the database
-            db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", transactions, int(session["user_id"]))
+                # Get cash from user
+                row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-            # Get cash from user
-            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+                # Discount cash from total
+                cash = row[0]["cash"] - stock[0]["total"]
+                total = usd(cash + stock[0]["total"])
+                cash = usd(cash)
 
-            # Discount cash from total
-            cash = row[0]["cash"] - stock[0]["total"]
-            total = usd(cash + stock[0]["total"])
-            cash = usd(cash)
+                # Convert to usd
+                stock[0]["price"] = usd(stock[0]["price"])
+                stock[0]["total"] = usd(stock[0]["total"])
 
-            # Convert to usd
-            stock[0]["price"] = usd(stock[0]["price"])
-            stock[0]["total"] = usd(stock[0]["total"])
+                flash("Bought!")
+                return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
 
-            flash("Bought!")
-            return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
+            return render_template("buy.html", bought=False)
 
 
 
