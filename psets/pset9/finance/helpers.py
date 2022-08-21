@@ -79,4 +79,4 @@ def add_to_history(symbol, shares, price, user_id):
     # Configure CS50 Library to use SQLite database
     db = SQL("sqlite:///finance.db")
 
-    db.execute("INSERT INTO transactions (symbol, shares, price, user_id) VALUES(?, ?, ?, ?)", symbol, int(shares), int(price), int(user_id))
+    db.execute("INSERT INTO transactions (symbol, shares, price, user_id) VALUES(?, ?, ?, ?)", symbol, shares, price, user_id)
