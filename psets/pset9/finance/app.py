@@ -150,11 +150,7 @@ def buy():
                     total_final = usd(cash + sum_total_stocks(stocks))
                     cash = usd(cash)
 
-                    # Convert to usd
-                    # stock["price"] = usd(stock["price"])
-                    # stock["total"] = usd(stock["total"])
-
-                    # Convert each one to usd for all stocks
+                    # Convert each one to usd for all stocks after found the same symbol
                     for sto in stocks:
                         sto["price"] = usd(sto["price"])
                         sto["total"] = usd(sto["total"])
