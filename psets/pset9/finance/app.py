@@ -338,7 +338,7 @@ def sell():
     # Get the users transactions from database
     stocks = db.execute("SELECT transactions FROM stocks WHERE user_id = ?", session["user_id"])
 
-    # Check if has stock
+    # Check if has stock for get method
     if len(stocks) == 1:
         # Convert to list
         stocks = json.loads(stocks[0]["transactions"])
