@@ -157,6 +157,8 @@ def buy():
                 "total": stock_API["price"] * int(request.form.get("shares"))
             }
 
+            stock_current_total = stock_API["price"] * int(request.form.get("shares"))
+
             # Append the new stocks
             stocks.append(newStocks)
 
@@ -170,7 +172,7 @@ def buy():
             row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
             # Update user cash
-            cash = row[0]["cash"] - newStocks["total"]
+            cash = row[0]["cash"] - stock_current_total
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
             # Convert to usd
