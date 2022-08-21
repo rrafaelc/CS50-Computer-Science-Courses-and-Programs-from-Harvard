@@ -387,6 +387,10 @@ def sell():
         # Add to history
         add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
 
+        print('=============')
+        print(count)
+        print('=============')
+
         if (count == 0):
             # Remove the item from database
             for stock in stocks:
