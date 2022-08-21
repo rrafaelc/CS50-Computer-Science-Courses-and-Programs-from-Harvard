@@ -116,7 +116,7 @@ def buy():
             stocks = json.loads(stocks[0]["transactions"])
 
             for stock in stocks:
-                total_stock += stock[]
+                total_stock += stock["total"]
 
                 # Check if find same symbol, then update
                 if stock["symbol"] == stock_API["symbol"]:
