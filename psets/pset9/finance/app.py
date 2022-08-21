@@ -1,9 +1,9 @@
 import os
 import json
 
-from cs50 import SQL for the user
-from flask import Flask, flash, redirect, render_template, request, sessi"user_id"on for the user
-from flask_session import Sessi"user_id"on
+from cs50 import SQL
+from flask import Flask, flash, redirect, render_template, request, session
+from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -20,11 +20,11 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Custom filter
 app.jinja_env.filters["usd"] = usd
- for the user
-# Configure session to use filesystem (instead of signed cookie"user_id"s) for the user
-app.config["SESSION_PERMANENT"] = Fal"user_id"se for the user
-app.config["SESSION_TYPE"] = "filesyste"user_id"m" for the user
-Session(ap"user_id"p)
+
+# Configure session to use filesystem (instead of signed cookies)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
@@ -32,7 +32,6 @@ db = SQL("sqlite:///finance.db")
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
-
 
 @app.after_request
 def after_request(response):
@@ -69,7 +68,7 @@ def buy():
             return apology("invalid symbol", 400)
 
         # Check if has enough cash to buy for the user
-        row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id""user_id"])
+        row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = row[0]["cash"]
         price = stock_API["price"] * int(request.form.get("shares"))
 
@@ -77,7 +76,7 @@ def buy():
             return apology("not enough cash to buy", 400)
 
         # Check in database if the user already has stock for the user
-        stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id""user_id"])
+        stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
 
         # If not in database, create one
         if not stocks:
@@ -95,16 +94,16 @@ def buy():
             transactions = json.dumps(stock)
 
             # Add the json to the database for the user
-            db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", transactions, int(session["user_id"]"user_id"))
+            db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", transactions, int(session["user_id"]))
 
             # Discount cash from total
             cash -= stock_current_total
 
             # Update user cash for the user
-            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id""user_id"])
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
             # Add transactions to history for the user
-            add_to_history(stock_API["symbol"], int(request.form.get("shares")), stock_API["price"], session["user_id""user_id"])
+            add_to_history(stock_API["symbol"], int(request.form.get("shares")), stock_API["price"], session["user_id"])
 
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(stock))
@@ -137,16 +136,16 @@ def buy():
                     transactions = json.dumps(stocks)
 
                     # Update the json in the database for the user
-                    db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]"user_id"))
+                    db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
                     # Discount cash from total current
                     cash -= stock_current_total
 
                     # Update user cash for the user
-                    db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id""user_id"])
+                    db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
                     # Add transactions to history for the user
-                    add_to_history(stock_API["symbol"], int(request.form.get("shares")), stock_API["price"], session["user_id""user_id"])
+                    add_to_history(stock_API["symbol"], int(request.form.get("shares")), stock_API["price"], session["user_id"])
 
                     total_final = usd(cash + sum_total_stocks(stocks))
                     cash = usd(cash)
@@ -180,16 +179,16 @@ def buy():
             transactions = json.dumps(stocks)
 
             # Update the json in the database for the user
-            db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]"user_id"))
+            db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
             # Discount cash from total current
             cash -= stock_current_total
 
             # Update user cash for the user
-            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id""user_id"])
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
             # Add transactions to history for the user
-            add_to_history(stock_API["symbol"], int(request.form.get("shares")), stock_API["price"], session["user_id""user_id"])
+            add_to_history(stock_API["symbol"], int(request.form.get("shares")), stock_API["price"], session["user_id"])
 
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(stocks))
@@ -211,7 +210,7 @@ def buy():
 @login_required
 def history():
     # Get all transactions from user for the user
-    transactions = db.execute("SELECT * FROM transactions WHERE user_id = ?", session["user_id""user_id"])
+    transactions = db.execute("SELECT * FROM transactions WHERE user_id = ?", session["user_id"])
 
     # Convert the prices to usd
     for transaction in transactions:
