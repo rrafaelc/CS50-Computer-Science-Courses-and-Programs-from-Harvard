@@ -48,8 +48,8 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     return apology("TODO")
+    
 
-# TODO TODO TODO LEMBRAR DEPOIS DE VERIFICAR SE TEM CASH DISPONIVEL TODO TODO TODO
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
