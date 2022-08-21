@@ -402,7 +402,6 @@ def sell():
                 stock["price"] = usd(stock["price"])
                 stock["total"] = usd(stock["total"])
 
-
             # Convert to string
             transactions = json.dumps(stocks)
 
@@ -413,7 +412,7 @@ def sell():
             return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
 
         elif:
-            # Update the item from database
+            # Update the share from database
             for stock in stocks:
                 if stock["symbol"] == stock_API["symbol"]:
                     stock["shares"] - int(request.form.get("shares"))
@@ -426,7 +425,6 @@ def sell():
             for stock in stocks:
                 stock["price"] = usd(stock["price"])
                 stock["total"] = usd(stock["total"])
-
 
             # Convert to string
             transactions = json.dumps(stocks)
