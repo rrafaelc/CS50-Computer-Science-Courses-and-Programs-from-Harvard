@@ -122,26 +122,26 @@ def buy():
                     stock["shares"] += int(request.form.get("shares"))
                     stock["total"] += stock["price"] * int(request.form.get("shares"))
 
-                # Convert to string
-                transactions = json.dumps(stocks)
+                    # Convert to string
+                    transactions = json.dumps(stocks)
 
-                # Add the json to the database
-                db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
+                    # Add the json to the database
+                    db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
-                # Get cash from user
-                row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+                    # Get cash from user
+                    row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-                # Discount cash from total
-                cash = row[0]["cash"] - stock[0]["total"]
-                total = usd(cash + stock[0]["total"])
-                cash = usd(cash)
+                    # Discount cash from total
+                    cash = row[0]["cash"] - stock[0]["total"]
+                    total = usd(cash + stock[0]["total"])
+                    cash = usd(cash)
 
-                # Convert to usd
-                stock[0]["price"] = usd(stock[0]["price"])
-                stock[0]["total"] = usd(stock[0]["total"])
+                    # Convert to usd
+                    stock[0]["price"] = usd(stock[0]["price"])
+                    stock[0]["total"] = usd(stock[0]["total"])
 
-                flash("Bought!")
-                return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
+                    flash("Bought!")
+                    return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
 
             return render_template("buy.html", bought=False)
 
