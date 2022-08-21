@@ -144,7 +144,7 @@ def buy():
                 "total": stock["price"] * int(request.form.get("shares"))
             }]
 
-            return render_template("buy.html", bought=False)
+        return render_template("buy.html", bought=False)
 
 
 
