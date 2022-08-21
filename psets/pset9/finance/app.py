@@ -210,8 +210,14 @@ def buy():
 @app.route("/history")
 @login_required
 def history():
-    """Show history of transactions"""
-    return render_template("history.html")
+    # Get all transactions from user
+    transactions = db.execute("SELECT * FROM transactions WHERE user_id = ?", session["user_id"])
+
+    # Convert the prices to usd
+    for transaction in transactions:
+        transaction["price"] = usd(transaction["price"])
+
+    return render_template("history.html", transactions=transactions)
 
 
 @app.route("/login", methods=["GET", "POST"])

@@ -11,35 +11,14 @@
       </tr>
   </thead>
   <tbody>
-
-          <tr>
-              <td class="text-start">PBR</td>
-              <td class="text-end">22</td>
-              <td class="text-end">$13.66</td>
-              <td class="text-end">2022-08-21 00:49:42</td>
-          </tr>
-
-          <tr>
-              <td class="text-start">PBR</td>
-              <td class="text-end">3</td>
-              <td class="text-end">$13.66</td>
-              <td class="text-end">2022-08-21 14:07:12</td>
-          </tr>
-
-          <tr>
-              <td class="text-start">BDORY</td>
-              <td class="text-end">6</td>
-              <td class="text-end">$7.91</td>
-              <td class="text-end">2022-08-21 14:07:41</td>
-          </tr>
-
-          <tr>
-              <td class="text-start">AAPL</td>
-              <td class="text-end">3</td>
-              <td class="text-end">$171.52</td>
-              <td class="text-end">2022-08-21 14:07:51</td>
-          </tr>
-
+    {% for transaction in transactions %}
+      <tr>
+          <td class="text-start">{{ transaction.symbol }}</td>
+          <td class="text-end">{{ transaction.shares }}</td>
+          <td class="text-end">{{ transaction.price }}</td>
+          <td class="text-end">{{ transaction.date }}</td>
+      </tr>
+    {% endfor %}
   </tbody>
 </table>
 {% endblock %}
