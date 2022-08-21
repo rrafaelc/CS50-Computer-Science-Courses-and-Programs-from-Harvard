@@ -363,6 +363,8 @@ def sell():
         if not stock_API:
             return apology("invalid symbol", 400)
 
+        count = 0
+
         for stock in stocks:
             if stock["symbol"] == stock_API["symbol"]:
                 # Check if can sell
@@ -371,7 +373,11 @@ def sell():
                 if count < 0:
                     return apology("too many shares", 400)
 
-        count = stock["shares"] - int(request.form.get("shares"))
+            count = stock["shares"] - int(request.form.get("shares"))
+
+        print('=============')
+        print(count)
+        print('=============')
 
         # Get user cash
         row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
@@ -386,10 +392,6 @@ def sell():
 
         # Add to history
         add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
-
-        print('=============')
-        print(count)
-        print('=============')
 
         if (count == 0):
             # Remove the item from database
