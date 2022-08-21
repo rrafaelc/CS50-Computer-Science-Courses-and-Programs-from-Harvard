@@ -365,6 +365,7 @@ def sell():
 
         count = 0
 
+        # Look for same symbols choosed by user
         for stock in stocks:
             if stock["symbol"] == stock_API["symbol"]:
                 # Check if can sell
