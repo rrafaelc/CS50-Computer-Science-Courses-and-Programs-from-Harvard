@@ -72,6 +72,14 @@ def buy():
         # Check in database if already has stock
         stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
 
+        # Check if has enough cash to buy
+        row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        cash = row[0]["cash"]
+        price = stock_API["price"] * int(request.form.get("shares"))
+
+        if cash - price < 0:
+            return apology("not enough cash to buy", 400)
+
         # If not in database, create one
         if not stocks:
             stock = [{
@@ -91,10 +99,10 @@ def buy():
             db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", transactions, int(session["user_id"]))
 
             # Get cash from user
-            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+            # row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
             # Discount cash from total
-            cash = row[0]["cash"] - stock_current_total
+            cash -= stock_current_total
 
             # Update user cash
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
@@ -130,10 +138,11 @@ def buy():
                     db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
                     # Get cash from user
-                    row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+                    # row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
                     # Discount cash from total current
-                    cash = row[0]["cash"] - stock_current_total
+                    # cash = row[0]["cash"] - stock_current_total
+                    cash -= stock_current_total
 
                     # Update user cash
                     db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
@@ -169,10 +178,13 @@ def buy():
             db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
             # Get cash from user
-            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+            # row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+            # Discount cash from total current
+            # cash = row[0]["cash"] - stock_current_total
+            cash -= stock_current_total
 
             # Update user cash
-            cash = row[0]["cash"] - stock_current_total
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
             # Convert to usd
