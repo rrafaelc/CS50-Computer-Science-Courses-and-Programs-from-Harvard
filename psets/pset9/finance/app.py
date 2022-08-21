@@ -75,10 +75,10 @@ def buy():
         # If not in database, create one
         if not stocks:
             stock = [{
-                "symbol": stock_API.symbol,
-                "name": stock_API.name,
+                "symbol": stock_API["symbol"],
+                "name": stock_API["name"],
                 "shares": int(request.form.get("shares")),
-                "price": stock_API.price,
+                "price": stock_API["price"],
                 "total": stock["price"] * int(request.form.get("shares"))
             }]
 
@@ -116,7 +116,7 @@ def buy():
             for stock in stocks:
 
                 # Check if find same symbol, then update
-                if stock["symbol"] == stock_API.symbol:
+                if stock["symbol"] == stock_API["symbol"]:
                     stock["shares"] += int(request.form.get("shares"))
                     stock["total"] += stock["price"] * int(request.form.get("shares"))
 
@@ -147,10 +147,10 @@ def buy():
 
             # If not find symbol, append one
             newStocks = {
-                "symbol": stock_API.symbol,
-                "name": stock_API.name,
+                "symbol": stock_API["symbol"],
+                "name": stock_API["name"],
                 "shares": int(request.form.get("shares")),
-                "price": stock_API.price,
+                "price": stock_API["price"],
                 "total": stock["price"] * int(request.form.get("shares"))
             }
 
