@@ -371,6 +371,6 @@ def sell():
                 if count < 0:
                     return apology("too many shares", 400)
 
-                
+        
 
     return render_template("sell.html", symbols=symbols)
