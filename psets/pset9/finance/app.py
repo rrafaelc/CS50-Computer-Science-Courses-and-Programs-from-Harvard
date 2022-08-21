@@ -105,14 +105,6 @@ def buy():
 
         # If already in database
         else:
-            stocsk = [{
-                "symbol": request.form.get("symbol"),
-                "name": stock["name"],
-                "shares": int(request.form.get("shares")),
-                "price": stock["price"],
-                "total": stock["price"] * int(request.form.get("shares"))
-            }]
-
             # Convert to list
             stocks = json.loads(stocks[0]["transactions"])
 
@@ -142,6 +134,15 @@ def buy():
 
                     flash("Bought!")
                     return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total=total)
+
+            # If not find symbol, add one
+            stoc = [{
+                "symbol": request.form.get("symbol"),
+                "name": stock["name"],
+                "shares": int(request.form.get("shares")),
+                "price": stock["price"],
+                "total": stock["price"] * int(request.form.get("shares"))
+            }]
 
             return render_template("buy.html", bought=False)
 
