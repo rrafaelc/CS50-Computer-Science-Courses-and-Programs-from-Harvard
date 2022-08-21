@@ -82,6 +82,8 @@ def buy():
                 "total": stock_API["price"] * int(request.form.get("shares"))
             }]
 
+            stock_current_total = stock_API["price"] * int(request.form.get("shares"))
+
             # Convert to string
             transactions = json.dumps(stock)
 
@@ -92,7 +94,7 @@ def buy():
             row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
             # Discount cash from total
-            cash = row[0]["cash"] - stock[0]["total"]
+            cash = row[0]["cash"] - stock_current_total
 
             # Update user cash
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
@@ -130,7 +132,7 @@ def buy():
                     # Get cash from user
                     row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-                    # Discount cash from total
+                    # Discount cash from total current
                     cash = row[0]["cash"] - stock_current_total
 
                     # Update user cash
@@ -146,42 +148,42 @@ def buy():
                     flash("Bought!")
                     return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
 
-        #     # If not find symbol, append one
-        #     newStocks = {
-        #         "symbol": stock_API["symbol"],
-        #         "name": stock_API["name"],
-        #         "shares": int(request.form.get("shares")),
-        #         "price": stock_API["price"],
-        #         "total": stock_API["price"] * int(request.form.get("shares"))
-        #     }
+            # If not find symbol, append one
+            newStocks = {
+                "symbol": stock_API["symbol"],
+                "name": stock_API["name"],
+                "shares": int(request.form.get("shares")),
+                "price": stock_API["price"],
+                "total": stock_API["price"] * int(request.form.get("shares"))
+            }
 
-        #     # Append the new stocks
-        #     stocks.append(newStocks)
+            # Append the new stocks
+            stocks.append(newStocks)
 
-        #     # Convert to string
-        #     transactions = json.dumps(stocks)
+            # Convert to string
+            transactions = json.dumps(stocks)
 
-        #     # Add the json to the database
-        #     db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
+            # Add the json to the database
+            db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
-        #     # Get cash from user
-        #     row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+            # Get cash from user
+            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-        #     # Update user cash
-        #     cash = row[0]["cash"] - newStocks["total"]
-        #     db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+            # Update user cash
+            cash = row[0]["cash"] - newStocks["total"]
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
-        #     # Convert to usd
-        #     total_final = usd(cash + sum_total_stocks(stocks))
-        #     cash = usd(cash)
+            # Convert to usd
+            total_final = usd(cash + sum_total_stocks(stocks))
+            cash = usd(cash)
 
-        #     # Convert each one to usd
-        #     for stock in stocks:
-        #         stock["price"] = usd(stock["price"])
-        #         stock["total"] = usd(stock["total"])
+            # Convert each one to usd
+            for stock in stocks:
+                stock["price"] = usd(stock["price"])
+                stock["total"] = usd(stock["total"])
 
-        #     flash("Bought!")
-        #     return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
+            flash("Bought!")
+            return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
 
         return render_template("buy.html", bought=False)
 
