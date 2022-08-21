@@ -109,6 +109,7 @@ def buy():
 
         # If already in database
         elif len(stocks) == 1:
+
             # Convert to list
             stocks = json.loads(stocks[0]["transactions"])
 
