@@ -89,14 +89,12 @@ def buy():
             db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", json_stock, int(session["user_id"]))
 
             # Get cash from user
-            cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-
-            print(cash)
+            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
             # Discount cash from total
-            cash[0] -= int(stock[0]["total"])
-            total = usd(cash[0] + int(stock[0]["total"]))
-            cash = usd(cash[0])
+            row["cash"] -= int(stock[0]["total"])
+            total = usd(row["cash"] + int(stock[0]["total"]))
+            cash = usd(row["cash"])
 
             # Convert to usd
             stock[0]["price"] = usd(stock[0]["price"])
