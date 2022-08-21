@@ -399,5 +399,7 @@ def sell():
             # Update database
             db.execute("UPDATE stocks SET transactions = ?", transactions)
 
+            flash('Sold!')
 
-    return render_template("sell.html", symbols=symbols)
+
+    return render_template("sell.html", symbols=symbols, sold=False)
