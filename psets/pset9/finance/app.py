@@ -333,6 +333,21 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
+    symbols = []
+
+    # Get the users transactions from database
+    stocks = db.execute("SELECT transactions FROM stocks WHERE user_id = ?", session["user_id"])
+
+    # Check if has stock
+    if len(stocks) == 1:
+        # Convert to list
+        stocks = json.loads(stocks[0]["transactions"])
+
+        # Append the symbols to symbols
+        for stock in stocks:
+            symbols.append(stock["symbol"])
+            
+
     if request.method == "POST":
         if not request.form.get("symbol"):
             return apology("missing symbol", 400)
@@ -347,20 +362,5 @@ def sell():
 
         if not stock_API:
             return apology("invalid symbol", 400)
-
-
-    # Get the users symbols from database
-    stocks = db.execute("SELECT transactions FROM stocks WHERE user_id = ?", session["user_id"])
-
-    symbols = []
-
-    # Check if has stock
-    if len(stocks) == 1:
-        # Convert to list
-        stocks = json.loads(stocks[0]["transactions"])
-
-        # Append the symbols to symbols
-        for stock in stocks:
-            symbols.append(stock["symbol"])
 
     return render_template("sell.html", symbols=symbols)
