@@ -116,8 +116,8 @@ def buy():
             # Convert to list
             stocks = json.loads(stocks[0]["transactions"])
 
-            # Check if find same symbol, then update
             for stock in stocks:
+                # Check if find same symbol, then update
                 if stock["symbol"] == request.form.get("symbol"):
                     stock["shares"] += int(request.form.get("shares"))
                     stock["total"] += stock["price"] * int(request.form.get("shares"))
