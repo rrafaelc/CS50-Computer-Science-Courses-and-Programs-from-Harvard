@@ -150,10 +150,14 @@ def buy():
                     total_final = usd(cash + sum_total_stocks(stocks))
                     cash = usd(cash)
 
+                    # Convert to usd
+                    stock["price"] = usd(stock["price"])
+                    stock["total"] = usd(stock["total"])
+
                     # Convert each one to usd for all stocks
-                    for sto in stocks:
-                        stock["price"] = usd(sto["price"])
-                        stock["total"] = usd(sto["total"])
+                    # for sto in stocks:
+                    #     stock["price"] = usd(sto["price"])
+                    #     stock["total"] = usd(sto["total"])
 
                     flash("Bought!")
                     return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
