@@ -189,14 +189,7 @@ def buy():
             flash("Bought!")
             return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
 
-        return render_template("buy.html", bought=False)
-
-
-
-    # row = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
-
-    # stocks[0].price = usd(stocks[0].price)
-
+        # return render_template("buy.html", bought=False)
     return render_template("buy.html", bought=False)
 
 
