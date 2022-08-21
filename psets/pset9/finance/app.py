@@ -384,9 +384,14 @@ def sell():
         # Update user cash
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
+        # Add to history
+        add_to_history(symbol, shares, price, user_id)
+
         if (count == 0):
             # Remove the item from database
             for stock in stocks:
-                if stock["symbol"] != stock_API["symbol"]
+                if stock["symbol"] != stock_API["symbol"]:
+                    stocks.append(stock)
+
 
     return render_template("sell.html", symbols=symbols)
