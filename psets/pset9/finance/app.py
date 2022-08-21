@@ -61,7 +61,7 @@ def buy():
             return apology("must provide shares", 400)
 
         if int(request.form.get("shares")) <= 0:
-            return apology("share can't be zero or negative", 400)
+            return apology("shares must be positive", 400)
 
         stock_API = lookup(request.form.get("symbol"))
 
@@ -338,10 +338,10 @@ def sell():
             return apology("missing symbol", 400)
 
         elif not request.form.get("shares"):
-            return apology("must provide shares", 400)
+            return apology("missing shares", 400)
 
         if int(request.form.get("shares")) <= 0:
-            return apology("share can't be zero or negative", 400)
+            return apology("shares must be positive", 400)
 
         stock_API = lookup(request.form.get("symbol"))
 
