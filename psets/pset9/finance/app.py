@@ -346,7 +346,7 @@ def sell():
         # Append the symbols to symbols
         for stock in stocks:
             symbols.append(stock["symbol"])
-            
+
 
     if request.method == "POST":
         if not request.form.get("symbol"):
@@ -362,5 +362,8 @@ def sell():
 
         if not stock_API:
             return apology("invalid symbol", 400)
+
+        for stock in stocks:
+            if stock["symbol"] == 
 
     return render_template("sell.html", symbols=symbols)
