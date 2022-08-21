@@ -401,5 +401,5 @@ def sell():
 
             flash('Sold!')
 
-
-    return render_template("sell.html", symbols=symbols, sold=False)
+    flash('Sold!')
+    return render_template("sell.html", symbols=symbols, sold=True)
