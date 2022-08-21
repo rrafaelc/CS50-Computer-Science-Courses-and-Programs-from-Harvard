@@ -96,7 +96,7 @@ def buy():
             # total = usd(cash + int(stock[0]["total"]))
             # cash = usd(cash)
 
-            print(row["cash"])
+            print(row[0])
 
             # Convert to usd
             stock[0]["price"] = usd(stock[0]["price"])
