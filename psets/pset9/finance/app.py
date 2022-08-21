@@ -393,5 +393,11 @@ def sell():
                 if stock["symbol"] != stock_API["symbol"]:
                     stocks.append(stock)
 
+            # Convert to string
+            transactions = json.dumps(stocks)
+
+            # Update database
+            db.execute("UPDATE stocks SET transactions = ?", transactions)
+
 
     return render_template("sell.html", symbols=symbols)
