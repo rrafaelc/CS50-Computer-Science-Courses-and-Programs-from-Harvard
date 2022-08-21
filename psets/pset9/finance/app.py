@@ -135,14 +135,41 @@ def buy():
                     flash("Bought!")
                     return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total=total)
 
-            # If not find symbol, add one
-            stoc = [{
+            # If not find symbol, append one
+            newStocks = {
                 "symbol": request.form.get("symbol"),
                 "name": stock["name"],
                 "shares": int(request.form.get("shares")),
                 "price": stock["price"],
                 "total": stock["price"] * int(request.form.get("shares"))
-            }]
+            }
+
+            # Convert to list
+            stocks = json.loads(stocks[0]["transactions"])
+
+            # Append the new stocks
+            stocks.append(newStocks)
+
+            # Convert to string
+            transactions = json.dumps(stocks)
+
+            # Add the json to the database
+            db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
+
+            # Get cash from user
+            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+            # Discount cash from total
+            cash = row[0]["cash"] - stock["total"]
+            total = usd(cash + stock["total"])
+            cash = usd(cash)
+
+            # Convert to usd
+            stock["price"] = usd(stock["price"])
+            stock["total"] = usd(stock["total"])
+
+            flash("Bought!")
+            return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total=total)
 
         return render_template("buy.html", bought=False)
 
