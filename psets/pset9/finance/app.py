@@ -118,8 +118,9 @@ def buy():
         elif len(stocks) == 1:
 
             # Convert to list
-            stocks = json.loads(stocks[0]["transactions"]).sort()
-
+            stocks = json.loads(stocks[0]["transactions"])
+            print(stocks)
+            
             # Check if has same symbol, if true then update
             for stock in stocks:
                 if stock["symbol"] == stock_API["symbol"]:
