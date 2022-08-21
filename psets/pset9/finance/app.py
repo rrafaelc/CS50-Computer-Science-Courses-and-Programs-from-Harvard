@@ -7,7 +7,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, lookup, usd
+from helpers import apology, login_required, lookup, usd, sum_total_stocks
 
 # export API_KEY=pk_dd2c20ae829e43efa4a328269fed1819
 # Created 08/19/22
@@ -72,7 +72,6 @@ def buy():
         # Check in database if already has stock
         stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
 
-        total_stocks = 0
         # If not in database, create one
         if not stocks:
             stock = [{

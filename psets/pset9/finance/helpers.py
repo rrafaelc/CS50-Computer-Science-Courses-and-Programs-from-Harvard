@@ -69,4 +69,6 @@ def sum_total_stocks(stocks):
     total = 0
 
     for stock in stocks:
-        
+        total += stock["total"]
+
+    return total
