@@ -170,6 +170,7 @@ def buy():
                 total = cash + stock["total"]
 
             cash = usd(cash)
+            total = usd(total)
 
             # Convert to usd
             stock["price"] = usd(stock["price"])
