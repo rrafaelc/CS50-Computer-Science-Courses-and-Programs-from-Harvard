@@ -116,8 +116,6 @@ def buy():
             stocks = json.loads(stocks[0]["transactions"])
 
             for stock in stocks:
-                total_stock += stock["total"]
-
                 # Check if find same symbol, then update
                 if stock["symbol"] == stock_API["symbol"]:
                     stock["shares"] += int(request.form.get("shares"))
@@ -138,7 +136,7 @@ def buy():
                     # Update user cash
                     db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
-                    total = usd(cash + stock["total"])
+                    total_final = usd(total_stock)
                     cash = usd(cash)
 
                     # Convert to usd
@@ -146,7 +144,7 @@ def buy():
                     stock["total"] = usd(stock["total"])
 
                     flash("Bought!")
-                    return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total=total)
+                    return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
 
             # If not find symbol, append one
             newStocks = {

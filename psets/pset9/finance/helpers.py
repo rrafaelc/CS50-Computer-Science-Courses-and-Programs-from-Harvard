@@ -62,3 +62,11 @@ def lookup(symbol):
 def usd(value):
     """Format value as USD."""
     return f"${value:,.2f}"
+
+
+def sum_total_stocks(stocks):
+    # Sum total from stocks
+    total = 0
+
+    for stock in stocks:
+        
