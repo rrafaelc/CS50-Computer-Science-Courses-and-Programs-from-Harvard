@@ -108,7 +108,7 @@ def buy():
             return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
 
         # If already in database
-        elif stocks == 1:
+        elif len(stocks) == 1:
             # Convert to list
             stocks = json.loads(stocks[0]["transactions"])
 
@@ -185,6 +185,7 @@ def buy():
             # Update user cash
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
+            # Convert to usd
             cash = usd(cash)
             total = usd(total)
 
