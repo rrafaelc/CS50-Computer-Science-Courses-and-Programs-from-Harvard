@@ -115,7 +115,7 @@ def buy():
 
             # Check if find same symbol, then update
             for stock in stocks:
-                if stock["symbol"] = request.form.get("symbol"):
+                if stock["symbol"] == request.form.get("symbol"):
                     stock["shares"] += int(request.form.get("shares"))
                     stock["total"]: sto["price"] * int(request.form.get("shares"))
 
