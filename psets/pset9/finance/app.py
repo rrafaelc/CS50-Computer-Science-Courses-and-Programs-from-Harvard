@@ -79,7 +79,7 @@ def buy():
                 "name": stock_API["name"],
                 "shares": int(request.form.get("shares")),
                 "price": stock_API["price"],
-                "total": stock["price"] * int(request.form.get("shares"))
+                "total": stock_API["price"] * int(request.form.get("shares"))
             }]
 
             # Convert to string
@@ -118,7 +118,7 @@ def buy():
                 # Check if find same symbol, then update
                 if stock["symbol"] == stock_API["symbol"]:
                     stock["shares"] += int(request.form.get("shares"))
-                    stock["total"] += stock["price"] * int(request.form.get("shares"))
+                    stock["total"] += stock_API["price"] * int(request.form.get("shares"))
 
                     # Convert to string
                     transactions = json.dumps(stocks)
@@ -151,7 +151,7 @@ def buy():
                 "name": stock_API["name"],
                 "shares": int(request.form.get("shares")),
                 "price": stock_API["price"],
-                "total": stock["price"] * int(request.form.get("shares"))
+                "total": stock_API["price"] * int(request.form.get("shares"))
             }
 
             # Append the new stocks
