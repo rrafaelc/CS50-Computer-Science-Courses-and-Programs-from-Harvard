@@ -365,6 +365,12 @@ def sell():
 
         for stock in stocks:
             if stock["symbol"] == stock_API["symbol"]:
+                # Check if can sell
+                count = stock["shares"] - int(request.form.get("shares"))
+
+                if count < 0:
+                    return apology("too many shares", 400)
+
                 
 
     return render_template("sell.html", symbols=symbols)
