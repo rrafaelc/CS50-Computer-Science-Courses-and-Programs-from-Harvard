@@ -348,4 +348,8 @@ def sell():
         if not stock_API:
             return apology("invalid symbol", 400)
 
+
+    # Get the users symbols from database
+    stocks = db.execute("SELECT ")
+
     return render_template("sell.html")
