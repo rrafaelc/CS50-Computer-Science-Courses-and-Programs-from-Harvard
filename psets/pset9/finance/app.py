@@ -97,10 +97,10 @@ def buy():
             # Update user cash
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
+            # Convert to usd
             total = usd(cash + stock[0]["total"])
             cash = usd(cash)
 
-            # Convert to usd
             stock[0]["price"] = usd(stock[0]["price"])
             stock[0]["total"] = usd(stock[0]["total"])
 
@@ -113,6 +113,7 @@ def buy():
             stocks = json.loads(stocks[0]["transactions"])
 
             for stock in stocks:
+                
                 # Check if find same symbol, then update
                 if stock["symbol"] == request.form.get("symbol"):
                     stock["shares"] += int(request.form.get("shares"))
@@ -129,6 +130,10 @@ def buy():
 
                     # Discount cash from total
                     cash = row[0]["cash"] - stock["total"]
+
+                    # Update user cash
+                    db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+
                     total = usd(cash + stock["total"])
                     cash = usd(cash)
 
