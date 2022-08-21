@@ -385,7 +385,7 @@ def sell():
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
         # Add to history
-        add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), price, user_id)
+        add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
 
         if (count == 0):
             # Remove the item from database
