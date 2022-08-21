@@ -371,8 +371,8 @@ def sell():
                 if count < 0:
                     return apology("too many shares", 400)
 
+        # Find the same symbol choosed by user and remove from database if the shares is equal to 0
         if stock["shares"] - int(request.form.get("shares")) == 0:
-            # Find the same symbol choosed by user and remove from database if the shares is equal to 0
             updatedStock = []
 
             for stock in stocks:
@@ -412,17 +412,17 @@ def sell():
             return render_template("sell.html", symbols=symbols, sold=True, stocks=updatedStock, cash=cash, total_final=total_final)
 
         else:
-            # Find the symbol choosed by user and update the shares and total from database
+            # Find the symbol choosed by user and update the shares and total for the list
             for stock in stocks:
                 if stock["symbol"] == stock_API["symbol"]:
                     stock["shares"] -= int(request.form.get("shares"))
-                    stock["total"] -=  stock_API["price"] * ( stock["shares"] - int(request.form.get("shares")) )
+                    stock["total"] =  stock_API["price"] * ( stock["shares"] - int(request.form.get("shares")) )
 
             # Convert to string
             transactions = json.dumps(stocks)
 
-             # Update database
-            db.execute("UPDATE stocks SET transactions = ?", transactions)
+             # Update database for the user
+            db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, session["user_id"])
 
             # Get user cash
             row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
