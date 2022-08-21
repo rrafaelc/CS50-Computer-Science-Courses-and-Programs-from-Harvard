@@ -120,7 +120,7 @@ def buy():
             # Convert to list
             stocks = json.loads(stocks[0]["transactions"])
 
-            # Check if find same symbol, then update
+            # Check if has same symbol, if true then update
             for stock in stocks:
                 if stock["symbol"] == stock_API["symbol"]:
                     stock["shares"] += int(request.form.get("shares"))
@@ -131,7 +131,7 @@ def buy():
                     # Convert to string
                     transactions = json.dumps(stocks)
 
-                    # Add the json to the database
+                    # Update the json in the database
                     db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
                     # Discount cash from total current
@@ -151,8 +151,8 @@ def buy():
                     flash("Bought!")
                     return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
 
-            # If not find symbol, append one
-            newStocks = {
+            # If not find symbol, append new one
+            newStock = {
                 "symbol": stock_API["symbol"],
                 "name": stock_API["name"],
                 "shares": int(request.form.get("shares")),
@@ -162,13 +162,13 @@ def buy():
 
             stock_current_total = stock_API["price"] * int(request.form.get("shares"))
 
-            # Append the new stocks
-            stocks.append(newStocks)
+            # Append the new stock
+            stocks.append(newStock)
 
             # Convert to string
             transactions = json.dumps(stocks)
 
-            # Add the json to the database
+            # Update the json in the database
             db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
             # Discount cash from total current
@@ -189,7 +189,7 @@ def buy():
             flash("Bought!")
             return render_template("buy.html", bought=True, stocks=stocks, cash=cash, total_final=total_final)
 
-        # return render_template("buy.html", bought=False)
+    # Return from method GET
     return render_template("buy.html", bought=False)
 
 
