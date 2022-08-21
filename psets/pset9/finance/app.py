@@ -98,14 +98,14 @@ def buy():
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
             # Convert to usd
-            total = usd(cash + stock[0]["total"])
+            total_final = usd(cash + stock[0]["total"])
             cash = usd(cash)
 
             stock[0]["price"] = usd(stock[0]["price"])
             stock[0]["total"] = usd(stock[0]["total"])
 
             flash("Bought!")
-            return render_template("buy.html", bought=True, stocks=stock, cash=cash, total=total)
+            return render_template("buy.html", bought=True, stocks=stock, cash=cash, total_final=total_final)
 
         # If already in database
         elif len(stocks) == 1:
