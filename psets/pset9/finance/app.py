@@ -119,6 +119,8 @@ def buy():
                     stock["shares"] += int(request.form.get("shares"))
                     stock["total"] += stock_API["price"] * int(request.form.get("shares"))
 
+                    stock_current_total = stock_API["price"] * int(request.form.get("shares"))
+
                     # Convert to string
                     transactions = json.dumps(stocks)
 
@@ -129,7 +131,7 @@ def buy():
                     row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
                     # Discount cash from total
-                    cash = row[0]["cash"] - stock["total"]
+                    cash = row[0]["cash"] - stock_current_total
 
                     # Update user cash
                     db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
