@@ -373,8 +373,6 @@ def sell():
                 if count < 0:
                     return apology("too many shares", 400)
 
-            count = stock["shares"] - int(request.form.get("shares"))
-
         print('=============')
         print(count)
         print('=============')
