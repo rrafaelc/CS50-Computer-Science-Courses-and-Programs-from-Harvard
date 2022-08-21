@@ -134,7 +134,7 @@ def buy():
                     # Update user cash
                     db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
-                    total_final = usd(total_stock)
+                    total_final = usd(cash + sum_total_stocks(stocks))
                     cash = usd(cash)
 
                     # Convert to usd
