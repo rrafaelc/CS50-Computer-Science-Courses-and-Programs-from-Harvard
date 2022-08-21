@@ -72,6 +72,7 @@ def buy():
         # Check in database if already has stock
         stocks = db.execute("SELECT * FROM stocks WHERE user_id = ?", session["user_id"])
 
+        total_stocks = 0
         # If not in database, create one
         if not stocks:
             stock = [{
@@ -98,7 +99,8 @@ def buy():
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
             # Convert to usd
-            total_final = usd(cash + stock[0]["total"])
+            total_stock = cash + stock[0]["total"]
+            total_final = usd(total_stock)
             cash = usd(cash)
 
             stock[0]["price"] = usd(stock[0]["price"])
@@ -114,6 +116,7 @@ def buy():
             stocks = json.loads(stocks[0]["transactions"])
 
             for stock in stocks:
+                total_stock += stock[]
 
                 # Check if find same symbol, then update
                 if stock["symbol"] == stock_API["symbol"]:
