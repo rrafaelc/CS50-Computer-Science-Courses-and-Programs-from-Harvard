@@ -48,7 +48,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     return apology("TODO")
-    
+
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
@@ -98,9 +98,6 @@ def buy():
             # Add the json to the database
             db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", transactions, int(session["user_id"]))
 
-            # Get cash from user
-            # row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-
             # Discount cash from total
             cash -= stock_current_total
 
@@ -137,11 +134,7 @@ def buy():
                     # Add the json to the database
                     db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
-                    # Get cash from user
-                    # row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-
                     # Discount cash from total current
-                    # cash = row[0]["cash"] - stock_current_total
                     cash -= stock_current_total
 
                     # Update user cash
@@ -178,11 +171,7 @@ def buy():
             # Add the json to the database
             db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, int(session["user_id"]))
 
-            # Get cash from user
-            # row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-
             # Discount cash from total current
-            # cash = row[0]["cash"] - stock_current_total
             cash -= stock_current_total
 
             # Update user cash
