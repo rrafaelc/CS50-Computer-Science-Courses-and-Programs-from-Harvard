@@ -113,14 +113,14 @@ def buy():
                 "total": stock["price"] * int(request.form.get("shares"))
             }]
 
-            stocks = json.loads(stocks)
+            # Convert to list
+            stocks = json.loads(stocks[0]["transactions"])
 
             # Check if find same symbol, then update
-            for stock in stocks["transactions"]:
-                print(stock)
+            for stock in stocks:
                 if stock["symbol"] == request.form.get("symbol"):
                     stock["shares"] += int(request.form.get("shares"))
-                    stock["total"]: sto["price"] * int(request.form.get("shares"))
+                    stock["total"] += stock["price"] * int(request.form.get("shares"))
 
                 # Convert to string
                 transactions = json.dumps(stocks)
