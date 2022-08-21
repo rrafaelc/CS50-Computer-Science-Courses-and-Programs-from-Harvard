@@ -410,7 +410,33 @@ def sell():
             db.execute("UPDATE stocks SET transactions = ?", transactions)
 
             flash('Sold!')
-            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks)
+            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
+
+        elif:
+            # Update the item from database
+            for stock in stocks:
+                if stock["symbol"] == stock_API["symbol"]:
+                    stock["shares"] - int(request.form.get("shares"))
+
+            # Convert to usd
+            total_final = usd(cash + sum_total_stocks(stocks))
+            cash = usd(cash)
+
+            # Convert each one to usd
+            for stock in stocks:
+                stock["price"] = usd(stock["price"])
+                stock["total"] = usd(stock["total"])
+
+
+            # Convert to string
+            transactions = json.dumps(stocks)
+
+            # Update database
+            db.execute("UPDATE stocks SET transactions = ?", transactions)
+
+            flash('Sold!')
+            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
+
 
     flash('Sold!')
     return render_template("sell.html", symbols=symbols, sold=True)
