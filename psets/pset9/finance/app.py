@@ -83,10 +83,10 @@ def buy():
             }]
 
             # Convert to string
-            json_stock = json.dumps(stock)
+            transactions = json.dumps(stock)
 
             # Add the json to the database
-            db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", json_stock, int(session["user_id"]))
+            db.execute("INSERT INTO stocks (transactions, user_id) VALUES(?, ?)", transactions, int(session["user_id"]))
 
             # Get cash from user
             row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
