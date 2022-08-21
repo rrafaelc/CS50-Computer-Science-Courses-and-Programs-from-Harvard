@@ -400,6 +400,7 @@ def sell():
             db.execute("UPDATE stocks SET transactions = ?", transactions)
 
             flash('Sold!')
+            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks)
 
     flash('Sold!')
     return render_template("sell.html", symbols=symbols, sold=True)
