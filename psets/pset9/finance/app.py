@@ -118,8 +118,6 @@ def buy():
                     sto["shares"] += int(request.form.get("shares"))
                     sto["total"]: sto["price"] * int(request.form.get("shares"))
 
-                else: 
-
 
             # Convert to string
             transactions = json.dumps(stock)
