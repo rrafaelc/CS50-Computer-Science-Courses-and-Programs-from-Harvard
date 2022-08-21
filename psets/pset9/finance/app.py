@@ -381,4 +381,12 @@ def sell():
         # Add the sell to cash
         cash += int(request.form.get("shares")) * stock_API["price"]
 
+        # Update user cash
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+
+        if (count == 0):
+            # Remove the item from database
+            for stock in stocks:
+                if stock["symbol"] != stock_API["symbol"]
+
     return render_template("sell.html", symbols=symbols)
