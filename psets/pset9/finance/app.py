@@ -116,6 +116,9 @@ def buy():
             for sto in stocks:
                 if sto["symbol"] = request.form.get("symbol"):
                     sto["shares"] += int(request.form.get("shares"))
+                    sto["total"]: sto["price"] * int(request.form.get("shares"))
+
+                else: 
 
 
             # Convert to string
