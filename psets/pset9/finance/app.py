@@ -166,15 +166,12 @@ def buy():
             row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
             # Initialize variable cash for the loop
-            cash = row[0]["cash"]
+            cash = row[0]["cash"] - newStocks["total"]
             total = 0
 
             # Loop the stocks
             for stock in stocks:
-                # Discount cash from from each total stocks
-                cash -= stock["total"]
-                total = cash + stock["total"]
-
+                
                 # Convert each one to usd
                 stock["price"] = usd(stock["price"])
                 stock["total"] = usd(stock["total"])
