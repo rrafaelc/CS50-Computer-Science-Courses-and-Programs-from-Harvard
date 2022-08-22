@@ -81,11 +81,3 @@ def add_to_history(symbol, shares, price, user_id):
     db = SQL("sqlite:///finance.db")
 
     db.execute("INSERT INTO transactions (symbol, shares, price, user_id) VALUES(?, ?, ?, ?)", symbol, shares, price, user_id)
-
-# Check if is float
-def isfloat(num):
-    try:
-        float(num)
-        return True
-    except ValueError:
-        return False
