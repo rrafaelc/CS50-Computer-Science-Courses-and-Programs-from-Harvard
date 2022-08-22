@@ -439,8 +439,8 @@ def sell():
             add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
 
             # Convert to usd
-            total_final = usd(cash + sum_total_stocks(stocks))
-            # cash = usd(cash)
+            # total_final = usd(cash + sum_total_stocks(stocks))
+            cash = usd(cash)
 
             # Convert each one to usd
             for stock in stocks:
@@ -448,7 +448,7 @@ def sell():
                 stock["total"] = usd(stock["total"])
 
             flash('Sold!')
-            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=0, total_final=total_final)
+            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=0)
 
 
     return render_template("sell.html", symbols=symbols, sold=False)
