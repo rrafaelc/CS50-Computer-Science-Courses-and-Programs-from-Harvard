@@ -52,7 +52,7 @@ def index():
     row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
     cash = row[0]["cash"]
 
-    if len stocks == 1:
+    if len(stocks) == 1:
         # Convert to list
         stocks = json.loads(stocks[0]["transactions"])
 
@@ -68,7 +68,7 @@ def index():
         return render_template("index.html", stocks=stocks, cash=cash, total_final=total_final)
 
     cash = usd(cash)
-    return render_template("index.html", stocks=None, cash=cash, total_final=cash)
+    return render_template("index.html", cash=cash, total_final=cash)
 
 
 @app.route("/buy", methods=["GET", "POST"])
