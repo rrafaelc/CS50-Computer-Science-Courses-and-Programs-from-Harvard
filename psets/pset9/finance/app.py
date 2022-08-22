@@ -420,7 +420,7 @@ def sell():
 
                     # Add to history
                     add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))),
-                                    stock_API["price"], session["user_id"])
+                    stock_API["price"], session["user_id"])
 
                     # Convert to usd
                     total_final = usd(cash + sum_total_stocks(updatedStock))
@@ -438,7 +438,7 @@ def sell():
                     # Find the symbol choosed by user and update the shares and total for the list
                     for stock in stocks:
                         if stock["symbol"] == stock_API["symbol"]:
-                            stock["total"] =  stock_API["price"] * ( stock["shares"] - int(request.form.get("shares")) )
+                            stock["total"] = stock_API["price"] * (stock["shares"] - int(request.form.get("shares")))
                             stock["shares"] -= int(request.form.get("shares"))
 
                     # Convert to string
