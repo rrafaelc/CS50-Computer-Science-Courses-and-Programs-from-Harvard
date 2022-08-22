@@ -415,8 +415,8 @@ def sell():
             # Find the symbol choosed by user and update the shares and total for the list
             for stock in stocks:
                 if stock["symbol"] == stock_API["symbol"]:
-                    stock["shares"] -= int(request.form.get("shares"))
                     stock["total"] =  stock_API["price"] * ( stock["shares"] - int(request.form.get("shares")) )
+                    stock["shares"] -= int(request.form.get("shares"))
 
             # Convert to string
             transactions = json.dumps(stocks)
@@ -439,7 +439,7 @@ def sell():
             add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
 
             # Convert to usd
-            # total_final = usd(cash + sum_total_stocks(stocks))
+            total_final = usd(cash + sum_total_stocks(stocks))
             cash = usd(cash)
 
             # Convert each one to usd
@@ -448,7 +448,7 @@ def sell():
                 stock["total"] = usd(stock["total"])
 
             flash('Sold!')
-            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=0)
+            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
 
 
     return render_template("sell.html", symbols=symbols, sold=False)
