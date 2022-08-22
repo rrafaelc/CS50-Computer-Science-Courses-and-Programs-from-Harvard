@@ -459,7 +459,8 @@ def sell():
                     db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
                     # Add to history
-                    add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
+                    add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))),
+                                   stock_API["price"], session["user_id"])
 
                     # Convert to usd
                     total_final = usd(cash + sum_total_stocks(stocks))
