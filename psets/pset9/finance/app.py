@@ -51,7 +51,7 @@ def index():
     # Convert to list
     stocks = json.loads(stocks[0]["transactions"])
 
-    return render_template("index.html", stocks=stocks)
+    return render_template("index.html", stocks=stocks, cash=cash, total_final=total_final)
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
