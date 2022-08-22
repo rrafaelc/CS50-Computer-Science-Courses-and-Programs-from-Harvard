@@ -372,14 +372,7 @@ def sell():
                     return apology("too many shares", 400)
 
                 # Check if the shares is equal to 0
-                print("=============================")
-                print(stock)
-                print(stock["shares"] - int(request.form.get("shares")))
-                print("=============================")
                 if stock["shares"] - int(request.form.get("shares")) == 0:
-                    print("=============================")
-                    print("CHEGUEI NO IF")
-                    print("=============================")
                     updatedStock = []
 
                     for stock in stocks:
