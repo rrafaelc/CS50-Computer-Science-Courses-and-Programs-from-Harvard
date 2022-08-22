@@ -310,14 +310,14 @@ def quote():
 def register():
     # Check if user is logged in
     if len(session) > 0:
-        return apology("logout first to register", 405)
+        return apology("logout first to register", 400)
 
     """Register user"""
     if request.method == "POST":
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
