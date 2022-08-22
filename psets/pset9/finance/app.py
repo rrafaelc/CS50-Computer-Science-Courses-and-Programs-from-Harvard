@@ -51,6 +51,19 @@ def index():
     # Convert to list
     stocks = json.loads(stocks[0]["transactions"])
 
+    # Get user cash
+    row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+    cash = row[0]["cash"]
+
+    # Convert to usd
+    total_final = usd(cash + sum_total_stocks(stocks))
+    cash = usd(cash)
+
+    # Convert each one to usd
+    for stock in stocks:
+        stock["price"] = usd(stock["price"])
+        stock["total"] = usd(stock["total"])
+
     return render_template("index.html", stocks=stocks, cash=cash, total_final=total_final)
 
 @app.route("/buy", methods=["GET", "POST"])
