@@ -7,7 +7,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, lookup, usd, sum_total_stocks, add_to_history
+from helpers import apology, login_required, lookup, usd, sum_total_stocks, add_to_history, isfloat
 
 # export API_KEY=pk_dd2c20ae829e43efa4a328269fed1819
 # Created 08/19/22
@@ -84,7 +84,7 @@ def buy():
             return apology("must provide shares", 400)
 
         # Check if the number is float
-        elif isinstance(request.form.get("shares"), float):
+        elif isfloat(request.form.get("shares")):
             return apology("invalid shares", 400)
 
         if int(request.form.get("shares")) <= 0:
