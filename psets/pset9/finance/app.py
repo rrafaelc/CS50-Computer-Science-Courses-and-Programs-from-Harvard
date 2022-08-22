@@ -371,91 +371,91 @@ def sell():
                 if count < 0:
                     return apology("too many shares", 400)
 
-        # Find the same symbol choosed by user and remove from database if the shares is equal to 0
-        print("=============================")
-        print(stock)
-        print(stock["shares"] - int(request.form.get("shares")))
-        print("=============================")
-        if stock["shares"] - int(request.form.get("shares")) == 0:
-            print("=============================")
-            print("CHEGUEI NO IF")
-            print("=============================")
-            updatedStock = []
+                # Check if the shares is equal to 0
+                print("=============================")
+                print(stock)
+                print(stock["shares"] - int(request.form.get("shares")))
+                print("=============================")
+                if stock["shares"] - int(request.form.get("shares")) == 0:
+                    print("=============================")
+                    print("CHEGUEI NO IF")
+                    print("=============================")
+                    updatedStock = []
 
-            for stock in stocks:
-                if stock["symbol"] != stock_API["symbol"]:
-                    updatedStock.append(stock)
+                    for stock in stocks:
+                        if stock["symbol"] != stock_API["symbol"]:
+                            updatedStock.append(stock)
 
-            # Convert to string
-            transactions = json.dumps(updatedStock)
+                    # Convert to string
+                    transactions = json.dumps(updatedStock)
 
-            # Update database for the user
-            db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, session["user_id"])
+                    # Update database for the user
+                    db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, session["user_id"])
 
-            # Get user cash
-            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+                    # Get user cash
+                    row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-            cash = row[0]["cash"]
+                    cash = row[0]["cash"]
 
-            # Add the sell to cash
-            cash += int(request.form.get("shares")) * stock_API["price"]
+                    # Add the sell to cash
+                    cash += int(request.form.get("shares")) * stock_API["price"]
 
-            # Update user cash
-            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+                    # Update user cash
+                    db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
-            # Add to history
-            add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
+                    # Add to history
+                    add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
 
-            # Convert to usd
-            total_final = usd(cash + sum_total_stocks(updatedStock))
-            cash = usd(cash)
+                    # Convert to usd
+                    total_final = usd(cash + sum_total_stocks(updatedStock))
+                    cash = usd(cash)
 
-            # Convert each one to usd
-            for stock in updatedStock:
-                stock["price"] = usd(stock["price"])
-                stock["total"] = usd(stock["total"])
+                    # Convert each one to usd
+                    for stock in updatedStock:
+                        stock["price"] = usd(stock["price"])
+                        stock["total"] = usd(stock["total"])
 
-            flash('Sold!')
-            return render_template("sell.html", symbols=symbols, sold=True, stocks=updatedStock, cash=cash, total_final=total_final)
+                    flash('Sold!')
+                    return render_template("sell.html", symbols=symbols, sold=True, stocks=updatedStock, cash=cash, total_final=total_final)
 
-        else:
-            # Find the symbol choosed by user and update the shares and total for the list
-            for stock in stocks:
-                if stock["symbol"] == stock_API["symbol"]:
-                    stock["total"] =  stock_API["price"] * ( stock["shares"] - int(request.form.get("shares")) )
-                    stock["shares"] -= int(request.form.get("shares"))
+                else:
+                    # Find the symbol choosed by user and update the shares and total for the list
+                    for stock in stocks:
+                        if stock["symbol"] == stock_API["symbol"]:
+                            stock["total"] =  stock_API["price"] * ( stock["shares"] - int(request.form.get("shares")) )
+                            stock["shares"] -= int(request.form.get("shares"))
 
-            # Convert to string
-            transactions = json.dumps(stocks)
+                    # Convert to string
+                    transactions = json.dumps(stocks)
 
-            # Update database for the user
-            db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, session["user_id"])
+                    # Update database for the user
+                    db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, session["user_id"])
 
-            # Get user cash
-            row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+                    # Get user cash
+                    row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-            cash = row[0]["cash"]
+                    cash = row[0]["cash"]
 
-            # Add the sell to cash
-            cash += int(request.form.get("shares")) * stock_API["price"]
+                    # Add the sell to cash
+                    cash += int(request.form.get("shares")) * stock_API["price"]
 
-            # Update user cash
-            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+                    # Update user cash
+                    db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
-            # Add to history
-            add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
+                    # Add to history
+                    add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
 
-            # Convert to usd
-            total_final = usd(cash + sum_total_stocks(stocks))
-            cash = usd(cash)
+                    # Convert to usd
+                    total_final = usd(cash + sum_total_stocks(stocks))
+                    cash = usd(cash)
 
-            # Convert each one to usd
-            for stock in stocks:
-                stock["price"] = usd(stock["price"])
-                stock["total"] = usd(stock["total"])
+                    # Convert each one to usd
+                    for stock in stocks:
+                        stock["price"] = usd(stock["price"])
+                        stock["total"] = usd(stock["total"])
 
-            flash('Sold!')
-            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
+                    flash('Sold!')
+                    return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
 
 
     return render_template("sell.html", symbols=symbols, sold=False)
