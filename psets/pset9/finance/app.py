@@ -376,6 +376,9 @@ def sell():
         print(stock["shares"] - int(request.form.get("shares")))
         print("=============================")
         if stock["shares"] - int(request.form.get("shares")) == 0:
+            print("=============================")
+            print("CHEGUEI NO IF")
+            print("=============================")
             updatedStock = []
 
             for stock in stocks:
