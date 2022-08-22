@@ -372,6 +372,9 @@ def sell():
                     return apology("too many shares", 400)
 
         # Find the same symbol choosed by user and remove from database if the shares is equal to 0
+        print("=============================")
+        print(stock["shares"] - int(request.form.get("shares")))
+        print("=============================")
         if stock["shares"] - int(request.form.get("shares")) == 0:
             updatedStock = []
 
