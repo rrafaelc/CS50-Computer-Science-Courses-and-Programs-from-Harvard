@@ -32,7 +32,7 @@ db = SQL("sqlite:///finance.db")
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
-    
+
 
 @app.after_request
 def after_request(response):
@@ -349,7 +349,6 @@ def register():
         # Redirect user to dashboard
         return redirect("/")
 
-
     return render_template("register.html")
 
 
@@ -369,7 +368,6 @@ def sell():
         # Append the symbols to symbols
         for stock in stocks:
             symbols.append(stock["symbol"])
-
 
     if request.method == "POST":
         if not request.form.get("symbol"):
@@ -421,7 +419,8 @@ def sell():
                     db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
 
                     # Add to history
-                    add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))), stock_API["price"], session["user_id"])
+                    add_to_history(stock_API["symbol"], -abs(int(request.form.get("shares"))),
+                                    stock_API["price"], session["user_id"])
 
                     # Convert to usd
                     total_final = usd(cash + sum_total_stocks(updatedStock))
@@ -473,6 +472,5 @@ def sell():
 
                     flash('Sold!')
                     return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
-
 
     return render_template("sell.html", symbols=symbols, sold=False)
