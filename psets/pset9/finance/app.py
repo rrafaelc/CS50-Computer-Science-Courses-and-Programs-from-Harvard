@@ -83,8 +83,10 @@ def buy():
         elif not request.form.get("shares"):
             return apology("must provide shares", 400)
 
-        # Check if the number is float
-        elif isfloat(request.form.get("shares")):
+        # Check if the number is int
+        try:
+            int((request.form.get("shares")))
+        except ValueError:
             return apology("invalid shares", 400)
 
         if int(request.form.get("shares")) <= 0:
@@ -380,8 +382,10 @@ def sell():
         elif not request.form.get("shares"):
             return apology("missing shares", 400)
 
-        # Check if the number is float
-        elif isfloat(request.form.get("shares")):
+        # Check if the number is int
+        try:
+            int((request.form.get("shares")))
+        except ValueError:
             return apology("invalid shares", 400)
 
         if int(request.form.get("shares")) <= 0:
