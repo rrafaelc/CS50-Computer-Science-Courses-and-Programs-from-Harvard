@@ -84,7 +84,7 @@ def buy():
             return apology("must provide shares", 400)
 
         # Check if the number is float
-        elif request.form.get()
+        elif request.form.get("shares") 
 
         if int(request.form.get("shares")) <= 0:
             return apology("shares must be positive", 400)
