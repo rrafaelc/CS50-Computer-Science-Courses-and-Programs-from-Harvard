@@ -421,7 +421,7 @@ def sell():
             # Convert to string
             transactions = json.dumps(stocks)
 
-             # Update database for the user
+            # Update database for the user
             db.execute("UPDATE stocks SET transactions = ? WHERE user_id = ?", transactions, session["user_id"])
 
             # Get user cash
@@ -440,7 +440,7 @@ def sell():
 
             # Convert to usd
             total_final = usd(cash + sum_total_stocks(stocks))
-            cash = usd(cash)
+            # cash = usd(cash)
 
             # Convert each one to usd
             for stock in stocks:
@@ -448,7 +448,7 @@ def sell():
                 stock["total"] = usd(stock["total"])
 
             flash('Sold!')
-            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=cash, total_final=total_final)
+            return render_template("sell.html", symbols=symbols, sold=True, stocks=stocks, cash=0, total_final=total_final)
 
 
     return render_template("sell.html", symbols=symbols, sold=False)
