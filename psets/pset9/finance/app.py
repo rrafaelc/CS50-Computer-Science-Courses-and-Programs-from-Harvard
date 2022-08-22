@@ -321,7 +321,7 @@ def register():
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         # Ensure password confirmation was submitted
         elif request.form.get("password") != request.form.get("confirmation"):
@@ -331,7 +331,7 @@ def register():
 
         # Check if username is already taken
         if len(rows) > 0:
-            return apology("username already taken", 403)
+            return apology("username already taken", 400)
 
         # Hash password
         username = request.form.get("username")
