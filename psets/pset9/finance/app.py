@@ -45,8 +45,13 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    """Show portfolio of stocks"""
-    return apology("TODO")
+    # Get the users transactions from database
+    stocks = db.execute("SELECT transactions FROM stocks WHERE user_id = ?", session["user_id"])
+
+    # Convert to list
+    stocks = json.loads(stocks[0]["transactions"])
+
+    return render_template("index.html", stocks=stocks)
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
