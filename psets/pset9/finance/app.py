@@ -380,6 +380,10 @@ def sell():
         elif not request.form.get("shares"):
             return apology("missing shares", 400)
 
+        # Check if the number is float
+        elif isfloat(request.form.get("shares")):
+            return apology("invalid shares", 400)
+
         if int(request.form.get("shares")) <= 0:
             return apology("shares must be positive", 400)
 
