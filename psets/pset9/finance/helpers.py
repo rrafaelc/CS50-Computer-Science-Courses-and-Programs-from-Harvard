@@ -74,6 +74,7 @@ def sum_total_stocks(stocks):
         total += stock["total"]
 
     return total
+    
 
 def add_to_history(symbol, shares, price, user_id):
     # Configure CS50 Library to use SQLite database
