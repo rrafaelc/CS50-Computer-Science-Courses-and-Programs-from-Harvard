@@ -1,6 +1,9 @@
 # TV & Movie Tracker
+
 #### Video Demo:  https://youtu.be/BlPotl8ULyg
+
 #### Description:
+
 ![Logo of the project](https://raw.githubusercontent.com/rrafaelc/CS50-Final-Project/main/public/logo.svg)
 
 # [CS50 Final Project | TV & Movie Tracker](https://cs50-fp.vercel.app)
