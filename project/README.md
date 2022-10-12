@@ -1,3 +1,8 @@
+# TV & Movie Tracker
+#### Video Demo:  <https://youtu.be/BlPotl8ULyg>
+#### Description:
+This is a project where you can track TV shows and movies, to remember which episode did you stop at, if you have already completed a movie or TV, is watching, is on hold, is dropped or plan to watch it
+
 ![Logo of the project](https://raw.githubusercontent.com/rrafaelc/CS50-Final-Project/main/public/logo.svg)
 
 # [CS50 Final Project | TV & Movie Tracker](https://cs50-fp.vercel.app)
