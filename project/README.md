@@ -1,5 +1,5 @@
 # TV & Movie Tracker
-#### Video Demo:  <https://youtu.be/BlPotl8ULyg>
+#### Video Demo:  https://youtu.be/BlPotl8ULyg
 #### Description:
 This is a project where you can track TV shows and movies, to remember which episode did you stop at, if you have already completed a movie or TV, is watching, is on hold, is dropped or plan to watch it
 
